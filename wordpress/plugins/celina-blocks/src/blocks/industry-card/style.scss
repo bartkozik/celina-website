@@ -1,0 +1,181 @@
+@use "../../shared/card-link";
+
+.wp-block-celina-industry-card {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	overflow: hidden;
+	height: 100%;
+	color: var(--celina-color-text, #1a1a1a);
+	background: var(--celina-color-surface, #fff);
+	border-radius: var(--celina-radius-card, 0.75rem);
+	box-shadow: var(--celina-shadow-card, none);
+	transition: border-color var(--celina-transition-fast, 150ms ease);
+
+	/* The card's own link makes the whole card clickable. */
+	@include card-link.stretched-link( ".celina-industry-card__link" );
+}
+
+.celina-industry-card__media {
+	position: relative;
+	min-height: 10rem;
+	background: var(--celina-color-surface-muted, #f4f4f2);
+}
+
+.celina-industry-card__media img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+}
+
+.celina-industry-card__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: var(--celina-space-6, 1.5rem);
+}
+
+.celina-industry-card__title {
+	margin: 0 0 var(--celina-space-4, 1rem);
+	font-size: clamp(1.5rem, 2.2vw, 2rem);
+	font-weight: 900;
+	letter-spacing: -0.035em;
+	line-height: 1.1;
+}
+
+.celina-industry-card__description > :first-child {
+	margin-top: 0;
+}
+
+.celina-industry-card__description > :last-child {
+	margin-bottom: 0;
+}
+
+/* A bulleted description reads as a short capability list, not prose. */
+.celina-industry-card__description ul {
+	display: grid;
+	gap: var(--celina-space-3, 0.75rem);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.celina-industry-card__description li {
+	position: relative;
+	padding-left: var(--celina-space-5, 1.25rem);
+	line-height: 1.35;
+}
+
+.celina-industry-card__description li::before {
+	position: absolute;
+	top: 0.6em;
+	left: 0;
+	width: 0.625rem;
+	height: 2px;
+	background: var(--celina-color-citrus, #ff6c0d);
+	content: "";
+}
+
+.celina-industry-card__link {
+	align-self: flex-start;
+	margin-top: auto;
+	padding-top: var(--celina-space-6, 1.5rem);
+	color: var(--celina-color-stone-darker, #242825);
+
+	@include card-link.arrow-link;
+}
+
+.celina-industry-card__link:hover {
+	color: var(--celina-color-citrus, #ff6c0d);
+}
+
+.celina-industry-card__link:focus-visible {
+	outline: 3px solid var(--celina-color-citrus, #ff6c0d);
+	outline-offset: 3px;
+}
+
+.wp-block-celina-industry-card:hover .celina-industry-card__link {
+	color: var(--celina-color-citrus, #ff6c0d);
+}
+
+@media (hover: hover) {
+
+	.wp-block-celina-industry-card:hover {
+		border-color: var(--celina-color-citrus, #ff6c0d);
+	}
+}
+
+/*
+ * Frontend presentation: a square tile whose photograph carries the copy,
+ * darkened with the same gray wash as the hero. The editor keeps the stacked
+ * media-then-fields layout so every field stays reachable.
+ */
+.wp-block-celina-industry-card:not(.block-editor-block-list__block) {
+	position: relative;
+	aspect-ratio: 1;
+	border: 0;
+}
+
+.wp-block-celina-industry-card:not(.block-editor-block-list__block) .celina-industry-card__media {
+	position: absolute;
+	inset: 0;
+	min-height: 0;
+}
+
+.wp-block-celina-industry-card:not(.block-editor-block-list__block) .celina-industry-card__media img {
+	width: 100%;
+	height: 100%;
+	aspect-ratio: auto;
+	object-fit: cover;
+}
+
+.wp-block-celina-industry-card:not(.block-editor-block-list__block) .celina-industry-card__body {
+	position: absolute;
+	inset: 0;
+	justify-content: flex-start;
+	padding: clamp(1.75rem, 3vw, 2.75rem);
+	color: var(--celina-color-surface, #fff);
+	background: var(--celina-hero-overlay, linear-gradient(180deg, rgb(61 69 67 / 20%) 0%, rgb(61 69 67 / 85%) 100%));
+	transition: background var(--celina-transition-fast, 150ms ease);
+}
+
+.wp-block-celina-industry-card:not(.block-editor-block-list__block) .celina-industry-card__title,
+.wp-block-celina-industry-card:not(.block-editor-block-list__block) .celina-industry-card__description,
+.wp-block-celina-industry-card:not(.block-editor-block-list__block) .celina-industry-card__link {
+	color: inherit;
+}
+
+.wp-block-celina-industry-card:not(.block-editor-block-list__block) .celina-industry-card__description {
+	max-width: 50%;
+}
+
+/* Copy sits at the top; the call to action stays anchored at the bottom. */
+.wp-block-celina-industry-card:not(.block-editor-block-list__block) .celina-industry-card__link {
+	margin-top: auto;
+	padding-top: var(--celina-space-6, 1.5rem);
+}
+
+/*
+ * A single-column collection reads as wide horizontal tiles stacked on top of
+ * each other, so long descriptions fit instead of being cropped by the square.
+ */
+.celina-industry-cards--columns-1 .wp-block-celina-industry-card:not(.block-editor-block-list__block) {
+	aspect-ratio: auto;
+	min-height: clamp(15rem, 20vw, 18rem);
+}
+
+@media (hover: hover) {
+
+	.wp-block-celina-industry-card:not(.block-editor-block-list__block):has(.celina-industry-card__link):hover .celina-industry-card__body,
+	.wp-block-celina-industry-card:not(.block-editor-block-list__block):has(.celina-industry-card__link):focus-within .celina-industry-card__body {
+		background: linear-gradient(90deg, rgb(61 69 67 / 72%) 0%, rgb(61 69 67 / 48%) 55%, rgb(61 69 67 / 24%) 100%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.wp-block-celina-industry-card:not(.block-editor-block-list__block) .celina-industry-card__body {
+		transition: none;
+	}
+}

@@ -1,0 +1,21 @@
+@use "../../shared/eyebrow";
+
+.celina-faq {
+	width: min(100% - 2 * var(--celina-gutter, 1rem), var(--celina-grid-width, 80rem));
+	margin-inline: auto;
+	padding-block: var(--celina-section-space, 4rem);
+
+	&__header {
+		margin-block-end: var(--celina-space-8, 2rem);
+	}
+
+	&__eyebrow {
+
+		@include eyebrow.section-eyebrow();
+	}
+
+	&__heading {
+		margin: 0;
+		font-weight: 700;
+	}
+}

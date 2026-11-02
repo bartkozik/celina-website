@@ -1,0 +1,88 @@
+.wp-block-celina-achievement {
+	position: relative;
+	box-sizing: border-box;
+	padding: var(--celina-space-6, 1.5rem);
+	border-top: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+	border-radius: var(--celina-radius-card, 0.75rem);
+	background: var(--celina-color-surface, #fff);
+	box-shadow: var(--celina-shadow-card, none);
+	transition: border-color var(--celina-transition-fast, 150ms ease);
+}
+
+.celina-achievement__marker {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--celina-space-2, 0.5rem);
+	margin-bottom: var(--celina-space-3, 0.75rem);
+	color: var(--celina-color-stone-dark, #2e3432);
+	font-weight: 700;
+}
+
+.celina-achievement__year {
+	font-size: 1.25rem;
+}
+
+.celina-achievement__label,
+.celina-achievement__prefix {
+	align-self: center;
+	color: var(--celina-color-text-soft, #555);
+	text-transform: uppercase;
+}
+
+.celina-achievement__heading {
+	margin: 0 0 var(--celina-space-3, 0.75rem);
+}
+
+.celina-achievement__content > :first-child {
+	margin-top: 0;
+}
+
+.celina-achievement__content > :last-child {
+	margin-bottom: 0;
+}
+
+.celina-achievements-timeline--timeline .wp-block-celina-achievement {
+	margin-inline-start: var(--celina-space-4, 1rem);
+}
+
+@media (hover: hover) {
+
+	.wp-block-celina-achievement:hover {
+		border-color: var(--celina-color-citrus, #ff6c0d);
+	}
+}
+
+
+/*
+ * Optional icon, in the same line style as the theme's fact icons. The artwork
+ * lives in CSS (a mask), so saved block markup stays a stable class name.
+ */
+.celina-achievement__icon {
+	display: block;
+	width: 2.25rem;
+	height: 2.25rem;
+	background: var(--celina-color-citrus, #ff6c0d);
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+}
+
+.celina-achievement__icon--globe {
+	mask-image: url(./icons/globe.svg);
+}
+
+.celina-achievement__icon--flag {
+	mask-image: url(./icons/flag.svg);
+}
+
+.celina-achievement__icon--manufacturing {
+	mask-image: url(./icons/manufacturing.svg);
+}
+
+.celina-achievement__icon--quality {
+	mask-image: url(./icons/quality.svg);
+}
+
+.celina-achievement__icon--experience {
+	mask-image: url(./icons/experience.svg);
+}

@@ -1,0 +1,649 @@
+/* Native block adapters for the existing CELINA shell. Keep the same geometry
+ * as site-shell.css and sales-review.css.
+ * Content remains native and editable. */
+.celina-block-shell .wp-block {
+	max-width: none;
+	margin: 0;
+}
+
+.celina-block-shell .wp-block-group__inner-container {
+	display: contents;
+}
+
+.celina-block-shell :where(p, h2, figure, .wp-block-group, .wp-block-buttons, .wp-block-navigation, .wp-block-details) {
+	margin: 0;
+}
+
+.celina-block-shell {
+	font-family: var(--celina-font-body);
+	line-height: 1.5;
+}
+
+.celina-block-shell a {
+	text-decoration: none;
+}
+
+.celina-block-shell :where(a, button, summary):focus-visible {
+	outline: 3px solid var(--celina-color-citrus);
+	outline-offset: 3px;
+}
+
+.celina-block-shell .celina-block-inner {
+	width: var(--celina-container);
+	max-width: none;
+	margin-inline: auto;
+}
+
+.celina-block-shell .wp-block-navigation {
+	color: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	background: transparent;
+	--navigation-layout-justification-setting: flex-start;
+	--navigation-layout-justify: flex-start;
+}
+
+.celina-block-shell .wp-block-navigation__container {
+	gap: var(--celina-space-4);
+	margin: 0;
+	padding: 0;
+}
+
+.celina-block-shell .wp-block-navigation-item__content {
+	padding: 0;
+	color: inherit;
+}
+
+.celina-block-shell .wp-block-navigation__responsive-container-content {
+	gap: 0;
+}
+
+/* The utility strip scrolls away; only the main header sticks. */
+.celina-block-header-part {
+	display: contents;
+}
+
+.celina-block-utility {
+	min-height: 2rem;
+	padding-block: 0.375rem;
+	border-bottom: 1px solid rgb(255 255 255 / 10%);
+	color: rgb(255 255 255 / 65%);
+	background: var(--celina-color-stone-darker);
+	font-size: 0.75rem;
+}
+
+.celina-block-utility .celina-block-inner {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--celina-space-6);
+	align-items: center;
+	justify-content: space-between;
+}
+
+.celina-block-shell .celina-block-contacts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--celina-space-3);
+	align-items: center;
+}
+
+.celina-block-utility a {
+	color: inherit;
+	transition: color var(--celina-transition-fast);
+}
+
+.celina-block-footer a {
+	color: inherit;
+	transition: color var(--celina-transition-fast);
+}
+
+.celina-block-utility a:is(:hover, :focus-visible) {
+	color: var(--celina-color-surface);
+	text-decoration: underline;
+	text-decoration-color: var(--celina-color-citrus);
+	text-underline-offset: 0.2em;
+}
+
+.celina-block-header {
+	position: sticky;
+	z-index: 200;
+	top: 0;
+	background: var(--celina-color-stone);
+	box-shadow: var(--celina-shadow-header);
+}
+
+.celina-block-header p {
+	color: var(--celina-color-surface);
+}
+
+.celina-block-shell .celina-block-header-main {
+	display: flex;
+	min-height: 4rem;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--celina-space-4);
+}
+
+.celina-block-shell .celina-block-header-actions {
+	display: flex;
+	flex: 0 1 auto;
+	min-width: 0;
+	gap: var(--celina-space-4);
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.celina-block-shell .celina-block-header-logo {
+	flex: 0 0 auto;
+	color: var(--celina-color-surface);
+	font-weight: 800;
+	letter-spacing: 0.02em;
+}
+
+.celina-block-shell .celina-block-header-logo a {
+	color: inherit;
+	transition: opacity var(--celina-transition-fast);
+}
+
+.celina-block-shell .celina-block-header-logo img {
+	display: block;
+	width: auto;
+	max-width: min(100%, 11rem);
+	max-height: 2.5rem;
+	height: auto;
+}
+
+.celina-block-shell .celina-block-footer-logo a {
+	display: block;
+	transition: opacity var(--celina-transition-fast);
+}
+
+.celina-block-footer a:is(:hover, :focus-visible) {
+	color: var(--celina-color-surface);
+	text-decoration: underline;
+	text-decoration-color: var(--celina-color-citrus);
+	text-underline-offset: 0.2em;
+}
+
+.celina-block-footer .celina-block-footer-contact-link a {
+	color: rgb(255 255 255 / 72%);
+}
+
+.celina-block-shell .celina-block-header-logo a:is(:hover, :focus-visible) {
+	opacity: 0.75;
+}
+
+.celina-block-menu > summary {
+	display: none;
+}
+
+.celina-block-shell .celina-block-mobile-cta {
+	display: none;
+}
+
+.celina-block-shell .celina-block-primary .wp-block-navigation__container {
+	align-items: center;
+	gap: var(--celina-space-5);
+}
+
+.celina-block-primary .wp-block-navigation-item {
+	position: relative;
+}
+
+.celina-block-shell .celina-block-primary .wp-block-navigation-item__content {
+	display: inline-flex;
+	align-items: center;
+	min-height: 4rem;
+	border-bottom: 2px solid transparent;
+	color: rgb(255 255 255 / 84%);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	letter-spacing: 0;
+	white-space: nowrap;
+	transition: border-color var(--celina-transition-fast), color var(--celina-transition-fast);
+}
+
+.celina-block-shell .celina-block-primary .wp-block-navigation-item__content:is(:hover, :focus-visible, [aria-current]) {
+	border-bottom-color: var(--celina-color-citrus);
+	color: var(--celina-color-surface);
+}
+
+.celina-block-shell .celina-block-primary .wp-block-navigation__submenu-icon {
+	display: none;
+}
+
+.celina-block-shell .celina-block-primary.wp-block-navigation .wp-block-navigation-item.has-child > .wp-block-navigation__submenu-container {
+	top: calc(100% - 0.125rem);
+	left: 0;
+	min-width: 14rem;
+	color: var(--celina-color-text);
+	padding: var(--celina-space-2);
+	border: 0;
+	border-top: 2px solid var(--celina-color-citrus);
+	border-radius: var(--celina-radius-button);
+	background: var(--celina-color-stone-dark);
+	box-shadow: var(--celina-shadow-card);
+}
+
+.celina-block-shell .celina-block-primary .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+	width: 100%;
+	color: rgb(255 255 255 / 84%);
+	padding-inline: var(--celina-space-3);
+}
+
+
+.celina-block-shell .wp-block-button .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.65rem 1.4rem;
+	border: 0;
+	border-radius: var(--celina-radius-button);
+	color: var(--celina-color-stone-darker);
+	background: var(--celina-color-citrus);
+	font-size: 0.8125rem;
+	font-weight: 600;
+	line-height: 1;
+	white-space: nowrap;
+	transition: background-color var(--celina-transition-fast), color var(--celina-transition-fast);
+}
+
+.celina-block-shell .wp-block-button .wp-block-button__link:is(:hover, :focus-visible) {
+	color: var(--celina-color-text);
+	background: var(--celina-color-surface);
+}
+
+.celina-block-footer {
+	padding: 3.5rem 0 1.5rem;
+	border-top: 0;
+	color: rgb(255 255 255 / 72%);
+	background: var(--celina-color-stone-dark);
+	font-size: 0.8125rem;
+}
+
+.celina-block-shell .celina-block-footer-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto auto;
+	gap: 2.5rem clamp(2.5rem, 6vw, 6rem);
+	justify-content: space-between;
+}
+
+.celina-block-shell .celina-block-footer-brand {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+
+.celina-block-shell .celina-block-footer-logo {
+	display: inline-block;
+}
+
+.celina-block-shell .celina-block-footer-logo img {
+	display: block;
+	width: min(100%, 16rem);
+	height: auto;
+}
+
+.celina-block-shell .celina-block-footer-logo a:is(:hover, :focus-visible) {
+	opacity: 0.75;
+}
+
+.celina-block-shell .celina-block-footer-tagline {
+	max-width: 38ch;
+	margin: auto 0 0;
+	padding-top: var(--celina-space-5);
+	line-height: 1.6;
+}
+
+.celina-block-footer :is(h2, h3) {
+	margin: 0 0 var(--celina-space-4);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--celina-color-surface);
+}
+
+.celina-block-shell .celina-block-footer-nav .wp-block-navigation__container {
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--celina-space-2);
+}
+
+.celina-block-shell .celina-block-footer-contact-details {
+	display: grid;
+	gap: var(--celina-space-2);
+	margin: 0 0 1.5em;
+	font-style: normal;
+}
+
+.celina-block-shell .celina-block-footer-contact-link {
+	margin-bottom: 0;
+	color: var(--celina-color-citrus);
+	font-weight: 700;
+}
+
+.celina-block-shell .celina-block-footer-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--celina-space-4) var(--celina-space-8);
+	align-items: center;
+	justify-content: space-between;
+	margin-top: var(--celina-space-8);
+	padding-top: var(--celina-space-5);
+	border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.celina-block-shell .celina-block-copyright {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.3em;
+}
+
+.celina-block-shell .celina-block-legal .wp-block-navigation-item + .wp-block-navigation-item::before {
+	margin-right: var(--celina-space-4);
+	color: rgb(255 255 255 / 35%);
+	content: "|";
+}
+
+.celina-block-footer .celina-block-footer-contact-link a:is(:hover, :focus-visible) {
+	color: var(--celina-color-surface);
+}
+
+/* The active sales variant keeps its existing edge marker and contact CTA. */
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-header-actions {
+	align-self: stretch;
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-menu,
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary-panel,
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary {
+	display: flex;
+	align-self: stretch;
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__container {
+	align-items: stretch;
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+	min-height: 3rem;
+	border-bottom: 0;
+}
+
+@media (min-width: 64.001rem) {
+
+	.celina-block-shell .celina-block-primary .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content:is(:hover, :focus-visible, [aria-current]) {
+		color: var(--celina-color-surface);
+	}
+
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content:is([aria-current], :hover, :focus-visible) {
+		color: #fff;
+		background: #49534e;
+		box-shadow: inset 3px 0 #ff6c0d;
+		text-decoration: none;
+	}
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-footer-nav .wp-block-navigation-item__content[aria-current] {
+	color: var(--celina-color-citrus);
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+	position: relative;
+	height: 100%;
+	border-bottom: 0;
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content::after {
+	position: absolute;
+	right: 0;
+	bottom: -2px;
+	left: 0;
+	height: 2px;
+	background: transparent;
+	content: "";
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content[aria-current],
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__container > .wp-block-navigation-item:hover > .wp-block-navigation-item__content {
+	color: var(--celina-color-citrus);
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content[aria-current]::after,
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__container > .wp-block-navigation-item:is(:hover, :focus-within) > .wp-block-navigation-item__content::after {
+	background: #ff6c0d;
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary.wp-block-navigation .wp-block-navigation-item.has-child > .wp-block-navigation__submenu-container {
+	top: calc(100% + 2px);
+	padding: 0;
+	border-top: 0;
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__submenu-container::before {
+	position: absolute;
+	top: -2px;
+	right: 0;
+	left: 0;
+	height: 2px;
+	content: "";
+}
+
+:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-footer-tagline .celina-review-keyphrase {
+	color: #fff;
+}
+
+@media (max-width: 64rem) {
+
+	.celina-block-shell .celina-block-utility-nav {
+		display: none;
+	}
+
+	.celina-block-utility .celina-block-inner,
+	.celina-block-shell .celina-block-contacts {
+		justify-content: center;
+	}
+
+	.celina-block-shell .celina-block-header-cta {
+		display: none;
+	}
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-header-cta {
+		display: flex;
+	}
+
+	.celina-block-menu {
+		order: 2;
+	}
+
+	.celina-block-menu > summary {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 3rem;
+		height: 3rem;
+		padding: 0;
+		border: 1px solid rgb(255 255 255 / 55%);
+		border-radius: var(--celina-radius-button);
+		color: var(--celina-color-surface);
+		background: transparent;
+		cursor: pointer;
+		list-style: none;
+		font-size: 0;
+	}
+
+	.celina-block-menu > summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.celina-block-menu > summary::before {
+		width: 1.25rem;
+		height: 1rem;
+		background: linear-gradient(currentcolor 0 0.125rem, transparent 0.125rem 0.4375rem, currentcolor 0.4375rem 0.5625rem, transparent 0.5625rem 0.875rem, currentcolor 0.875rem);
+		content: "";
+	}
+
+	.celina-block-menu[open] > summary::before {
+		background: linear-gradient(45deg, transparent 45%, currentcolor 45% 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, currentcolor 45% 55%, transparent 55%);
+	}
+
+	.celina-block-menu > summary:is(:hover, :focus-visible) {
+		color: var(--celina-color-stone);
+		background: var(--celina-color-surface);
+	}
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-menu {
+		align-self: center;
+	}
+
+	.celina-block-shell .celina-block-primary-panel {
+		position: absolute;
+		inset: 100% 0 auto;
+		display: block;
+		width: 100%;
+		max-height: calc(100vh - 6rem);
+		overflow-y: auto;
+		padding: var(--celina-space-4);
+		border-top: 1px solid rgb(255 255 255 / 20%);
+		color: var(--celina-color-surface);
+		background: var(--celina-color-stone-dark);
+	}
+
+	.celina-block-menu:not([open]) > .celina-block-primary-panel {
+		display: none;
+	}
+
+	.celina-block-shell nav.celina-block-primary {
+		display: block;
+	}
+
+	.celina-block-shell .celina-block-primary .wp-block-navigation__responsive-container {
+		display: block;
+	}
+
+	.celina-block-shell .celina-block-primary .wp-block-navigation__container {
+		flex-direction: column;
+		align-items: stretch;
+		gap: var(--celina-space-4);
+		width: min(100%, var(--celina-grid-width));
+		margin-inline: auto;
+	}
+
+	.celina-block-shell .celina-block-primary .wp-block-navigation-item {
+		display: block;
+	}
+
+	.celina-block-shell .celina-block-primary .wp-block-navigation-item__content {
+		display: block;
+		min-height: 0;
+		height: auto;
+		padding-block: var(--celina-space-3);
+		border: 0;
+		color: inherit;
+		font-size: inherit;
+	}
+
+	.celina-block-shell .celina-block-primary .wp-block-navigation-item__content::after {
+		display: none;
+	}
+
+	.celina-block-shell .celina-block-primary.wp-block-navigation .wp-block-navigation-item.has-child > .wp-block-navigation__submenu-container {
+		position: static;
+		display: grid;
+		visibility: visible;
+		opacity: 1;
+		width: auto;
+		height: auto;
+		min-width: 0;
+		overflow: visible;
+		gap: var(--celina-space-1);
+		margin: 0;
+		padding: 0 var(--celina-space-3);
+		border: 0;
+		background: transparent;
+		box-shadow: none;
+	}
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation-item__content {
+		padding-inline: 0.75rem;
+	}
+
+	.celina-block-shell .celina-block-primary .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+		min-height: 0;
+		padding-block: var(--celina-space-3);
+		padding-inline: 0;
+		color: rgb(255 255 255 / 72%);
+		font-size: 0.875rem;
+	}
+
+	.celina-block-shell .celina-block-mobile-cta {
+		display: flex;
+		margin-top: var(--celina-space-4);
+	}
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+		padding-inline: 0.75rem;
+	}
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary.wp-block-navigation .wp-block-navigation-item > .wp-block-navigation-item__content:is([aria-current="page"], :hover, :focus-visible) {
+		color: #fff;
+		background: #3c4540;
+		border-radius: var(--celina-radius-card);
+		box-shadow: inset 0 -2px #ff6c0d;
+		text-decoration: none;
+	}
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary.wp-block-navigation .wp-block-navigation-item > .wp-block-navigation-item__content[aria-current="location"] {
+		color: var(--celina-color-citrus);
+	}
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-primary.wp-block-navigation .wp-block-navigation-item.has-child > .wp-block-navigation__submenu-container {
+		margin-top: 0.5rem;
+		gap: 0.5rem;
+	}
+
+	.celina-block-shell .celina-block-footer-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.celina-block-shell .celina-block-footer-meta {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.celina-block-shell .celina-block-legal .wp-block-navigation__container {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 767px) {
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-header-logo img {
+		max-width: 7rem;
+	}
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-header-cta .wp-block-button__link {
+		padding: 0.65rem;
+		font-size: 0.8rem;
+	}
+
+	:is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-header-actions {
+		gap: 0.5rem;
+	}
+}
+
+/* Keep old mobile buttons visible until reviewed removal during upgrade. */
+.editor-styles-wrapper .celina-block-header {
+	position: static;
+}
+
+.editor-styles-wrapper .celina-block-shell :is(.celina-block-header-cta, .celina-block-mobile-cta, .celina-block-utility-nav) {
+	display: flex;
+}
+
+.editor-styles-wrapper .celina-block-primary-panel {
+	position: static;
+}

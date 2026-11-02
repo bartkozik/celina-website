@@ -1,0 +1,49 @@
+@use "../../shared/card-link";
+
+.wp-block-celina-resource-item {
+	box-sizing: border-box;
+	padding: var(--celina-space-6, 1.5rem);
+	border-inline-start: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+	border-radius: var(--celina-radius-card, 0.75rem);
+	background: var(--celina-color-surface, #fff);
+	box-shadow: var(--celina-shadow-card, none);
+	transition: border-color var(--celina-transition-fast, 150ms ease);
+
+	/* The card's own link makes the whole card clickable. */
+	@include card-link.stretched-link( ".celina-resource-item__link" );
+}
+
+.celina-resource-item__body {
+	display: grid;
+	gap: var(--celina-space-3, 0.75rem);
+}
+
+.celina-resource-item__title,
+.celina-resource-item__metadata,
+.celina-resource-item__unavailable {
+	margin: 0;
+}
+
+.celina-resource-item__description > :first-child {
+	margin-top: 0;
+}
+
+.celina-resource-item__description > :last-child {
+	margin-bottom: 0;
+}
+
+.celina-resource-item__metadata {
+	color: var(--celina-color-muted, #666);
+}
+
+.celina-resource-item__link {
+	width: fit-content;
+	color: var(--celina-color-stone-dark, #2e3432);
+
+	@include card-link.arrow-link;
+}
+
+.celina-resource-item__unavailable {
+	color: var(--celina-color-muted, #666);
+	font-weight: 700;
+}

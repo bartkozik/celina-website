@@ -1,0 +1,208 @@
+@use "../../shared/heading";
+@use "../../shared/eyebrow";
+
+.wp-block-celina-text-image-split {
+	padding: var(--celina-section-space-top, clamp(2rem, 3.5vw, 3rem)) var(--celina-gutter, clamp(1rem, 4vw, 2rem)) var(--celina-section-space, 4rem);
+	color: var(--celina-color-text, #1a1a1a);
+}
+
+.celina-text-image-split--neutral {
+	background: var(--celina-color-surface, #fff);
+}
+
+.celina-text-image-split--warm {
+	background: var(--celina-color-surface-muted, #f4f4f2);
+}
+
+.celina-text-image-split__inner {
+	display: grid;
+	gap: var(--celina-space-8, 2rem);
+	width: min(100%, var(--celina-grid-width, 80rem));
+	margin-inline: auto;
+}
+
+.celina-text-image-split__content {
+	align-self: center;
+}
+
+.celina-text-image-split__eyebrow {
+
+	@include eyebrow.section-eyebrow();
+}
+
+.celina-text-image-split__heading {
+
+	@include heading.section-heading;
+}
+
+.celina-text-image-split__prose > :first-child {
+	margin-top: 0;
+}
+
+.celina-text-image-split__prose > :last-child {
+	margin-bottom: 0;
+}
+
+.celina-text-image-split__media img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	min-height: 22rem;
+	border-radius: var(--celina-radius-card, 0.75rem);
+	box-shadow: var(--celina-shadow-card, none);
+	object-fit: cover;
+}
+
+.celina-text-image-split .celina-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: var(--celina-space-6, 1.5rem);
+	padding: var(--celina-space-3, 0.75rem) var(--celina-space-6, 1.5rem);
+	color: var(--celina-color-text, #1a1a1a);
+	font-weight: 700;
+	text-decoration: none;
+	background: var(--celina-color-citrus, #ff6c0d);
+	border-radius: var(--celina-radius-button, 0);
+	transition: background-color var(--celina-transition-fast, 150ms ease), color var(--celina-transition-fast, 150ms ease);
+
+	&:hover,
+	&:focus-visible {
+		color: var(--celina-color-surface, #fff);
+		background: var(--celina-color-stone, #3d4543);
+	}
+
+	&:focus-visible {
+		outline: 3px solid var(--celina-color-stone-darker, #242825);
+		outline-offset: 3px;
+	}
+}
+
+.celina-split--photo-dark .celina-button:is(:hover, :focus-visible) {
+	color: var(--celina-color-text, #1a1a1a);
+	background: var(--celina-color-surface, #fff);
+}
+
+.celina-split--photo-dark .celina-button:focus-visible {
+	outline-color: var(--celina-color-surface, #fff);
+}
+
+@media (width <= 48rem) {
+
+	.celina-text-image-split__media img {
+		min-height: 16rem;
+	}
+}
+
+@media (width > 48rem) {
+
+	.celina-text-image-split__inner {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--celina-space-12, 3rem);
+	}
+
+	.celina-text-image-split--image-left .celina-text-image-split__media {
+		order: -1;
+	}
+}
+
+/*
+ * Photo-background variant: the block's own image fills the section behind a
+ * light gray wash, so the copy reads as one band instead of two columns.
+ * Add the "celina-split--photo-background" class in Advanced > Additional CSS.
+ */
+.celina-split--photo-background:not(.block-editor-block-list__block) {
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: clamp(20rem, 28vw, 26rem);
+	isolation: isolate;
+	overflow: hidden;
+}
+
+.celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__media {
+	position: absolute;
+	z-index: -2;
+	inset: 0;
+}
+
+.celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__media img {
+	width: 100%;
+	height: 100%;
+	min-height: 0;
+	border-radius: 0;
+	object-fit: cover;
+}
+
+.celina-split--photo-background:not(.block-editor-block-list__block)::before {
+	position: absolute;
+	z-index: -1;
+	inset: 0;
+	background: rgb(255 255 255 / 88%);
+	content: "";
+}
+
+.celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__inner {
+	width: min(100%, var(--celina-grid-width, 80rem));
+	margin-inline: auto;
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__content {
+	display: grid;
+	gap: var(--celina-space-6, 1.5rem) var(--celina-space-12, 3rem);
+	align-items: start;
+	max-width: none;
+}
+
+/* Heading on the left; the copy and its action on the right. */
+@media (width > 48rem) {
+
+	.celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__content {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	}
+
+	.celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__eyebrow {
+		grid-area: 1 / 1;
+	}
+
+	.celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__heading {
+		grid-area: 2 / 1 / 4 / 2;
+	}
+
+	.celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__prose {
+		grid-area: 2 / 2 / 3 / 3;
+	}
+
+	.celina-split--photo-background:not(.block-editor-block-list__block) .celina-button {
+		grid-area: 3 / 2;
+		align-self: start;
+		justify-self: start;
+		margin-top: var(--celina-space-6, 1.5rem);
+	}
+}
+
+/* Display scale of the hero headline; line breaks in the field are kept. */
+.celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__heading {
+	margin: 0;
+	white-space: pre-line;
+	font-size: clamp(2rem, 4vw, 3.25rem);
+	font-weight: 900;
+	letter-spacing: -0.035em;
+	line-height: 1.04;
+}
+
+/* Dark treatment of the same variant: light copy over a darkened photograph. */
+.celina-split--photo-dark:not(.block-editor-block-list__block)::before {
+	background: rgb(36 40 37 / 72%);
+}
+
+.celina-split--photo-dark:not(.block-editor-block-list__block) {
+	color: var(--celina-color-surface, #fff);
+}
+
+.celina-split--photo-dark:not(.block-editor-block-list__block) .celina-text-image-split__heading,
+.celina-split--photo-dark:not(.block-editor-block-list__block) .celina-text-image-split__prose,
+.celina-split--photo-dark:not(.block-editor-block-list__block) .celina-text-image-split__prose strong {
+	color: var(--celina-color-surface, #fff);
+}

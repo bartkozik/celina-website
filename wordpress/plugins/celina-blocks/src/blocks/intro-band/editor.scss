@@ -1,0 +1,11 @@
+.wp-block-celina-intro-band {
+
+	&.is-selected,
+	&.has-child-selected {
+		outline: 1px dashed var(--celina-color-stone, #3d4543);
+	}
+
+	.block-editor-rich-text__editable:empty::before {
+		opacity: 0.7;
+	}
+}

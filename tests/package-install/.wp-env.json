@@ -1,0 +1,9 @@
+{
+  "core": null,
+  "phpVersion": "8.2",
+  "port": 8896,
+  "testsPort": 8897,
+  "mappings": {
+    "dist": "../../dist"
+  }
+}

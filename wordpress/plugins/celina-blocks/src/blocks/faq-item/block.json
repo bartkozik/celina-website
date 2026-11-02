@@ -1,0 +1,18 @@
+{
+  "apiVersion": 2,
+  "name": "celina/faq-item",
+  "version": "0.1.0",
+  "title": "FAQ Item — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "editor-help",
+  "textdomain": "celina-blocks",
+  "parent": ["celina/faq"],
+  "attributes": {
+    "question": { "type": "string", "default": "" },
+    "answer": { "type": "string", "default": "" }
+  },
+  "supports": { "html": false, "reusable": false },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

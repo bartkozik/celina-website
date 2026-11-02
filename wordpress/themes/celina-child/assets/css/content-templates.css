@@ -1,0 +1,1120 @@
+.celina-template-full-width #page.grid-container {
+	max-width: none;
+}
+
+.celina-template-inner {
+	width: var(--celina-container);
+	margin-inline: auto;
+	padding-block: var(--celina-section-space);
+}
+
+.celina-entry-content {
+	overflow: clip;
+}
+
+.celina-hero--home-photo,
+.celina-hero--about-photo,
+.celina-hero--why-photo,
+.celina-hero--capabilities-photo,
+.celina-hero--markets-photo,
+.celina-hero--community-photo,
+.celina-hero--careers-photo,
+.celina-hero--news-photo,
+.celina-hero--resources-photo {
+	background-position: center;
+	background-size: cover;
+}
+
+.celina-hero--home-photo {
+	background-image: var(--celina-hero-overlay), url(../images/content/portfolio-image-29.png);
+}
+
+.celina-hero--about-photo {
+	background-image: var(--celina-hero-overlay), url(../images/content/portfolio-image-14.png);
+}
+
+.celina-hero--why-photo {
+	background-image: var(--celina-hero-overlay), url(../images/content/portfolio-image-37.png);
+}
+
+.celina-hero--capabilities-photo {
+	background-image: var(--celina-hero-overlay), url(../images/content/portfolio-image-15.png);
+}
+
+.celina-hero--markets-photo {
+	background-image: var(--celina-hero-overlay), url(../images/content/portfolio-image-13.png);
+}
+
+.celina-hero--community-photo {
+	background-image: var(--celina-hero-overlay), url(../images/content/portfolio-image-20.png);
+}
+
+.celina-hero--careers-photo {
+	background-image: var(--celina-hero-overlay), url(../images/content/portfolio-image-12.png);
+}
+
+.celina-hero--news-photo {
+	background-image: var(--celina-hero-overlay), url(../images/content/portfolio-image-30.png);
+}
+
+.celina-hero--resources-photo {
+	background-image: var(--celina-hero-overlay), url(../images/content/portfolio-image-21.png);
+}
+
+.celina-leadership {
+	margin-block: 0;
+	padding-block: var(--celina-section-space-top) var(--celina-section-space);
+	border-radius: 0;
+	background: var(--celina-color-surface-muted);
+}
+
+.celina-leadership__eyebrow,
+.celina-contact-form__eyebrow {
+	display: flex;
+	gap: var(--celina-space-3);
+	align-items: center;
+	margin-block: 0 var(--celina-space-4);
+	color: var(--celina-color-citrus);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+.celina-leadership__eyebrow::before,
+.celina-contact-form__eyebrow::before {
+	flex: 0 0 auto;
+	width: 1.5rem;
+	height: 0.125rem;
+	background: currentcolor;
+	content: "";
+}
+
+.celina-leadership__intro {
+	max-width: var(--celina-reading-width);
+	margin-block-end: var(--celina-space-8);
+}
+
+.celina-entry-content > * {
+	width: var(--celina-container);
+	max-width: var(--celina-grid-width);
+	margin-inline: auto;
+}
+
+.celina-entry-content > .wp-block-gallery,
+.celina-entry-content > .wp-block-celina-media-contact,
+.editor-styles-wrapper .is-root-container > .wp-block-gallery,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-media-contact {
+	margin-block-start: var(--celina-section-space);
+}
+
+/* The campus gallery sits right under a section, so it needs a little air. */
+.celina-sales-page .wp-block-gallery:not(.celina-leadership__grid) {
+	margin-block-start: var(--celina-space-6);
+}
+
+.celina-entry-content > .alignwide {
+	width: var(--celina-container);
+	max-width: var(--celina-grid-width);
+}
+
+.celina-entry-content > .alignfull,
+.celina-entry-content > .wp-block-celina-achievements-timeline,
+.celina-entry-content > .wp-block-celina-capability-cards,
+.celina-entry-content > .wp-block-celina-cta-band,
+.celina-entry-content > .wp-block-celina-facility-cards,
+.celina-entry-content > .wp-block-celina-hero,
+.celina-entry-content > .wp-block-celina-industry-cards,
+.celina-entry-content > .wp-block-celina-intro-band,
+.celina-entry-content > .wp-block-celina-news-grid,
+.celina-entry-content > .wp-block-celina-resource-list,
+.celina-entry-content > .wp-block-celina-text-image-split {
+	width: 100%;
+	max-width: none;
+}
+
+.celina-entry-content > .wp-block-celina-hero:first-child {
+	margin-block-start: 0;
+}
+
+.editor-styles-wrapper .is-root-container > .wp-block {
+	max-width: var(--celina-grid-width);
+	margin-inline: auto;
+}
+
+.editor-styles-wrapper .is-root-container > .wp-block.alignwide,
+.editor-styles-wrapper .is-root-container > .wp-block[data-align="wide"],
+.editor-styles-wrapper .is-root-container > .alignwide {
+	max-width: var(--celina-grid-width);
+}
+
+.editor-styles-wrapper .is-root-container > .wp-block.alignfull,
+.editor-styles-wrapper .is-root-container > .wp-block[data-align="full"],
+.editor-styles-wrapper .is-root-container > .alignfull,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-achievements-timeline,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-capability-cards,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-cta-band,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-facility-cards,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-hero,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-industry-cards,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-intro-band,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-news-grid,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-resource-list,
+.editor-styles-wrapper .is-root-container > .wp-block-celina-text-image-split {
+	max-width: none;
+}
+
+:where(.celina-entry-content) :where(h1, h2, h3),
+.celina-page-header h1 {
+	color: var(--celina-color-text);
+	font-family: var(--celina-font-heading);
+	font-weight: 800;
+	letter-spacing: -0.025em;
+	line-height: 1.12;
+}
+
+:where(.celina-entry-content) :is(h1, h2, h3, h4) strong {
+	font-weight: inherit;
+}
+
+:where(.celina-entry-content) h2,
+.celina-legal-content h2,
+.celina-media-contact__heading,
+.celina-paycor-jobs h2,
+.celina-bamboohr-jobs h2 {
+	font-size: clamp(1.5rem, 2vw, 1.875rem);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+}
+
+:where(.celina-entry-content) h3 {
+	font-size: clamp(1rem, 1.4vw, 1.25rem);
+}
+
+.celina-contact-columns a {
+	color: var(--celina-color-citrus);
+	font-weight: 700;
+}
+
+.celina-entry-content a {
+	text-decoration-thickness: 0.1em;
+	text-underline-offset: 0.2em;
+}
+
+.celina-entry-content :where(p > a:not([class]), li > a:not([class]), dd > a:not([class])):is(:hover, :focus-visible) {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.celina-page-header h1 {
+	margin: 0;
+	font-size: clamp(2.25rem, 5vw, 4rem);
+}
+
+.celina-card-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--celina-space-6);
+}
+
+.celina-article-card {
+	padding: var(--celina-space-6);
+	border-radius: var(--celina-radius-card);
+	background: var(--celina-color-surface);
+	box-shadow: var(--celina-shadow-card);
+	transition: border-color var(--celina-transition-fast);
+}
+
+.celina-article-card h2,
+.celina-article-header h1 {
+	color: var(--celina-color-stone-darker);
+}
+
+.celina-legal-content {
+	width: min(100% - 2 * var(--celina-gutter), var(--celina-reading-width));
+	margin-inline: auto;
+	padding-block: var(--celina-section-space);
+}
+
+.celina-legal-content > * {
+	max-width: none;
+}
+
+.celina-legal-content > h2 {
+	margin-block: var(--celina-space-12) var(--celina-space-4);
+}
+
+.celina-legal-content > h2:first-of-type {
+	margin-top: var(--celina-space-8);
+}
+
+.celina-legal-content > p {
+	margin-block: 0 var(--celina-space-4);
+}
+
+.celina-legal-content__meta {
+	color: var(--celina-color-muted);
+	font-size: 0.875rem;
+}
+
+.wp-block-columns.celina-contact-columns {
+	display: grid;
+	grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+	gap: clamp(2rem, 6vw, 5rem);
+	align-items: start;
+	width: var(--celina-container);
+	margin-block: 0;
+	margin-inline: auto;
+	padding-block: var(--celina-section-space-top) var(--celina-section-space);
+}
+
+.celina-contact-form-column .wp-block-celina-hubspot-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.celina-contact-form-column .wp-block-celina-hubspot-form > h2 {
+	order: 1;
+	margin-block: 0;
+	font-size: clamp(1.5rem, 2vw, 1.875rem);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+}
+
+.celina-contact-form-column .wp-block-celina-hubspot-form .celina-hubspot-form__fallback {
+	order: 2;
+	margin-block: 0.5rem 2rem;
+	padding: 0;
+	border: 0;
+	color: var(--celina-color-muted);
+	font-size: 0.9rem;
+	line-height: 1.7;
+	background: transparent;
+}
+
+.celina-contact-form-column .celina-hubspot-form__target {
+	order: 3;
+
+	/*
+	 * CELINA frame around the embed. The fields and the submit button live in
+	 * HubSpot's own iframe, so their colours are set in HubSpot, not here.
+	 */
+	padding: clamp(1.25rem, 2.5vw, 2rem);
+	border-radius: var(--celina-radius-card);
+	background: var(--celina-color-surface-muted);
+}
+
+.celina-contact-details {
+	display: grid;
+	align-content: start;
+	gap: 0;
+}
+
+.celina-contact-card {
+	padding: 1.75rem;
+	border-radius: 0;
+	background: var(--celina-color-surface-muted);
+}
+
+/* The two contact cards read as one stack. */
+.celina-contact-card + .celina-contact-card {
+	margin-top: 0;
+}
+
+/* Card titles are ordinary card headings. */
+.celina-contact-card :is(h2, h3) {
+	margin: 0 0 var(--celina-space-4);
+	font-size: 1.25rem;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+	line-height: 1.25;
+	text-transform: none;
+}
+
+/* Business hours: the page's own photograph under the hero wash, like the
+   location tiles. */
+.celina-contact-card--hours {
+	color: var(--celina-color-surface);
+	background-position: center;
+	background-size: cover;
+}
+
+.celina-contact-card--hours:not(.celina-media-cover) {
+	background-image: linear-gradient(270deg, rgb(61 69 67 / 94%) 0%, rgb(61 69 67 / 72%) 55%, rgb(61 69 67 / 40%) 100%), url(../images/content/portfolio-image-11.png);
+}
+
+/* Preserve the compact card height instead of Cover's default hero minimum. */
+.celina-contact-card--hours.celina-media-cover {
+	min-height: 0;
+}
+
+.celina-contact-card--hours :is(h2, h3, p, dt, dd, span, strong, time) {
+	color: inherit;
+}
+
+/* Direct contact sits on the dark gray card. */
+.celina-contact-card--direct {
+	color: var(--celina-color-surface);
+	background: var(--celina-color-stone);
+}
+
+.celina-contact-card--direct :is(h2, h3, p, span, strong, address) {
+	color: inherit;
+}
+
+.celina-contact-card > h3 {
+	margin: 0 0 var(--celina-space-5);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.celina-contact-detail {
+	display: grid;
+	grid-template-columns: 1rem minmax(0, 1fr);
+	column-gap: var(--celina-space-3);
+	margin: 0;
+}
+
+.celina-contact-detail + .celina-contact-detail {
+	margin-top: var(--celina-space-5);
+}
+
+.celina-contact-detail__icon {
+	grid-row: 1 / span 2;
+	width: 1rem;
+	height: 1rem;
+	margin-top: 0.15rem;
+	color: var(--celina-color-citrus);
+	font-size: 0;
+	background: currentcolor;
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+}
+
+.celina-contact-detail--phone .celina-contact-detail__icon {
+	mask-image: url(../images/contact-phone.svg);
+}
+
+.celina-contact-detail--email .celina-contact-detail__icon {
+	mask-image: url(../images/contact-email.svg);
+}
+
+.celina-contact-detail--address .celina-contact-detail__icon {
+	mask-image: url(../images/contact-location.svg);
+}
+
+.celina-contact-detail__label {
+	color: var(--celina-color-muted);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.celina-contact-detail > :last-child,
+.celina-contact-card a {
+	color: var(--celina-color-text);
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+.celina-contact-card a {
+	text-decoration: none;
+}
+
+.celina-contact-hours__row {
+	display: flex;
+	gap: var(--celina-space-4);
+	align-items: center;
+	justify-content: space-between;
+	margin: 0;
+	color: #555;
+	font-size: 0.875rem;
+}
+
+.celina-contact-hours__row + .celina-contact-hours__row {
+	margin-top: var(--celina-space-3);
+}
+
+.celina-contact-hours__row strong {
+	font-weight: 600;
+	text-align: end;
+}
+
+.celina-contact-hours__row--closed strong {
+	color: var(--celina-color-muted);
+}
+
+/* Open hours read as the highlight; closed days stay white. */
+.celina-contact-card--hours .celina-contact-hours__row strong {
+	color: var(--celina-color-citrus);
+}
+
+.celina-contact-card--hours .celina-contact-hours__row--closed strong {
+	color: var(--celina-color-surface);
+}
+
+.celina-contact-hours__note {
+	margin: 1rem 0 0;
+	color: var(--celina-color-muted);
+	font-size: 0.775rem;
+}
+
+.celina-contact-photo {
+	margin: 0;
+}
+
+.celina-contact-photo img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1.9 / 1;
+	border-radius: var(--celina-radius-card);
+	object-fit: cover;
+}
+
+.celina-form-pattern {
+	margin-block: var(--celina-section-space);
+	padding: clamp(1.5rem, 4vw, 3rem);
+	border-top: 0.25rem solid var(--celina-color-citrus);
+	border-radius: var(--celina-radius-card);
+	background: var(--celina-color-surface);
+	box-shadow: var(--celina-shadow-card);
+}
+
+.celina-form-pattern__intro {
+	max-width: var(--celina-reading-width);
+	margin: 0 auto var(--celina-space-8);
+	color: var(--celina-color-muted);
+	font-size: clamp(1.0625rem, 2vw, 1.25rem);
+}
+
+.celina-form-pattern .wp-block-celina-hubspot-form {
+	max-width: var(--celina-reading-width);
+	margin-inline: auto;
+}
+
+.celina-benefits-heading {
+	margin-block: 0;
+}
+
+/*
+ * Compensation & Perks is one gray band: white perk cards on the shared grid,
+ * the coverage link below them, and the Paycor call to action closing it.
+ */
+.celina-benefits-list {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--celina-grid-gap);
+	margin-block: var(--celina-space-8) var(--celina-space-6);
+	margin-inline: auto;
+	padding: 0;
+	list-style: none;
+}
+
+.celina-benefits-list li {
+	display: flex;
+	align-items: center;
+	min-height: 5.5rem;
+	padding: var(--celina-space-5) var(--celina-space-6);
+	border-inline-start: 0.25rem solid var(--celina-color-citrus);
+	border-radius: var(--celina-radius-card);
+	background: var(--celina-color-surface);
+	color: var(--celina-color-stone-darker);
+	font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+	font-weight: 900;
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+}
+
+/* The coverage link is a footnote to the grid, not a perk of its own. */
+.celina-benefits-list li:has(> a) {
+	grid-column: 1 / -1;
+	min-height: 0;
+	padding: 0;
+	border-inline-start: 0;
+	background: transparent;
+	font-size: 0.9375rem;
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1.45;
+}
+
+@media (width <= 64rem) {
+
+	.celina-benefits-list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (width <= 48rem) {
+
+	.celina-benefits-list {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.celina-single-article {
+	width: min(100% - 2 * var(--celina-gutter), 42rem);
+	margin-inline: auto;
+	padding-bottom: var(--celina-section-space);
+	overflow-wrap: anywhere;
+}
+
+.celina-single-article .celina-template-inner,
+.celina-single-article .celina-entry-content > * {
+	width: 100%;
+	max-width: none;
+}
+
+.celina-single-article .celina-article-header {
+	padding-block: var(--celina-section-space) var(--celina-space-8);
+}
+
+.celina-single-article .celina-article-header h1 {
+	margin-block: var(--celina-space-4);
+	font-size: clamp(2rem, 3.6vw, 3rem);
+	font-weight: 900;
+	letter-spacing: -0.035em;
+	line-height: 1.08;
+}
+
+.celina-article-category {
+	margin: 0;
+}
+
+/* These labels lost their pill background, so they keep no side padding. */
+.celina-article-category a,
+.celina-article-tags a {
+	display: inline-flex;
+	align-items: center;
+	padding: var(--celina-space-2) 0;
+	border-radius: var(--celina-radius-pill);
+	color: var(--celina-color-citrus);
+	font-size: 0.875rem;
+	font-weight: 800;
+	line-height: 1.25;
+	text-decoration: none;
+}
+
+.celina-article-category a {
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.celina-article-meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--celina-space-2);
+	color: var(--celina-color-muted);
+	font-size: 0.9375rem;
+}
+
+.celina-article-meta__separator {
+	color: var(--celina-color-citrus);
+}
+
+.celina-article-tags {
+	margin-top: var(--celina-space-6);
+}
+
+.celina-article-tags ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--celina-space-2);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.celina-article-media {
+	margin: 0 0 var(--celina-space-8);
+	overflow: hidden;
+	border-radius: var(--celina-radius-card);
+	background: var(--celina-color-surface-muted);
+}
+
+.celina-article-media .celina-article-media__image {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: var(--celina-radius-card);
+}
+
+.celina-article-byline {
+	display: flex;
+	align-items: center;
+	gap: var(--celina-space-4);
+	min-width: 0;
+	margin-bottom: var(--celina-space-8);
+	padding-block: var(--celina-space-4);
+	border-block: 1px solid var(--celina-color-border);
+	font-style: normal;
+}
+
+.celina-article-byline__avatar {
+	flex: 0 0 auto;
+}
+
+.celina-article-byline__avatar img {
+	display: block;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+}
+
+.celina-article-byline__details {
+	min-width: 0;
+}
+
+.celina-article-byline__name,
+.celina-article-byline__job-title {
+	margin: 0;
+}
+
+.celina-article-byline__name {
+	color: var(--celina-color-stone-darker);
+	font-weight: 800;
+}
+
+.celina-article-byline__job-title {
+	color: var(--celina-color-muted);
+	font-size: 0.9375rem;
+}
+
+.celina-single-article .celina-entry-content {
+	font-size: 1.125rem;
+	line-height: 1.75;
+}
+
+.celina-single-article .celina-entry-content > h2 {
+	margin-block: var(--celina-space-12) var(--celina-space-4);
+}
+
+.celina-single-article .celina-entry-content > h3 {
+	margin-block: var(--celina-space-8) var(--celina-space-3);
+}
+
+.celina-single-article .celina-entry-content > p {
+	margin-block: 0 var(--celina-space-6);
+}
+
+.celina-single-article .celina-entry-content > :where(ul, ol) {
+	margin-block: 0 var(--celina-space-6);
+	padding-inline-start: var(--celina-space-8);
+}
+
+.celina-single-article .celina-entry-content > :where(ul, ol) li + li {
+	margin-top: var(--celina-space-2);
+}
+
+.celina-article-intro {
+	padding-inline-start: var(--celina-space-6);
+	border-inline-start: 0.25rem solid var(--celina-color-citrus);
+	color: var(--celina-color-stone-darker);
+	font-size: clamp(1.125rem, 1.6vw, 1.25rem);
+	font-weight: 500;
+	line-height: 1.6;
+}
+
+.celina-single-article figure {
+	margin-block: var(--celina-space-8);
+}
+
+.celina-single-article figure img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: var(--celina-radius-card);
+}
+
+.celina-single-article .celina-entry-content .wp-block-gallery {
+	gap: var(--celina-space-4);
+}
+
+.celina-single-article .celina-article-image--portrait img {
+	max-width: 28rem;
+	margin-inline: auto;
+}
+
+.celina-single-article figcaption {
+	margin-top: var(--celina-space-2);
+	color: var(--celina-color-muted);
+	font-size: 0.875rem;
+	text-align: left;
+}
+
+.wp-block-gallery.has-nested-images.celina-leadership__grid figure.wp-block-image {
+	display: flex;
+	flex-grow: 0;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: flex-start;
+}
+
+.wp-block-gallery.has-nested-images.celina-leadership__grid figure.wp-block-image:not(#individual-image) img {
+	flex: none;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1;
+	border-radius: var(--celina-radius-card);
+	object-fit: cover;
+}
+
+.wp-block-gallery.has-nested-images.celina-leadership__grid figure.wp-block-image figcaption {
+	position: static;
+	width: 100%;
+	max-height: none;
+	margin-block: var(--celina-space-4) 0;
+	padding: 0;
+	overflow: visible;
+	color: var(--celina-color-text-soft);
+	background: none;
+	font-size: 0.9375rem;
+	line-height: 1.35;
+	text-align: left;
+	text-shadow: none;
+}
+
+/* The name is already a block, so the markup's <br> would add a blank line. */
+.wp-block-gallery.has-nested-images.celina-leadership__grid figure.wp-block-image figcaption br {
+	display: none;
+}
+
+.wp-block-gallery.has-nested-images.celina-leadership__grid figure.wp-block-image figcaption strong {
+	display: block;
+	margin-bottom: 0;
+	color: var(--celina-color-stone-darker);
+	font-size: 1.0625rem;
+	font-weight: 900;
+	letter-spacing: -0.01em;
+	line-height: 1.25;
+}
+
+.celina-single-article .wp-block-pullquote {
+	margin-block: var(--celina-space-12);
+	padding: var(--celina-space-8);
+	border: 0;
+	border-radius: var(--celina-radius-card);
+	background: var(--celina-color-stone-darker);
+	text-align: left;
+}
+
+.celina-single-article .wp-block-pullquote blockquote,
+.celina-single-article .wp-block-pullquote p,
+.celina-single-article .wp-block-pullquote cite {
+	color: var(--celina-color-surface);
+}
+
+.celina-single-article .wp-block-table {
+	max-width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.celina-single-article .wp-block-table table {
+	width: max-content;
+	min-width: 100%;
+}
+
+.celina-article-navigation {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--celina-space-4);
+	margin-top: var(--celina-space-12);
+	padding-top: var(--celina-space-8);
+	border-top: 1px solid var(--celina-color-border);
+}
+
+.celina-article-navigation a {
+	display: flex;
+	flex: 1 1 16rem;
+	flex-direction: column;
+	gap: var(--celina-space-2);
+	min-width: 0;
+	padding: var(--celina-space-4);
+	border-radius: var(--celina-radius-card);
+	background: var(--celina-color-surface-muted);
+	color: var(--celina-color-stone-darker);
+	text-decoration: none;
+	transition: background-color var(--celina-transition-fast), box-shadow var(--celina-transition-fast);
+}
+
+.celina-article-navigation__next {
+	text-align: end;
+}
+
+.celina-article-navigation__label {
+	color: var(--celina-color-citrus);
+	font-size: 0.8125rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.celina-article-navigation__title {
+	font-weight: 700;
+	overflow-wrap: anywhere;
+}
+
+@media (width <= 48rem) {
+
+	.celina-article-navigation a {
+		flex-basis: 100%;
+	}
+}
+
+/* The perks link keeps the card colours, not the article link style. */
+.celina-benefits-list a {
+	color: var(--celina-color-stone-darker);
+	text-decoration: none;
+}
+
+.celina-benefits-list a:hover,
+.celina-benefits-list a:focus-visible {
+	color: var(--celina-color-citrus);
+}
+
+.celina-entry-content a:focus-visible,
+.celina-single-article a:focus-visible {
+	outline: 3px solid var(--celina-color-citrus);
+	outline-offset: 3px;
+}
+
+/* Join Our Team closes the band as one dark strip: copy left, action right. */
+.celina-careers-benefits .wp-block-celina-paycor-jobs {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: var(--celina-space-2) var(--celina-space-8);
+	align-items: center;
+	margin-block: var(--celina-space-10) 0;
+	padding: var(--celina-space-8);
+	border-radius: var(--celina-radius-card);
+	color: var(--celina-color-surface);
+	background: var(--celina-color-stone);
+}
+
+.celina-careers-benefits .celina-paycor-jobs__fallback,
+.celina-careers-benefits .celina-paycor-jobs__status {
+	display: contents;
+}
+
+.celina-careers-benefits .celina-paycor-jobs h2 {
+	grid-column: 1;
+	margin: 0;
+	color: var(--celina-color-surface);
+	font-size: clamp(1.5rem, 2.2vw, 2rem);
+	font-weight: 900;
+	letter-spacing: -0.02em;
+}
+
+.celina-careers-benefits .celina-paycor-jobs p {
+	grid-column: 1;
+	margin: 0;
+	color: var(--celina-color-surface);
+}
+
+.celina-careers-benefits .celina-paycor-jobs__fallback a {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+	justify-self: end;
+	padding: var(--celina-space-3) var(--celina-space-6);
+	border-radius: var(--celina-radius-button);
+	color: var(--celina-color-text);
+	background: var(--celina-color-citrus);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.celina-article-category a:is(:hover, :focus-visible),
+.celina-article-tags a:is(:hover, :focus-visible) {
+	color: var(--celina-color-stone);
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
+
+.celina-article-navigation a:is(:hover, :focus-visible) {
+	background: var(--celina-color-slate);
+	box-shadow: inset 0 0 0 2px var(--celina-color-citrus);
+}
+
+.celina-careers-benefits .celina-paycor-jobs__fallback a:hover,
+.celina-careers-benefits .celina-paycor-jobs__fallback a:focus-visible {
+	color: var(--celina-color-text);
+	background: var(--celina-color-surface);
+}
+
+@media (width <= 48rem) {
+
+	.celina-careers-benefits .wp-block-celina-paycor-jobs {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.celina-careers-benefits .celina-paycor-jobs__fallback a {
+		grid-column: 1;
+		grid-row: auto;
+		justify-self: start;
+		margin-top: var(--celina-space-4);
+	}
+}
+
+.celina-entry-content .celina-capability-cards--light .celina-capability-cards__introduction a {
+	color: var(--celina-color-citrus);
+}
+
+.celina-article-closing {
+	margin-block: var(--celina-space-12);
+	padding: var(--celina-space-6);
+	border-top: 0.25rem solid var(--celina-color-citrus);
+	background: var(--celina-color-surface-muted);
+	font-weight: 700;
+}
+
+.celina-single-article .celina-media-contact {
+	margin-top: var(--celina-space-12);
+}
+
+.celina-not-found {
+	text-align: center;
+}
+
+.celina-not-found__code {
+	margin: 0;
+	color: var(--celina-color-citrus);
+	font-size: clamp(4rem, 14vw, 9rem);
+	font-weight: 800;
+	line-height: 1;
+}
+
+.celina-not-found .celina-button {
+	display: inline-flex;
+	padding: var(--celina-space-3) var(--celina-space-6);
+	border-radius: var(--celina-radius-button);
+	background: var(--celina-color-citrus);
+	color: var(--celina-color-text);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.celina-not-found .celina-button:is(:hover, :focus-visible) {
+	color: var(--celina-color-surface);
+	background: var(--celina-color-stone);
+}
+
+.celina-not-found .celina-button:focus-visible {
+	outline: 3px solid var(--celina-color-citrus);
+	outline-offset: 3px;
+}
+
+@media (hover: hover) {
+
+	.celina-article-card:hover {
+		box-shadow: inset 0 0 0 2px var(--celina-color-citrus);
+	}
+}
+
+.celina-article-card:focus-within {
+	box-shadow: inset 0 0 0 2px var(--celina-color-citrus);
+}
+
+@media (max-width: 48rem) {
+
+	.celina-card-grid,
+	.wp-block-columns.celina-contact-columns {
+		grid-template-columns: 1fr;
+	}
+
+	.wp-block-columns.celina-contact-columns {
+		gap: var(--celina-space-4);
+	}
+
+	.celina-single-article .wp-block-pullquote {
+		padding: var(--celina-space-6);
+	}
+
+	.celina-article-meta__separator {
+		display: none;
+	}
+
+	.celina-article-meta > * {
+		flex-basis: 100%;
+	}
+
+	.celina-article-navigation a {
+		flex-basis: 100%;
+	}
+
+	.celina-article-navigation__next {
+		text-align: start;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto;
+		transition-duration: 0.01ms;
+	}
+}
+
+/* The section directly under the hero keeps the tighter opening. */
+.celina-entry-content > .wp-block-celina-hero + *,
+.celina-sales-page > .wp-block-group__inner-container > .wp-block-celina-hero + *,
+.celina-sales-page > .wp-block-group__inner-container > .celina-sales-contact-heading + * {
+	padding-top: var(--celina-section-space-top-lead);
+}
+
+/* A light section following another light one keeps the tighter opening. */
+:is(.wp-block-celina-achievements-timeline.celina-achievements-timeline--stats, .wp-block-celina-industry-cards, .wp-block-celina-news-grid, .wp-block-celina-resource-list:not(.celina-resource-list--featured), .wp-block-celina-facility-cards, .wp-block-celina-intro-band, .celina-sales-handoff, .wp-block-celina-text-image-split.celina-text-image-split--neutral:not(.celina-split--photo-dark), .wp-block-celina-faq, .celina-contact-columns, .celina-sales-intro:not(.celina-sales-intro--muted)) + :is(.wp-block-celina-achievements-timeline.celina-achievements-timeline--stats, .wp-block-celina-industry-cards, .wp-block-celina-news-grid, .wp-block-celina-resource-list:not(.celina-resource-list--featured), .wp-block-celina-facility-cards, .wp-block-celina-intro-band, .celina-sales-handoff, .wp-block-celina-text-image-split.celina-text-image-split--neutral:not(.celina-split--photo-dark), .wp-block-celina-faq, .celina-contact-columns, .celina-sales-intro:not(.celina-sales-intro--muted)) {
+	padding-top: var(--celina-section-space-top-tight);
+}
+
+/* …and it closes tighter too, so the seam does not double up. */
+:is(.wp-block-celina-achievements-timeline.celina-achievements-timeline--stats, .wp-block-celina-industry-cards, .wp-block-celina-news-grid, .wp-block-celina-resource-list:not(.celina-resource-list--featured), .wp-block-celina-facility-cards, .wp-block-celina-intro-band, .celina-sales-handoff, .wp-block-celina-text-image-split.celina-text-image-split--neutral:not(.celina-split--photo-dark), .wp-block-celina-faq, .celina-contact-columns, .celina-sales-intro:not(.celina-sales-intro--muted)):has(+ :is(.wp-block-celina-achievements-timeline.celina-achievements-timeline--stats, .wp-block-celina-industry-cards, .wp-block-celina-news-grid, .wp-block-celina-resource-list:not(.celina-resource-list--featured), .wp-block-celina-facility-cards, .wp-block-celina-intro-band, .celina-sales-handoff, .wp-block-celina-text-image-split.celina-text-image-split--neutral:not(.celina-split--photo-dark), .wp-block-celina-faq, .celina-contact-columns, .celina-sales-intro:not(.celina-sales-intro--muted))) {
+	padding-bottom: var(--celina-section-space-top-tight);
+}
+
+/* Two gray sections in a row follow the same seam rule as two light ones. */
+:is(.wp-block-celina-achievements-timeline:not(.celina-achievements-timeline--stats), .wp-block-celina-resource-list.celina-resource-list--featured, .wp-block-celina-text-image-split.celina-text-image-split--warm:not(.celina-split--photo-dark), .wp-block-celina-capability-cards.celina-capability-cards--light, .celina-sales-intro--muted) + :is(.wp-block-celina-achievements-timeline:not(.celina-achievements-timeline--stats), .wp-block-celina-resource-list.celina-resource-list--featured, .wp-block-celina-text-image-split.celina-text-image-split--warm:not(.celina-split--photo-dark), .wp-block-celina-capability-cards.celina-capability-cards--light, .celina-sales-intro--muted) {
+	padding-top: var(--celina-section-space-top-tight);
+}
+
+:is(.wp-block-celina-achievements-timeline:not(.celina-achievements-timeline--stats), .wp-block-celina-resource-list.celina-resource-list--featured, .wp-block-celina-text-image-split.celina-text-image-split--warm:not(.celina-split--photo-dark), .wp-block-celina-capability-cards.celina-capability-cards--light, .celina-sales-intro--muted):has(+ :is(.wp-block-celina-achievements-timeline:not(.celina-achievements-timeline--stats), .wp-block-celina-resource-list.celina-resource-list--featured, .wp-block-celina-text-image-split.celina-text-image-split--warm:not(.celina-split--photo-dark), .wp-block-celina-capability-cards.celina-capability-cards--light, .celina-sales-intro--muted)) {
+	padding-bottom: var(--celina-section-space-top-tight);
+}
+
+/* Every line of the direct-contact card reads white; the label stays citrus. */
+.celina-contact-card--direct :is(a, address, p, span, strong),
+.celina-contact-card--direct .celina-contact-detail > :last-child {
+	color: var(--celina-color-surface);
+}
+
+.celina-contact-card--direct .celina-contact-detail a:hover,
+.celina-contact-card--direct .celina-contact-detail a:focus-visible {
+	color: var(--celina-color-citrus);
+}
+
+.celina-single-article .wp-block-pullquote blockquote p {
+	font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+.celina-single-article .wp-block-pullquote blockquote cite {
+	display: block;
+	margin-top: var(--celina-space-4);
+	color: var(--celina-color-citrus);
+	font-size: 0.9375rem;
+	font-style: normal;
+	font-weight: 700;
+	text-transform: none;
+}

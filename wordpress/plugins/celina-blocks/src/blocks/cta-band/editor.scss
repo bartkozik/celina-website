@@ -1,0 +1,17 @@
+.wp-block-celina-cta-band {
+
+	&.is-selected,
+	&.has-child-selected {
+		outline: 1px dashed var(--celina-color-stone, #3d4543);
+	}
+}
+
+.celina-cta-band__action-editor {
+	display: grid;
+	grid-template-columns: minmax(10rem, 1fr) auto;
+	gap: var(--celina-space-2, 0.5rem);
+	align-items: center;
+	padding: var(--celina-space-3, 0.75rem);
+	color: var(--celina-color-text, #1a1a1a);
+	background: var(--celina-color-surface, #fff);
+}

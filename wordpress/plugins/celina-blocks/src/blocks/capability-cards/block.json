@@ -1,0 +1,41 @@
+{
+  "apiVersion": 2,
+  "name": "celina/capability-cards",
+  "version": "0.1.0",
+  "title": "Capability Cards — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "screenoptions",
+  "textdomain": "celina-blocks",
+  "allowedBlocks": ["celina/capability-card"],
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "introduction": {
+      "type": "string",
+      "default": ""
+    },
+    "variant": {
+      "type": "string",
+      "enum": ["light", "dark"],
+      "default": "light"
+    },
+    "columns": {
+      "type": "number",
+      "enum": [2, 3, 4],
+      "default": 3
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

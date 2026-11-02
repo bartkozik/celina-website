@@ -1,0 +1,549 @@
+.celina-sales-pre-cta + p {
+	margin-bottom: 1.5rem;
+}
+
+/* Native compositions: shared by the editor and frontend. */
+.celina-entry-content > .celina-sales-page,
+.editor-styles-wrapper .is-root-container > .celina-sales-page {
+	width: 100%;
+	max-width: none;
+}
+
+.celina-sales-section {
+	box-sizing: border-box;
+	width: var(--celina-container);
+	margin-inline: auto;
+	padding-block: var(--celina-section-space-top) var(--celina-section-space);
+}
+
+.celina-sales-section h2 {
+	margin: 0 0 var(--celina-space-4);
+	font-size: clamp(1.5rem, 2vw, 1.875rem);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+}
+
+.celina-sales-facts,
+.celina-sales-facts > .wp-block-group__inner-container {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 2rem;
+}
+
+.celina-sales-facts {
+	gap: var(--celina-space-12) var(--celina-grid-gap);
+}
+
+.celina-sales-facts > .wp-block-group__inner-container {
+	grid-column: 1 / -1;
+}
+
+.celina-sales-fact,
+.celina-sales-fact > .wp-block-group__inner-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--celina-space-3);
+	min-width: 0;
+	width: 100%;
+}
+
+.celina-sales-fact {
+	padding-left: var(--celina-space-5);
+	border-left: 0.25rem solid var(--celina-color-citrus);
+}
+
+.celina-sales-fact p {
+	align-self: flex-start;
+	margin: 0;
+	color: var(--celina-color-text-soft);
+}
+
+.celina-sales-fact strong {
+	display: block;
+	margin-bottom: var(--celina-space-2);
+	color: var(--celina-color-stone-darker);
+	font-size: clamp(1.5rem, 2.2vw, 2rem);
+	font-weight: 900;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+}
+
+.celina-sales-fact .celina-sales-fact-icon {
+	display: flex;
+	flex: 0 0 auto;
+	align-items: center;
+	justify-content: flex-start;
+	width: auto;
+	height: auto;
+	margin: 0;
+}
+
+.celina-sales-fact-icon img {
+	width: 2rem;
+	height: 2rem;
+}
+
+.celina-sales-intro,
+.celina-sales-intro > .wp-block-group__inner-container {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+	gap: 1rem 3rem;
+}
+
+.celina-sales-intro > .wp-block-group__inner-container {
+	grid-column: 1 / -1;
+}
+
+.celina-sales-intro h2 {
+	align-self: start;
+	margin: 0;
+	padding-left: 1.25rem;
+	border-left: 4px solid #ff6c0d;
+}
+
+.celina-sales-intro-copy p {
+	max-width: 65ch;
+	margin: 0 0 1rem;
+}
+
+.celina-sales-intro-lead {
+	font-size: 1.125rem;
+	font-weight: 600;
+	line-height: 1.6;
+}
+
+/* Outrank GeneratePress's a.wp-block-button__link:not(.has-background). */
+.celina-sales-section .wp-block-button .wp-block-button__link {
+	padding: 0.75rem 1.5rem;
+	transition: background-color var(--celina-transition-fast), border-color var(--celina-transition-fast), color var(--celina-transition-fast);
+	border: 1px solid #ff6c0d;
+	border-radius: var(--celina-radius-card);
+	color: #1a1a1a;
+	background: #ff6c0d;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.celina-sales-section .wp-block-button.is-style-outline .wp-block-button__link {
+	border-color: #505850;
+	background: transparent;
+}
+
+.celina-sales-section .wp-block-button .wp-block-button__link:hover,
+.celina-sales-section .wp-block-button .wp-block-button__link:focus-visible {
+	color: var(--celina-color-surface);
+	background: var(--celina-color-stone);
+	border-color: var(--celina-color-stone);
+}
+
+.celina-sales-cta .wp-block-button .wp-block-button__link:is(:hover, :focus-visible) {
+	color: var(--celina-color-text);
+	background: var(--celina-color-surface);
+	border-color: var(--celina-color-surface);
+}
+
+.celina-sales-section .wp-block-button .wp-block-button__link:focus-visible {
+	outline: 3px solid var(--celina-color-citrus);
+	outline-offset: 3px;
+}
+
+.celina-sales-cta {
+	width: 100%;
+	max-width: none;
+	padding: var(--celina-section-space-top) max(var(--celina-gutter), (100% - var(--celina-grid-width)) / 2) var(--celina-section-space);
+	color: #fff;
+	background: #232923;
+}
+
+.celina-sales-cta p,
+.celina-sales-contact-heading p {
+	max-width: 65ch;
+}
+
+.celina-sales-cta .wp-block-button .wp-block-button__link:focus-visible {
+	outline-color: #fff;
+}
+
+.celina-sales-careers,
+.celina-sales-careers > .wp-block-group__inner-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+}
+
+.celina-sales-careers {
+	margin-block: 2rem;
+	padding: 1.75rem 2rem;
+	border: 1px solid #d4d7d3;
+	border-left: 4px solid #ff6c0d;
+	background: #f5f6f4;
+}
+
+.celina-sales-careers > .wp-block-group__inner-container {
+	width: 100%;
+}
+
+.celina-sales-careers h2,
+.celina-sales-careers p {
+	margin-block: 0 0.5rem;
+}
+
+/* Contact opens with a narrow hero: photograph, gray wash, light copy. */
+.celina-sales-contact-heading {
+	display: grid;
+	align-content: center;
+	width: 100%;
+	max-width: none;
+	min-height: clamp(13rem, 20vw, 17rem);
+	padding: var(--celina-section-space-top) max(var(--celina-gutter), (100% - var(--celina-grid-width)) / 2);
+	color: var(--celina-color-surface);
+	background-position: center;
+	background-size: cover;
+}
+
+.celina-sales-contact-heading:not(.celina-media-cover) {
+	background-image: var(--celina-hero-overlay), url(../images/content/portfolio-image-11.png);
+}
+
+.celina-sales-contact-heading > .wp-block-group__inner-container {
+	width: 100%;
+	max-width: none;
+	margin-inline: 0;
+}
+
+.celina-sales-contact-heading h1 {
+	max-width: 22ch;
+	margin-block: var(--celina-space-2);
+	color: var(--celina-color-surface);
+	font-size: clamp(2rem, 4vw, 3.25rem);
+	font-weight: 900;
+	letter-spacing: -0.035em;
+	line-height: 1.04;
+}
+
+.celina-sales-eyebrow {
+	display: flex;
+	gap: var(--celina-space-3);
+	align-items: center;
+	margin-block: 0 var(--celina-space-4);
+	color: var(--celina-color-citrus);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+.celina-sales-eyebrow::before {
+	flex: 0 0 auto;
+	width: 1.5rem;
+	height: 0.125rem;
+	background: currentcolor;
+	content: "";
+}
+
+/* The history disclosure reads as an arrow link, not a boxed control. */
+.celina-sales-history summary {
+	display: inline-flex;
+	gap: var(--celina-space-2);
+	align-items: center;
+	padding: 0;
+	border: 0;
+	color: var(--celina-color-stone-darker);
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.celina-sales-history summary::after {
+	content: "→";
+}
+
+.celina-sales-history details[open] > summary::after {
+	content: "↑";
+}
+
+.celina-sales-history summary:hover {
+	color: var(--celina-color-citrus);
+}
+
+.celina-sales-history summary:focus-visible {
+	outline: 3px solid var(--celina-color-citrus);
+	outline-offset: 3px;
+}
+
+.celina-sales-history details[open] > summary {
+	margin-bottom: 0.75rem;
+}
+
+.celina-sales-page .celina-hero__description strong {
+	color: #fff;
+	font-weight: 700;
+}
+
+.celina-sales-page .celina-media-contact {
+	margin-bottom: var(--celina-section-space, 3rem);
+}
+
+:where(.celina-sales-page) .celina-media-contact a:is(:hover, :focus-visible) {
+	color: var(--celina-color-citrus);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.2em;
+}
+
+@media (max-width: 767px) {
+
+	.celina-sales-facts,
+	.celina-sales-facts > .wp-block-group__inner-container,
+	.celina-sales-intro,
+	.celina-sales-intro > .wp-block-group__inner-container {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 1.25rem;
+	}
+
+	.celina-sales-careers,
+	.celina-sales-careers > .wp-block-group__inner-container {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+@media (min-width: 768px) {
+
+	.celina-sales-fact p {
+		align-self: stretch;
+	}
+}
+
+.celina-sales-pre-cta {
+	color: var(--celina-color-citrus);
+	margin-bottom: 0.5rem;
+	font-size: clamp(1.25rem, 2vw, 1.5rem);
+	font-weight: 700;
+}
+
+
+/* Contextual CTAs use the same prompt → explanation → action rhythm. */
+.celina-sales-page .celina-cta-band__inner {
+	justify-items: start;
+	width: min(100%, var(--celina-grid-width));
+	text-align: left;
+}
+
+.celina-sales-page .celina-cta-band__heading {
+	max-width: 65ch;
+	margin: 0 0 var(--celina-space-4);
+	color: var(--celina-color-citrus);
+	font-size: clamp(1.5rem, 2vw, 1.875rem);
+	font-weight: 700;
+	line-height: 1.5;
+}
+
+.celina-sales-page .celina-cta-band__description {
+	max-width: 65ch;
+	margin: 0;
+}
+
+.celina-sales-page .celina-cta-band__actions {
+	margin-top: 1.5rem;
+}
+
+/* Classic themes insert an inner container around native Group blocks. */
+.celina-sales-page > .wp-block-group__inner-container {
+	width: 100%;
+	max-width: none;
+}
+
+.celina-sales-page > .wp-block-group__inner-container > * {
+	width: var(--celina-container);
+	max-width: var(--celina-grid-width);
+	margin-inline: auto;
+}
+
+.celina-sales-page > .wp-block-group__inner-container > :is(.celina-hero, .celina-industry-cards, .celina-capability-cards, .celina-text-image-split, .celina-news-grid, .celina-cta-band, .celina-achievements-timeline, .celina-resource-list, .celina-facility-cards, .celina-sales-cta, .celina-sales-handoff, .celina-sales-contact-heading) {
+	width: 100%;
+	max-width: none;
+}
+
+.celina-sales-page > .wp-block-group__inner-container > .celina-sales-section:not(.celina-sales-cta, .celina-sales-handoff, .celina-sales-contact-heading, .celina-sales-intro--muted, .celina-careers-benefits) {
+	width: var(--celina-container);
+	max-width: var(--celina-grid-width);
+}
+
+.celina-sales-page .wp-block-group__inner-container,
+.celina-sales-section .wp-block-group__inner-container {
+	padding: 0;
+}
+
+/*
+ * Project handoff: its own centred band under the industry cards.
+ */
+.celina-sales-handoff,
+.celina-sales-handoff > .wp-block-group__inner-container {
+	display: grid;
+	justify-items: center;
+	gap: var(--celina-space-2);
+	text-align: center;
+}
+
+.celina-sales-handoff {
+	width: 100%;
+	max-width: none;
+
+	/* Sits close to the cards it follows. */
+	padding: var(--celina-section-space-top-lead) max(var(--celina-gutter), (100% - var(--celina-grid-width)) / 2) var(--celina-section-space);
+}
+
+.celina-sales-handoff > .wp-block-group__inner-container {
+	width: 100%;
+	max-width: none;
+	margin-inline: 0;
+}
+
+.celina-sales-handoff > p,
+.celina-sales-handoff > .wp-block-group__inner-container > p {
+	max-width: none;
+	margin: 0;
+	color: var(--celina-color-text);
+}
+
+.celina-sales-handoff .celina-sales-pre-cta {
+	color: var(--celina-color-text);
+	font-size: clamp(1.5rem, 2vw, 1.875rem);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+}
+
+.celina-sales-handoff .celina-sales-pre-cta + p {
+	margin-bottom: 0;
+}
+
+.celina-sales-handoff .wp-block-buttons {
+	margin-top: var(--celina-space-4);
+}
+
+/* Nested sections share the outer gutter. The history timeline keeps its
+   own inset so its heading and cards do not touch the muted panel edges. */
+.celina-sales-section :is(.wp-block-celina-achievements-timeline:where(:not(.celina-achievements-timeline--timeline)), .wp-block-celina-capability-cards, .wp-block-celina-industry-cards, .wp-block-celina-facility-cards, .wp-block-celina-resource-list, .wp-block-celina-news-grid, .wp-block-celina-text-image-split, .wp-block-celina-intro-band) {
+	padding-inline: 0;
+}
+
+/* The project prompt now lives inside the industry section's introduction. */
+.celina-sales-page .celina-industry-cards__introduction > .celina-sales-pre-cta {
+	margin-bottom: var(--celina-space-2);
+	color: var(--celina-color-citrus);
+	font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+	font-weight: 700;
+}
+
+.celina-sales-page .celina-industry-cards__introduction p {
+	max-width: 65ch;
+	color: var(--celina-color-text-soft);
+}
+
+.celina-sales-page .celina-industry-cards__introduction a {
+	display: inline-flex;
+	align-items: center;
+	margin-top: var(--celina-space-4);
+	padding: 0.7rem 1.2rem;
+	border: 1px solid var(--celina-color-citrus);
+	border-radius: var(--celina-radius-button);
+	color: var(--celina-color-text);
+	font-size: 0.875rem;
+	font-weight: 700;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background-color var(--celina-transition-fast), color var(--celina-transition-fast);
+}
+
+.celina-sales-page .celina-industry-cards__introduction a:hover,
+.celina-sales-page .celina-industry-cards__introduction a:focus-visible {
+	color: var(--celina-color-text);
+	background: var(--celina-color-citrus);
+}
+
+/*
+ * Final CTA: the short line is the section label, the question is the headline.
+ */
+.celina-sales-cta h2 {
+	display: flex;
+	gap: var(--celina-space-3);
+	align-items: center;
+	justify-content: center;
+	margin: 0 0 var(--celina-space-4);
+	color: var(--celina-color-citrus);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+.celina-sales-cta h2::before {
+	flex: 0 0 auto;
+	width: 1.5rem;
+	height: 0.125rem;
+	background: currentcolor;
+	content: "";
+}
+
+.celina-sales-page .celina-sales-cta .celina-sales-pre-cta {
+	max-width: 24ch;
+	margin: 0 auto var(--celina-space-4);
+	color: var(--celina-color-surface);
+	font-size: clamp(2rem, 4vw, 3.25rem);
+	font-weight: 900;
+	letter-spacing: -0.035em;
+	line-height: 1.04;
+}
+
+/* Centred final CTA. */
+.celina-sales-cta,
+.celina-sales-cta > .wp-block-group__inner-container {
+	display: grid;
+	justify-items: center;
+	text-align: center;
+}
+
+.celina-sales-cta > .wp-block-group__inner-container {
+	width: 100%;
+}
+
+.celina-sales-contact-heading p:not(.celina-sales-eyebrow) {
+	color: var(--celina-color-slate);
+}
+
+/* The muted intro is its own light gray band on the hero display scale. */
+.celina-sales-section.celina-sales-intro--muted {
+	width: 100%;
+	max-width: none;
+	padding-inline: max(var(--celina-gutter), (100% - var(--celina-grid-width)) / 2);
+	background: var(--celina-color-surface-muted);
+}
+
+.celina-sales-intro--muted h2 {
+	padding-left: 0;
+	border-left: 0;
+	font-size: clamp(2rem, 4vw, 3.25rem);
+	font-weight: 900;
+	letter-spacing: -0.035em;
+	line-height: 1.04;
+}
+
+/* Compensation & Perks is a full-width gray band like the other sections. */
+.celina-sales-section.celina-careers-benefits {
+	width: 100%;
+	max-width: none;
+	padding-inline: max(var(--celina-gutter), (100% - var(--celina-grid-width)) / 2);
+	background: var(--celina-color-surface-muted);
+}
+
+/* Leadership is a full-width gray section like the rest of the page. */
+.celina-sales-page .celina-leadership {
+	width: 100%;
+	max-width: none;
+	padding-inline: max(var(--celina-gutter), (100% - var(--celina-grid-width)) / 2);
+}

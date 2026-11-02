@@ -1,0 +1,36 @@
+{
+  "apiVersion": 2,
+  "name": "celina/industry-cards",
+  "version": "0.1.0",
+  "title": "Industry Cards — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "grid-view",
+  "textdomain": "celina-blocks",
+  "allowedBlocks": ["celina/industry-card"],
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "introduction": {
+      "type": "string",
+      "default": ""
+    },
+    "columns": {
+      "type": "number",
+      "enum": [1, 2, 3, 4],
+      "default": 3
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

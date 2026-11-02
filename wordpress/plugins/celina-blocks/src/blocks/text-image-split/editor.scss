@@ -1,0 +1,22 @@
+.wp-block-celina-text-image-split {
+
+	&.is-selected,
+	&.has-child-selected {
+		outline: 1px dashed var(--celina-color-stone, #3d4543);
+	}
+
+	.celina-text-image-split__media .components-button {
+		margin-top: var(--celina-space-3, 0.75rem);
+		margin-inline-end: var(--celina-space-2, 0.5rem);
+	}
+}
+
+.celina-text-image-split__button-editor {
+	display: grid;
+	grid-template-columns: minmax(10rem, 1fr) auto;
+	gap: var(--celina-space-2, 0.5rem);
+	align-items: center;
+	margin-top: var(--celina-space-6, 1.5rem);
+	padding: var(--celina-space-3, 0.75rem);
+	background: var(--celina-color-surface, #fff);
+}

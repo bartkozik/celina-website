@@ -1,0 +1,17 @@
+/* Show the native inserter's accessible label without changing its behavior. */
+.celina-collection-editor .block-list-appender .block-editor-button-block-appender {
+	display: flex;
+	gap: 0.5rem;
+	width: 100%;
+	min-height: 2.75rem;
+	height: auto;
+	padding: 0.75rem;
+	color: #1e1e1e;
+	background: #fff;
+}
+
+.celina-collection-editor .block-list-appender .block-editor-button-block-appender::after {
+	content: attr(aria-label);
+	font-size: 0.875rem;
+	line-height: 1.4;
+}

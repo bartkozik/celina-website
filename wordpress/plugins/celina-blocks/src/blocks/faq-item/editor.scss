@@ -1,0 +1,6 @@
+.wp-block-celina-faq-item {
+
+	&.is-selected {
+		outline: 1px dashed var(--celina-color-stone, #3d4543);
+	}
+}

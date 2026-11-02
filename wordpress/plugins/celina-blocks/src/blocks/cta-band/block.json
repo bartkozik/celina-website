@@ -1,0 +1,54 @@
+{
+  "apiVersion": 2,
+  "name": "celina/cta-band",
+  "version": "0.1.0",
+  "title": "CTA Band — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "megaphone",
+  "textdomain": "celina-blocks",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryNewTab": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,239 @@
+@use "../../shared/heading";
+@use "../../shared/eyebrow";
+
+.wp-block-celina-achievements-timeline {
+	padding: var(--celina-section-space-top, clamp(2rem, 3.5vw, 3rem)) var(--celina-gutter, clamp(1rem, 4vw, 2rem)) var(--celina-section-space, 4rem);
+	color: var(--celina-color-text, #1a1a1a);
+	background: var(--celina-color-surface-muted, #f4f4f2);
+}
+
+.celina-achievements-timeline__inner {
+	width: min(100%, var(--celina-grid-width, 80rem));
+	margin-inline: auto;
+}
+
+.celina-achievements-timeline__header {
+	margin-bottom: var(--celina-space-16, 4rem);
+}
+
+.celina-achievements-timeline__eyebrow {
+
+	@include eyebrow.section-eyebrow();
+}
+
+.celina-achievements-timeline__heading {
+
+	@include heading.section-heading;
+}
+
+.celina-achievements-timeline__introduction > :first-child {
+	margin-top: 0;
+}
+
+.celina-achievements-timeline__introduction > :last-child {
+	margin-bottom: 0;
+}
+
+.celina-achievements-timeline__items,
+.celina-achievements-timeline__items > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	display: grid;
+	gap: var(--celina-grid-gap, 1.5rem);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.celina-achievements-timeline__items > .block-editor-inner-blocks {
+	grid-column: 1 / -1;
+	min-width: 0;
+}
+
+.celina-achievements-timeline--timeline .celina-achievements-timeline__items {
+	position: relative;
+	padding-inline-start: var(--celina-space-6, 1.5rem);
+}
+
+.celina-achievements-timeline--timeline .celina-achievements-timeline__items::before {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0.375rem;
+	width: 0.125rem;
+	background: var(--celina-color-citrus, #ff6c0d);
+	content: "";
+}
+
+/*
+ * Proof points share the key-figure card style: no box, an orange bar on the
+ * leading edge, a bold title and one soft explanation line.
+ */
+.celina-achievements-timeline--facts .celina-achievements-timeline__items,
+.celina-achievements-timeline--facts .celina-achievements-timeline__items > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	grid-auto-rows: 1fr;
+	gap: var(--celina-space-12, 3rem) var(--celina-grid-gap, 1.5rem);
+}
+
+.celina-achievements-timeline--facts .wp-block-celina-achievement {
+	display: flex;
+	flex-direction: column;
+	padding: 0 0 0 var(--celina-space-5, 1.25rem);
+	border: 0;
+	border-inline-start: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+	border-radius: var(--celina-radius-card, 2px);
+	background: transparent;
+	box-shadow: none;
+}
+
+.celina-achievements-timeline--facts .celina-achievement__heading {
+	margin: 0 0 var(--celina-space-3, 0.75rem);
+	color: var(--celina-color-stone-darker, #242825);
+	font-size: clamp(1.5rem, 2.2vw, 2rem);
+	font-weight: 900;
+	letter-spacing: -0.02em;
+	line-height: 1.15;
+}
+
+.celina-achievements-timeline--facts .celina-achievement__content {
+	color: var(--celina-color-text-soft, #555);
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.45;
+}
+
+.celina-achievements-timeline--facts .celina-achievement__content strong {
+	font-weight: 700;
+}
+
+@media (width > 48rem) {
+
+	.celina-achievements-timeline--facts .celina-achievements-timeline__items,
+	.celina-achievements-timeline--facts .celina-achievements-timeline__items > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+
+/*
+ * Key figures: an item with a Year/figure is a large number with its Label as
+ * the unit; an item without one is a compact proof point below the figures.
+ * Browsers without :has() keep the regular fact cards.
+ */
+.celina-achievements-timeline--stats {
+	background: var(--celina-color-surface, #fff);
+}
+
+.celina-achievements-timeline--stats .celina-achievements-timeline__items,
+.celina-achievements-timeline--stats .celina-achievements-timeline__items > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	grid-template-columns: minmax(0, 1fr);
+	grid-auto-rows: 1fr;
+	gap: var(--celina-space-12, 3rem) var(--celina-grid-gap, 1.5rem);
+}
+
+.celina-achievements-timeline--stats .wp-block-celina-achievement:where(:has(> .celina-achievement__marker):not(.celina-achievement--no-figure), :has(> .celina-achievement__icon)) {
+	display: flex;
+	flex-direction: column;
+	padding: 0 0 0 var(--celina-space-5, 1.25rem);
+	border: 0;
+	border-inline-start: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+	border-radius: var(--celina-radius-card, 2px);
+	background: transparent;
+}
+
+.celina-achievements-timeline--stats .celina-achievement__marker {
+	align-items: baseline;
+	gap: var(--celina-space-2, 0.5rem);
+	margin-bottom: var(--celina-space-2, 0.5rem);
+	color: var(--celina-color-stone-darker, #242825);
+}
+
+.celina-achievements-timeline--stats .celina-achievement__year {
+	font-size: clamp(1.875rem, 2.6vw, 2.5rem);
+	font-weight: 900;
+	letter-spacing: -0.03em;
+	line-height: 1;
+	font-variant-numeric: tabular-nums;
+}
+
+.celina-achievements-timeline--stats .celina-achievement__prefix {
+	order: -1;
+	align-self: baseline;
+	color: var(--celina-color-text-soft, #555);
+	font-size: 0.875rem;
+	letter-spacing: 0.08em;
+}
+
+.celina-achievements-timeline--stats .celina-achievement__label {
+	align-self: baseline;
+	color: var(--celina-color-text-soft, #555);
+	font-size: 0.875rem;
+	letter-spacing: 0.08em;
+}
+
+
+.celina-achievements-timeline--stats .wp-block-celina-achievement:where(:not(:has(> .celina-achievement__marker, > .celina-achievement__icon)), .celina-achievement--no-figure:not(.celina-achievement--has-icon)) {
+	display: flex;
+	flex-direction: column;
+	padding: 0 0 0 var(--celina-space-5, 1.25rem);
+	border: 0;
+	border-inline-start: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+	border-radius: var(--celina-radius-card, 2px);
+	background: transparent;
+}
+
+
+/*
+ * In the editor a proof point keeps a small Year field, shown when selected,
+ * so it can be turned into a figure.
+ */
+.celina-achievements-timeline--stats .celina-achievement--no-figure .celina-achievement__marker {
+	display: none;
+}
+
+.celina-achievements-timeline--stats .celina-achievement--no-figure.is-selected .celina-achievement__marker,
+.celina-achievements-timeline--stats .celina-achievement--no-figure:focus-within .celina-achievement__marker {
+	display: flex;
+}
+
+.celina-achievements-timeline--stats .celina-achievement--no-figure .celina-achievement__year {
+	font-size: 0.875rem;
+}
+
+@media (width > 48rem) {
+
+	.celina-achievements-timeline--stats .celina-achievements-timeline__items,
+	.celina-achievements-timeline--stats .celina-achievements-timeline__items > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.celina-achievements-timeline--stats .celina-achievement__icon {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+}
+
+@media (width > 64rem) {
+
+	.celina-achievements-timeline--stats .celina-achievements-timeline__items,
+	.celina-achievements-timeline--stats .celina-achievements-timeline__items > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+	}
+
+	.celina-achievements-timeline--stats .wp-block-celina-achievement {
+		grid-column: span 3;
+	}
+
+}
+
+.celina-achievements-timeline--stats .celina-achievement__icon {
+	margin-bottom: var(--celina-space-3, 0.75rem);
+}
+
+/* Every card in this presentation shares one explanation style. */
+.celina-achievements-timeline--stats .celina-achievement__heading {
+	margin: 0;
+	color: var(--celina-color-text-soft, #555);
+	font-size: 1rem;
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: 1.45;
+}

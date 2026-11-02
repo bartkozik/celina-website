@@ -1,0 +1,32 @@
+.wp-block-celina-article-layout {
+	display: flow-root;
+}
+
+.celina-article-layout > h2 {
+	margin-block: var(--celina-space-12, 3rem) var(--celina-space-4, 1rem);
+}
+
+.celina-article-layout > h3 {
+	margin-block: var(--celina-space-8, 2rem) var(--celina-space-3, 0.75rem);
+}
+
+.celina-article-layout > p {
+	margin-block: 0 var(--celina-space-6, 1.5rem);
+}
+
+.celina-article-layout > :where(ul, ol) {
+	margin-block: 0 var(--celina-space-6, 1.5rem);
+	padding-inline-start: var(--celina-space-8, 2rem);
+}
+
+.celina-article-layout > :where(ul, ol) li + li {
+	margin-top: var(--celina-space-2, 0.5rem);
+}
+
+.celina-article-layout > .celina-article-layout__lead {
+	padding-inline-start: var(--celina-space-6, 1.5rem);
+	border-inline-start: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+	color: var(--celina-color-stone-darker, #1d2523);
+	font-size: clamp(1.2rem, 2vw, 1.45rem);
+	font-weight: 600;
+}

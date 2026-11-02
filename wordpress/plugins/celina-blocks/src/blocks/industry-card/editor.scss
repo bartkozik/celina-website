@@ -1,0 +1,14 @@
+.wp-block-celina-industry-card {
+	min-height: 18rem;
+}
+
+.celina-industry-card__media .components-button {
+	margin: var(--celina-space-2, 0.5rem);
+}
+
+.celina-industry-card__link-editor {
+	display: flex;
+	align-items: center;
+	gap: var(--celina-space-2, 0.5rem);
+	margin-top: var(--celina-space-6, 1.5rem);
+}

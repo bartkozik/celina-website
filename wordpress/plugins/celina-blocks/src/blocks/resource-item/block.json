@@ -1,0 +1,43 @@
+{
+  "apiVersion": 2,
+  "name": "celina/resource-item",
+  "version": "0.1.0",
+  "title": "Resource Item — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "download",
+  "textdomain": "celina-blocks",
+  "parent": [ "celina/resource-list" ],
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "metadata": {
+      "type": "string",
+      "default": ""
+    },
+    "fileId": {
+      "type": "number",
+      "default": 0
+    },
+    "fileUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "linkLabel": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

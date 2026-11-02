@@ -1,0 +1,36 @@
+{
+  "apiVersion": 2,
+  "name": "celina/paycor-jobs",
+  "version": "0.1.0",
+  "title": "Paycor Jobs — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "businessperson",
+  "keywords": [ "paycor", "jobs", "careers" ],
+  "textdomain": "celina-blocks",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Current openings"
+    },
+    "clientId": {
+      "type": "string",
+      "default": ""
+    },
+    "fallbackText": {
+      "type": "string",
+      "default": "Open positions are also available directly on Paycor."
+    },
+    "jobsLinkText": {
+      "type": "string",
+      "default": "View open positions on Paycor"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

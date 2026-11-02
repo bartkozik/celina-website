@@ -1,0 +1,71 @@
+@use "../../shared/heading";
+@use "../../shared/eyebrow";
+
+.wp-block-celina-industry-cards {
+	padding: var(--celina-section-space-top, clamp(2rem, 3.5vw, 3rem)) var(--celina-gutter, clamp(1rem, 4vw, 2rem)) var(--celina-section-space, 4rem);
+	color: var(--celina-color-text, #1a1a1a);
+}
+
+.celina-industry-cards__inner {
+	width: min(100%, var(--celina-grid-width, 80rem));
+	margin-inline: auto;
+}
+
+.celina-industry-cards__header {
+	margin-bottom: var(--celina-space-8, 2rem);
+}
+
+.celina-industry-cards__eyebrow {
+
+	@include eyebrow.section-eyebrow();
+}
+
+.celina-industry-cards__heading {
+
+	@include heading.section-heading;
+}
+
+.celina-industry-cards__introduction > :first-child {
+	margin-top: 0;
+}
+
+.celina-industry-cards__introduction > :last-child {
+	margin-bottom: 0;
+}
+
+.celina-industry-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.celina-industry-cards__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--celina-grid-gap, 1.5rem);
+}
+
+.celina-industry-cards__grid > .block-editor-inner-blocks {
+	grid-column: 1 / -1;
+	min-width: 0;
+}
+
+@media (width > 48rem) {
+
+	.celina-industry-cards--columns-2 .celina-industry-cards__grid,
+	.celina-industry-cards--columns-2 .celina-industry-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout,
+	.celina-industry-cards--columns-3 .celina-industry-cards__grid,
+	.celina-industry-cards--columns-3 .celina-industry-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout,
+	.celina-industry-cards--columns-4 .celina-industry-cards__grid,
+	.celina-industry-cards--columns-4 .celina-industry-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (width > 64rem) {
+
+	.celina-industry-cards--columns-3 .celina-industry-cards__grid,
+	.celina-industry-cards--columns-3 .celina-industry-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.celina-industry-cards--columns-4 .celina-industry-cards__grid,
+	.celina-industry-cards--columns-4 .celina-industry-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}

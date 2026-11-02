@@ -1,0 +1,35 @@
+{
+  "apiVersion": 2,
+  "name": "celina/article-layout",
+  "version": "0.1.0",
+  "title": "CELINA Article Layout — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "media-document",
+  "description": "A flexible editorial layout for CELINA news articles.",
+  "keywords": [ "article", "news", "story" ],
+  "textdomain": "celina-blocks",
+  "attributes": {},
+  "allowedBlocks": [
+    "core/paragraph",
+    "core/heading",
+    "core/image",
+    "core/gallery",
+    "core/list",
+    "core/pullquote",
+    "core/quote",
+    "core/table",
+    "core/buttons",
+    "core/separator",
+    "core/embed",
+    "core/group",
+    "core/columns",
+    "core/media-text",
+    "celina/media-contact"
+  ],
+  "supports": {
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

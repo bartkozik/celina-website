@@ -1,0 +1,44 @@
+{
+  "apiVersion": 2,
+  "name": "celina/achievement",
+  "version": "0.1.0",
+  "title": "Achievement — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "marker",
+  "textdomain": "celina-blocks",
+  "parent": [ "celina/achievements-timeline" ],
+  "attributes": {
+    "prefix": {
+      "type": "string",
+      "default": ""
+    },
+    "year": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "icon": {
+      "type": "string",
+      "enum": [ "", "globe", "flag", "manufacturing", "quality", "experience" ],
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

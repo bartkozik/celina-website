@@ -1,0 +1,184 @@
+@use "../../shared/heading";
+@use "../../shared/eyebrow";
+@use "../../shared/card-link";
+
+.wp-block-celina-capability-cards {
+	padding: var(--celina-section-space-top, clamp(2rem, 3.5vw, 3rem)) var(--celina-gutter, clamp(1rem, 4vw, 2rem)) var(--celina-section-space, 4rem);
+	color: var(--celina-color-text, #1a1a1a);
+}
+
+.celina-capability-cards--light {
+	background: var(--celina-color-surface-muted, #f4f4f2);
+}
+
+.celina-capability-cards--dark {
+	color: var(--celina-color-surface, #fff);
+	background: var(--celina-color-stone, #3d4543);
+}
+
+.celina-capability-cards__inner {
+	display: flex;
+	flex-direction: column;
+	width: min(100%, var(--celina-grid-width, 80rem));
+	margin-inline: auto;
+}
+
+/*
+ * The header's parts become direct children of the section, so the section's
+ * call to action can sit after the card grid without changing saved markup.
+ */
+.celina-capability-cards__header {
+	display: contents;
+}
+
+.celina-capability-cards__grid {
+	order: 1;
+	margin-top: var(--celina-space-8, 2rem);
+}
+
+.celina-capability-cards__introduction {
+	order: 2;
+	margin-top: var(--celina-space-8, 2rem);
+}
+
+.celina-capability-cards__eyebrow {
+
+	@include eyebrow.section-eyebrow();
+}
+
+
+.celina-capability-cards--dark a {
+	color: var(--celina-color-surface, #fff);
+}
+
+.celina-capability-cards--dark .celina-capability-cards__introduction a:focus-visible {
+	outline: 3px solid currentcolor;
+	outline-offset: 3px;
+}
+
+.celina-capability-cards__heading {
+
+	@include heading.section-heading;
+}
+
+.celina-capability-cards--dark .celina-capability-cards__heading,
+.celina-capability-cards--dark .celina-capability-cards__introduction p {
+	color: var(--celina-color-surface, #fff);
+}
+
+.celina-capability-cards__introduction > :first-child {
+	margin-top: 0;
+}
+
+.celina-capability-cards__introduction > :last-child {
+	margin-bottom: 0;
+}
+
+.celina-capability-cards--dark .celina-capability-cards__introduction a:hover,
+.celina-capability-cards--dark .celina-capability-cards__introduction a:focus-visible {
+	color: var(--celina-color-citrus, #ff6c0d);
+}
+
+
+.celina-capability-cards__related-links {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--celina-space-3, 0.75rem);
+	margin-top: var(--celina-space-5, 1.25rem);
+}
+
+.celina-capability-cards__related-link {
+	border-left: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+	display: flex;
+	min-height: 4rem;
+	align-items: center;
+	padding: var(--celina-space-4, 1rem);
+	color: var(--celina-color-text, #1a1a1a);
+	background: var(--celina-color-surface, #fff);
+	font-weight: 700;
+	line-height: 1.3;
+	text-decoration: none;
+}
+
+.celina-capability-cards__related-link:hover,
+.celina-capability-cards__related-link:focus-visible {
+	color: var(--celina-color-stone-darker, #242825);
+	background: var(--celina-color-surface-muted, #f4f4f2);
+	box-shadow: inset 0 0 0 2px var(--celina-color-citrus, #ff6c0d);
+}
+
+.celina-capability-cards__related-link:focus-visible {
+	outline: 3px solid var(--celina-color-citrus, #ff6c0d);
+	outline-offset: 3px;
+}
+
+.celina-capability-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.celina-capability-cards__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--celina-grid-gap, 1.5rem);
+}
+
+.celina-capability-cards__grid > .block-editor-inner-blocks {
+	grid-column: 1 / -1;
+	min-width: 0;
+}
+
+@media (width > 48rem) {
+
+	.celina-capability-cards__related-links {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.celina-capability-cards--columns-2 .celina-capability-cards__grid,
+	.celina-capability-cards--columns-2 .celina-capability-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.celina-capability-cards--columns-3 .celina-capability-cards__grid,
+	.celina-capability-cards--columns-3 .celina-capability-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout,
+	.celina-capability-cards--columns-4 .celina-capability-cards__grid,
+	.celina-capability-cards--columns-4 .celina-capability-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (width > 64rem) {
+
+	.celina-capability-cards--columns-3 .celina-capability-cards__grid,
+	.celina-capability-cards--columns-3 .celina-capability-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.celina-capability-cards--columns-4 .celina-capability-cards__grid,
+	.celina-capability-cards--columns-4 .celina-capability-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+/* A paragraph holding only a link is the section's call to action. */
+.celina-capability-cards .celina-capability-cards__introduction > p > a:only-child {
+	padding: 0.75rem 1.5rem;
+	border: 1px solid currentcolor;
+	border-radius: var(--celina-radius-button, 2px);
+	color: var(--celina-color-text, #1a1a1a);
+	background: transparent;
+
+	@include card-link.arrow-link;
+}
+
+/* On the dark section the outline button inverts. */
+.celina-capability-cards--dark .celina-capability-cards__introduction > p > a:only-child {
+	color: var(--celina-color-surface, #fff);
+}
+
+.celina-capability-cards .celina-capability-cards__introduction > p > a:only-child:hover,
+.celina-capability-cards .celina-capability-cards__introduction > p > a:only-child:focus-visible {
+	color: var(--celina-color-surface, #fff);
+	background: var(--celina-color-stone, #3d4543);
+}
+
+.celina-capability-cards--dark .celina-capability-cards__introduction > p > a:only-child:is(:hover, :focus-visible) {
+	color: var(--celina-color-text, #1a1a1a);
+	background: var(--celina-color-surface, #fff);
+}

@@ -1,0 +1,36 @@
+{
+  "apiVersion": 2,
+  "name": "celina/achievements-timeline",
+  "version": "0.1.0",
+  "title": "Achievements Timeline — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "awards",
+  "textdomain": "celina-blocks",
+  "allowedBlocks": [ "celina/achievement" ],
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "introduction": {
+      "type": "string",
+      "default": ""
+    },
+    "variant": {
+      "type": "string",
+      "enum": [ "facts", "timeline", "stats" ],
+      "default": "facts"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

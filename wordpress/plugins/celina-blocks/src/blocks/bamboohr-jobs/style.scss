@@ -1,0 +1,10 @@
+.wp-block-celina-bamboohr-jobs {
+	color: var(--celina-color-text);
+
+	.celina-bamboohr-jobs__status {
+		padding: var(--celina-space-6, 1.5rem);
+		border-inline-start: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+		border-radius: 0 var(--celina-radius-card, 0.75rem) var(--celina-radius-card, 0.75rem) 0;
+		background: var(--celina-color-surface-muted, #f4f4f2);
+	}
+}

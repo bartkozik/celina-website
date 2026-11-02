@@ -1,0 +1,42 @@
+{
+  "apiVersion": 2,
+  "name": "celina/media-contact",
+  "version": "0.1.0",
+  "title": "Media Contact — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "id-alt",
+  "textdomain": "celina-blocks",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": "Media Contact"
+    },
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "role": {
+      "type": "string",
+      "default": ""
+    },
+    "email": {
+      "type": "string",
+      "default": ""
+    },
+    "phone": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,31 @@
+{
+  "apiVersion": 2,
+  "name": "celina/capability-card",
+  "version": "0.1.0",
+  "title": "Capability Card — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "index-card",
+  "textdomain": "celina-blocks",
+  "parent": ["celina/capability-cards"],
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "proof": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

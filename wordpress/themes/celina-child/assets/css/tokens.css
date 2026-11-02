@@ -1,0 +1,85 @@
+@font-face {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 300 900;
+	font-display: swap;
+	src: url(../fonts/inter-latin-ext.woff2) format("woff2");
+	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 300 900;
+	font-display: swap;
+	src: url(../fonts/inter-latin.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+	--celina-color-citrus: #ff6c0d;
+	--celina-color-citrus-dark: #7e2d2b;
+
+
+	--celina-color-stone: #3d4543;
+	--celina-color-stone-dark: #2e3432;
+	--celina-color-stone-darker: #242825;
+	--celina-color-overlay: rgb(61 69 67 / 72%);
+	--celina-hero-overlay: linear-gradient(90deg, rgb(61 69 67 / 94%) 0%, var(--celina-color-overlay) 55%, rgb(61 69 67 / 40%) 100%);
+	--celina-color-slate: #d9d8d6;
+	--celina-color-text: #1a1a1a;
+	--celina-color-text-soft: #555;
+	--celina-color-muted: #666;
+	--celina-color-surface: #fff;
+	--celina-color-surface-muted: #f4f4f2;
+	--celina-color-border: #e5e5e5;
+	--celina-color-border-dark: #2a3028;
+	--celina-font-body: inter, arial, sans-serif;
+	--celina-font-heading: inter, arial, sans-serif;
+	--celina-space-1: 0.25rem;
+	--celina-space-2: 0.5rem;
+	--celina-space-3: 0.75rem;
+	--celina-space-4: 1rem;
+	--celina-space-5: 1.25rem;
+	--celina-space-6: 1.5rem;
+	--celina-space-8: 2rem;
+	--celina-space-12: 3rem;
+	--celina-space-16: 4rem;
+	--celina-content-width: 72rem;
+	--celina-wide-width: 80rem;
+	--celina-reading-width: 47.5rem;
+	--celina-radius-card: 2px;
+	--celina-radius-button: 2px;
+	--celina-radius-pill: 2px;
+	--celina-shadow-card: none;
+	--celina-shadow-header: none;
+	--celina-transition-fast: 150ms ease;
+	--celina-section-space: clamp(3rem, 5vw, 4.5rem);
+
+	/*
+	 * Sections open tighter than they close. The first section after the hero
+	 * sits closer to it than the ones further down the page.
+	 */
+	--celina-section-space-top: clamp(2.5rem, 4.5vw, 3.75rem);
+	--celina-section-space-top-lead: clamp(1.75rem, 3vw, 2.75rem);
+
+	/* Two light sections in a row read as one band, so they sit closer. */
+	--celina-section-space-top-tight: clamp(1rem, 2vw, 1.5rem);
+
+	/*
+	 * One page grid for the header, every section, and the footer: the same
+	 * container width, side gutter, and column gap. Blocks carry the same
+	 * values as fallbacks so the plugin still lays out without this theme.
+	 */
+
+	/* 100px narrower than the 80rem shell, at the reviewer's request. */
+	--celina-grid-width: 73.75rem;
+	--celina-gutter: clamp(1rem, 4vw, 2rem);
+	--celina-grid-gap: 1.5rem;
+	--celina-container: min(100% - 2 * var(--celina-gutter), var(--celina-grid-width));
+
+	/* Phones need the taller value so long headings never push the hero. */
+	--celina-hero-height: 34rem;
+	--celina-breakpoint-tablet: 64rem;
+	--celina-breakpoint-mobile: 48rem;
+}

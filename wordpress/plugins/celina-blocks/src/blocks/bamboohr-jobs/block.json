@@ -1,0 +1,36 @@
+{
+  "apiVersion": 2,
+  "name": "celina/bamboohr-jobs",
+  "version": "0.1.0",
+  "title": "Legacy BambooHR Jobs",
+  "category": "celina",
+  "icon": "businessperson",
+  "textdomain": "celina-blocks",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Current openings"
+    },
+    "companySubdomain": {
+      "type": "string",
+      "default": ""
+    },
+    "fallbackText": {
+      "type": "string",
+      "default": "Job listings will appear here once BambooHR is connected."
+    },
+    "jobsLinkText": {
+      "type": "string",
+      "default": "View open positions"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "inserter": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

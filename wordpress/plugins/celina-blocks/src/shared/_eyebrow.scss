@@ -1,0 +1,26 @@
+/*
+ * One section eyebrow for every CELINA section, matching the hero's
+ * "American Manufacturing Since 1996" label: a short rule, then small
+ * uppercase text. Pass the colour token for dark grounds.
+ */
+
+@mixin section-eyebrow( $color: var(--celina-color-citrus, #ff6c0d) ) {
+	display: flex;
+	gap: var(--celina-space-3, 0.75rem);
+	align-items: center;
+	margin: 0 0 var(--celina-space-4, 1rem);
+	color: $color;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	line-height: 1.4;
+	text-transform: uppercase;
+
+	&::before {
+		flex: 0 0 auto;
+		width: 1.5rem;
+		height: 0.125rem;
+		background: currentcolor;
+		content: "";
+	}
+}

@@ -1,0 +1,35 @@
+{
+  "apiVersion": 2,
+  "name": "celina/intro-band",
+  "version": "0.1.0",
+  "title": "Intro / Description Band — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "align-wide",
+  "textdomain": "celina-blocks",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "variant": {
+      "type": "string",
+      "enum": ["neutral", "warm"],
+      "default": "neutral"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,25 @@
+.wp-block-celina-hero {
+
+	&.is-selected,
+	&.has-child-selected {
+		outline: 1px dashed var(--celina-color-stone, #3d4543);
+	}
+
+	.celina-hero__inner {
+		min-width: min(100%, 18rem);
+	}
+
+	.block-editor-rich-text__editable:empty::before {
+		opacity: 0.8;
+	}
+}
+
+.celina-hero__button-control {
+	padding-block: var(--celina-space-4, 1rem);
+	border-top: 1px solid var(--celina-color-border, #e5e5e5);
+}
+
+.celina-hero__editor-help {
+	font-size: 0.875rem;
+	margin-top: 1rem;
+}

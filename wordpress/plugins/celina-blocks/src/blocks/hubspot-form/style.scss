@@ -1,0 +1,143 @@
+.wp-block-celina-hubspot-form {
+	color: var(--celina-color-text);
+
+	> h2 {
+		font-weight: 700;
+	}
+
+	.celina-hubspot-form__status,
+	.celina-hubspot-form__fallback {
+		padding: var(--celina-space-6, 1.5rem);
+		border-inline-start: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+		border-radius: 0 var(--celina-radius-card, 0.75rem) var(--celina-radius-card, 0.75rem) 0;
+		background: var(--celina-color-surface-muted, #f4f4f2);
+	}
+
+	.celina-hubspot-form__target:empty {
+		min-height: 4rem;
+	}
+}
+
+/*
+ * CELINA styling for the inline HubSpot form. HubSpot renders its own markup,
+ * so these rules stay close to its class names and change presentation only.
+ */
+.celina-hubspot-form__form {
+	display: grid;
+	gap: var(--celina-space-4, 1rem);
+}
+
+.celina-hubspot-form__form .hs-form-field > label {
+	display: block;
+	margin-bottom: var(--celina-space-2, 0.5rem);
+	color: var(--celina-color-text, #1a1a1a);
+	font-size: 0.875rem;
+	font-weight: 700;
+}
+
+.celina-hubspot-form__form input[type="text"],
+.celina-hubspot-form__form input[type="email"],
+.celina-hubspot-form__form input[type="tel"],
+.celina-hubspot-form__form input[type="number"],
+.celina-hubspot-form__form textarea,
+.celina-hubspot-form__form select {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.7rem 0.9rem;
+	border: 1px solid var(--celina-color-border, #e5e5e5);
+	border-radius: var(--celina-radius-button, 2px);
+	color: var(--celina-color-text, #1a1a1a);
+	background: var(--celina-color-surface, #fff);
+	font-family: inherit;
+	font-size: 1rem;
+}
+
+.celina-hubspot-form__form textarea {
+	min-height: 8rem;
+	resize: vertical;
+}
+
+.celina-hubspot-form__form :is(input, textarea, select):focus-visible {
+	outline: 3px solid var(--celina-color-citrus, #ff6c0d);
+	outline-offset: 2px;
+}
+
+.celina-hubspot-form__form .hs-error-msg,
+.celina-hubspot-form__form .hs-error-msgs label {
+	color: var(--celina-color-citrus, #ff6c0d);
+	font-size: 0.875rem;
+}
+
+.celina-hubspot-form__form .inputs-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.celina-hubspot-form__form .hs-form-booleancheckbox-display {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	gap: var(--celina-space-3, 0.75rem);
+	align-items: start;
+	color: var(--celina-color-text-soft, #555);
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1.6;
+}
+
+.celina-hubspot-form__form .hs-form-booleancheckbox-display input[type="checkbox"] {
+	width: 1.1rem;
+	height: 1.1rem;
+	margin: 0.2rem 0 0;
+	accent-color: var(--celina-color-citrus, #ff6c0d);
+}
+
+.celina-hubspot-form__form .legal-consent-container {
+	color: var(--celina-color-text-soft, #555);
+	font-size: 0.875rem;
+	line-height: 1.6;
+}
+
+.celina-hubspot-form__form a:is(:hover, :focus-visible) {
+	color: var(--celina-color-stone, #3d4543);
+	text-decoration: underline;
+	text-decoration-thickness: 0.15em;
+	text-underline-offset: 0.2em;
+}
+
+.celina-hubspot-form__form a:focus-visible {
+	outline: 3px solid var(--celina-color-citrus, #ff6c0d);
+	outline-offset: 3px;
+}
+
+.celina-hubspot-form__form input[type="submit"],
+.celina-hubspot-form__form .hs-button {
+	padding: 0.75rem 1.5rem;
+	border: 0;
+	border-radius: var(--celina-radius-button, 2px);
+	color: var(--celina-color-text, #1a1a1a);
+	background: var(--celina-color-citrus, #ff6c0d);
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+	justify-self: start;
+	transition: background-color var(--celina-transition-fast, 150ms ease), color var(--celina-transition-fast, 150ms ease);
+}
+
+.celina-hubspot-form__form input[type="submit"]:hover,
+.celina-hubspot-form__form .hs-button:hover,
+.celina-hubspot-form__form input[type="submit"]:focus-visible,
+.celina-hubspot-form__form .hs-button:focus-visible {
+	color: var(--celina-color-text, #1a1a1a);
+	background: var(--celina-color-surface, #fff);
+	box-shadow: inset 0 0 0 1px var(--celina-color-citrus, #ff6c0d);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.celina-hubspot-form__form input[type="submit"],
+	.celina-hubspot-form__form .hs-button {
+		transition: none;
+	}
+}

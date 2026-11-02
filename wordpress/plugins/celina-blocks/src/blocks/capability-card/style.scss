@@ -1,0 +1,58 @@
+.wp-block-celina-capability-card {
+	box-sizing: border-box;
+	height: 100%;
+	padding: var(--celina-space-6, 1.5rem);
+	color: var(--celina-color-text, #1a1a1a);
+	background: var(--celina-color-surface, #fff);
+	border-radius: var(--celina-radius-card, 0.75rem);
+	box-shadow: var(--celina-shadow-card, none);
+	transition: border-color var(--celina-transition-fast, 150ms ease);
+}
+
+.celina-capability-cards--dark .wp-block-celina-capability-card {
+	color: var(--celina-color-surface, #fff);
+
+	/* A touch lighter than the section behind them. */
+	background: rgb(255 255 255 / 9%);
+	box-shadow: none;
+}
+
+.celina-capability-card__heading {
+	margin: 0 0 var(--celina-space-4, 1rem);
+	font-weight: 800;
+}
+
+.celina-capability-card__content > :first-child {
+	margin-top: 0;
+}
+
+.celina-capability-card__content > :last-child {
+	margin-bottom: 0;
+}
+
+.celina-capability-card__proof {
+	margin: var(--celina-space-6, 1.5rem) 0 0;
+	padding-inline-start: var(--celina-space-3, 0.75rem);
+	color: var(--celina-color-stone-dark, #2e3432);
+	font-weight: 700;
+	border-inline-start: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+}
+
+.celina-capability-cards--dark .celina-capability-card__proof {
+	color: var(--celina-color-surface, #fff);
+}
+
+.celina-capability-cards--dark .celina-capability-card__heading {
+	color: var(--celina-color-surface, #fff);
+}
+
+@media (hover: hover) {
+
+	.wp-block-celina-capability-card:hover {
+		border-color: var(--celina-color-citrus, #ff6c0d);
+	}
+
+	.celina-capability-cards--dark .wp-block-celina-capability-card:hover {
+		border-color: var(--celina-color-citrus, #ff6c0d);
+	}
+}

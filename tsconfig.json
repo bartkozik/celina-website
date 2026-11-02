@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@wordpress/components": [
+        "scripts/types/wordpress-components.d.ts"
+      ]
+    },
+    "types": [
+      "node",
+      "vitest/globals"
+    ]
+  },
+  "include": [
+    "scripts/**/*.ts",
+    "wordpress/plugins/celina-blocks/src/**/*.ts",
+    "wordpress/plugins/celina-blocks/src/**/*.tsx",
+    "tests/**/*.ts",
+    "playwright.config.ts"
+  ]
+}

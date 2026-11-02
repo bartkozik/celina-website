@@ -1,0 +1,40 @@
+# Version-control, task metadata, and local WordPress runtime state.
+.git
+.worktrees/
+.iterators/
+.wp-env.override.json
+docs/plans/
+docs/specs/
+
+# Dependencies and generated artifacts are recreated by the builder.
+node_modules/
+**/node_modules/
+artifacts/
+dist/
+wordpress/plugins/celina-blocks/build/
+wordpress/plugins/celina-blocks/vendor/
+coverage/
+test-results/
+playwright-report/
+fixtures/.celina-e2e-ready
+
+# Local backup material and operating-system artifacts.
+backups/
+ops/releases/
+ops/backups/
+ops/known_hosts
+*.bak
+*.backup
+*.sql
+.DS_Store
+Thumbs.db
+
+# Never make local configuration available to image stages. The tracked
+# placeholder and test contracts contain only documented non-secret values.
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!ops/.env.example
+!ops/test.env

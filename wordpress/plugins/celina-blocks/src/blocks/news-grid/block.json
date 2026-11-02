@@ -1,0 +1,51 @@
+{
+  "apiVersion": 2,
+  "name": "celina/news-grid",
+  "version": "0.1.0",
+  "title": "News Grid — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "grid-view",
+  "textdomain": "celina-blocks",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Latest News"
+    },
+    "category": {
+      "type": "number",
+      "default": 0
+    },
+    "count": {
+      "type": "number",
+      "default": 3
+    },
+    "layout": {
+      "type": "string",
+      "enum": ["grid", "featured", "news-index"],
+      "default": "grid"
+    },
+    "postId": {
+      "type": "number",
+      "default": 0
+    },
+    "pagination": {
+      "type": "boolean",
+      "default": false
+    },
+    "navigationCategories": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

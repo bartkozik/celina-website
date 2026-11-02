@@ -1,0 +1,40 @@
+{
+  "apiVersion": 2,
+  "name": "celina/hubspot-form",
+  "version": "0.1.0",
+  "title": "HubSpot Form — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "feedback",
+  "textdomain": "celina-blocks",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Contact our team"
+    },
+    "region": {
+      "type": "string",
+      "enum": ["na1", "eu1"],
+      "default": "na1"
+    },
+    "portalId": {
+      "type": "string",
+      "default": ""
+    },
+    "formId": {
+      "type": "string",
+      "default": ""
+    },
+    "fallbackText": {
+      "type": "string",
+      "default": "Contact us directly if the form is unavailable."
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

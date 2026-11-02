@@ -1,0 +1,527 @@
+/* Loaded only while the review variant is enabled. */
+.celina-review-pre-cta + p {
+	margin-bottom: 1.5rem;
+}
+
+.celina-review-inner {
+	width: min(calc(100% - 2rem), var(--celina-wide-width));
+	margin-inline: auto;
+}
+
+.celina-review-facts {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+	padding-block: 2.5rem;
+	border-bottom: 1px solid #d4d7d3;
+}
+
+.celina-review-facts p {
+	margin: 0;
+}
+
+.celina-review-facts strong {
+	display: block;
+	margin-bottom: 0.25rem;
+	font-size: 1.5rem;
+}
+
+.celina-review-contact-heading {
+	padding-block: 3rem 1rem;
+}
+
+.celina-review-contact-heading h1 {
+	max-width: 22ch;
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 800;
+}
+
+.celina-review-contact-heading p {
+	max-width: 65ch;
+}
+
+.celina-review-eyebrow {
+	display: flex;
+	gap: var(--celina-space-3);
+	align-items: center;
+	margin-block: 0 var(--celina-space-4);
+	color: var(--celina-color-citrus);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+.celina-review-eyebrow::before {
+	flex: 0 0 auto;
+	width: 1.5rem;
+	height: 0.125rem;
+	background: currentcolor;
+	content: "";
+}
+
+.celina-review-page--contact .celina-contact-columns {
+	padding-top: 1rem;
+}
+
+.celina-review-industry-action {
+	padding-block: 0 3rem;
+}
+
+.celina-review-history {
+	padding-block: 2.5rem;
+}
+
+.celina-review-history summary {
+	padding: 1rem;
+	border: 1px solid #5b625e;
+	border-radius: var(--celina-radius-card);
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.celina-review-history summary:focus-visible {
+	outline: 3px solid var(--celina-color-citrus);
+	outline-offset: 3px;
+}
+
+.celina-review-cta {
+	padding-block: 3.5rem;
+	color: #fff;
+	background: #232923;
+}
+
+.celina-review-cta p {
+	max-width: 65ch;
+}
+
+.celina-sales-review .celina-header-cta {
+	display: inline-flex;
+}
+
+@media (max-width: 767px) {
+
+	.celina-review-facts {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+		padding-block: 1.5rem;
+	}
+
+	.celina-sales-review .custom-logo {
+		max-width: 7rem;
+	}
+
+	.celina-sales-review .celina-header-cta {
+		padding: 0.65rem;
+		font-size: 0.8rem;
+	}
+
+	.celina-sales-review .celina-header-actions {
+		gap: 0.5rem;
+	}
+
+	.celina-review-contact-heading {
+		padding-block: 1.75rem 0;
+	}
+}
+
+:is(.celina-review-cta, .celina-review-industry-action) .celina-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.75rem;
+	padding: 0.75rem 1.5rem;
+	color: #1a1a1a;
+	background: #ff6c0d;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+:is(.celina-review-cta, .celina-review-industry-action) .celina-button:hover {
+	color: var(--celina-color-text);
+	background: var(--celina-color-surface);
+}
+
+:is(.celina-review-cta, .celina-review-industry-action) .celina-button:focus-visible {
+	outline: 3px solid var(--celina-color-citrus);
+	outline-offset: 3px;
+}
+
+.celina-review-cta .celina-button:focus-visible {
+	outline-color: #fff;
+}
+
+.celina-entry-content > .celina-review-page,
+.celina-review-page > .celina-review-cta {
+	width: 100%;
+	max-width: none;
+}
+
+.celina-review-history > h2,
+.celina-review-careers h2,
+.celina-review-cta h2 {
+	font-weight: 700;
+}
+
+.celina-review-cta h2 {
+	color: #fff;
+}
+
+.celina-review-careers {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+	margin-block: 2rem 3rem;
+	padding: 1.75rem 2rem;
+	border: 1px solid #d4d7d3;
+	border-left: 4px solid #ff6c0d;
+	background: #f5f6f4;
+	box-sizing: border-box;
+}
+
+.celina-review-careers h2 {
+	margin: 0 0 0.5rem;
+	font-size: clamp(1.5rem, 2vw, 1.875rem);
+	line-height: 1.25;
+}
+
+.celina-review-careers p {
+	margin: 0;
+	color: #505850;
+}
+
+.celina-review-careers > a {
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.75rem;
+	padding: 0.625rem 1.25rem;
+	border: 1px solid #505850;
+	color: #232923;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.celina-review-careers > a:hover {
+	color: #fff;
+	background: #232923;
+}
+
+.celina-review-careers > a:focus-visible {
+	outline: 3px solid var(--celina-color-citrus);
+	outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+
+	.celina-review-careers {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1.5rem;
+	}
+}
+
+
+.celina-sales-review .celina-mobile-menu a {
+	padding-inline: 0.75rem;
+}
+
+.celina-sales-review .celina-primary-menu > li > a {
+	position: relative;
+	height: 100%;
+	border-bottom: 0;
+}
+
+.celina-sales-review .celina-primary-menu .sub-menu a {
+	min-height: 3rem;
+	border-bottom: 0;
+	text-decoration: none;
+}
+
+.celina-sales-review .celina-media-contact a:hover,
+.celina-sales-review .celina-media-contact a:focus-visible {
+	color: var(--celina-color-citrus);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.2em;
+}
+
+.celina-sales-review .celina-media-contact a:focus-visible {
+	outline: 2px solid currentcolor;
+	outline-offset: 4px;
+}
+
+.celina-sales-review .celina-footer-menu a[aria-current] {
+	color: var(--celina-color-citrus);
+}
+
+.celina-sales-review .celina-mobile-menu a[aria-current="page"],
+.celina-sales-review .celina-mobile-menu a:hover,
+.celina-sales-review .celina-mobile-menu a:focus-visible {
+	color: #fff;
+	background: #3c4540;
+	border-radius: var(--celina-radius-card);
+	box-shadow: inset 0 -2px #ff6c0d;
+	text-decoration: none;
+}
+
+.celina-sales-review .celina-mobile-menu a[aria-current="location"] {
+	color: var(--celina-color-citrus);
+}
+
+.celina-sales-review .celina-primary-menu > li > a[aria-current],
+.celina-sales-review .celina-primary-menu > li:hover > a {
+	color: var(--celina-color-citrus);
+}
+
+.celina-sales-review .celina-primary-menu .sub-menu a[aria-current],
+.celina-sales-review .celina-primary-menu .sub-menu a:hover,
+.celina-sales-review .celina-primary-menu .sub-menu a:focus-visible {
+	color: #fff;
+	background: #49534e;
+	box-shadow: inset 3px 0 #ff6c0d;
+	text-decoration: none;
+}
+
+/* Align section markers and dropdowns with the header edge. */
+.celina-sales-review .celina-header-actions {
+	align-self: stretch;
+}
+
+@media (min-width: 64.001rem) {
+
+	.celina-sales-review .celina-primary {
+		display: flex;
+		align-self: stretch;
+	}
+}
+
+.celina-sales-review .celina-primary-menu {
+	align-items: stretch;
+}
+
+.celina-sales-review .celina-primary-menu > li > a::after {
+	position: absolute;
+	right: 0;
+	bottom: -2px;
+	left: 0;
+	height: 2px;
+	background: transparent;
+	content: "";
+}
+
+.celina-sales-review .celina-primary-menu > li > a[aria-current]::after,
+.celina-sales-review .celina-primary-menu > li:hover > a::after,
+.celina-sales-review .celina-primary-menu > li:focus-within > a::after {
+	background: #ff6c0d;
+}
+
+.celina-sales-review .celina-primary-menu .sub-menu {
+	top: calc(100% + 2px);
+	padding: 0;
+	border-top: 0;
+}
+
+/* Keep pointer travel across the header border inside the dropdown. */
+.celina-sales-review .celina-primary-menu .sub-menu::before {
+	position: absolute;
+	top: -2px;
+	right: 0;
+	left: 0;
+	height: 2px;
+	content: "";
+}
+
+.celina-sales-review .celina-entry-content > .celina-media-contact:last-child {
+	margin-block-end: var(--celina-section-space);
+}
+
+.celina-sales-review .celina-mobile-menu .sub-menu {
+	margin-top: 0.5rem;
+	gap: 0.5rem;
+}
+
+.celina-review-fact {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	min-width: 0;
+}
+
+.celina-review-fact-icon {
+	display: inline-flex;
+	flex: 0 0 3.25rem;
+	align-items: center;
+	justify-content: center;
+	width: 3.25rem;
+	height: 3.25rem;
+	border-top: 3px solid #ff6c0d;
+	color: var(--celina-color-citrus);
+	background: #fff3e9;
+}
+
+
+.celina-back-to-top {
+	position: fixed;
+	right: max(1rem, env(safe-area-inset-right));
+	bottom: max(1rem, env(safe-area-inset-bottom));
+	z-index: 150;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	padding: 0;
+	border: 0;
+	border-radius: var(--celina-radius-card);
+	color: #232923;
+	background: #ff6c0d;
+	cursor: pointer;
+}
+
+.celina-back-to-top[hidden] {
+	display: none;
+}
+
+.celina-back-to-top:hover {
+	color: var(--celina-color-text);
+	background: var(--celina-color-surface);
+}
+
+.celina-back-to-top:focus-visible {
+	outline: 3px solid #fff;
+	outline-offset: 3px;
+}
+
+.celina-review-history details[open] > summary {
+	margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+
+	.celina-review-fact > p {
+		align-self: flex-start;
+	}
+}
+
+.celina-sales-review .celina-intro-band__content:has(.celina-review-intro-title) {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+	gap: 1rem 3rem;
+	padding-block: 0.5rem;
+}
+
+.celina-review-intro-title {
+	grid-row: span 2;
+	margin: 0;
+	padding-left: 1.25rem;
+	border-left: 4px solid #ff6c0d;
+	font-size: clamp(1.5rem, 2.5vw, 2rem);
+	line-height: 1.25;
+	align-self: start;
+}
+
+.celina-sales-review .celina-intro-band__content:has(.celina-review-intro-title) > p {
+	margin: 0;
+	max-width: 65ch;
+}
+
+.celina-review-intro-lead {
+	font-size: 1.125rem;
+	font-weight: 600;
+	line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+
+	.celina-sales-review .celina-intro-band__content:has(.celina-review-intro-title) {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 1.25rem;
+	}
+
+	.celina-review-intro-title {
+		grid-row: auto;
+	}
+}
+
+.celina-sales-review .celina-hero__description strong {
+	color: #fff;
+	font-weight: 700;
+}
+
+.celina-review-keyphrase {
+	font-weight: 700;
+}
+
+.celina-sales-review .celina-footer-tagline .celina-review-keyphrase {
+	color: #fff;
+}
+
+@media (min-width: 768px) {
+
+	.celina-review-fact {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 1rem;
+	}
+
+	.celina-review-fact > .wp-block-group__inner-container {
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+
+	.celina-review-fact p {
+		align-self: stretch;
+	}
+
+	.celina-review-fact strong {
+		min-height: 2.5em;
+		font-size: clamp(1.125rem, 1.7vw, 1.5rem);
+		line-height: 1.25;
+	}
+
+	.celina-review-fact .celina-review-fact-icon {
+		flex-basis: auto;
+	}
+}
+
+.celina-review-pre-cta {
+	color: var(--celina-color-citrus);
+	margin-bottom: 0.5rem;
+	font-size: clamp(1.5rem, 2vw, 1.875rem);
+	font-weight: 700;
+}
+
+.celina-review-cta .celina-review-pre-cta {
+	color: var(--celina-color-citrus);
+	font-weight: 700;
+}
+
+/* Contextual CTAs use the same prompt → explanation → action rhythm. */
+.celina-sales-review .celina-cta-band__inner {
+	justify-items: start;
+	width: min(100%, var(--celina-grid-width));
+	text-align: left;
+}
+
+.celina-sales-review .celina-cta-band__heading {
+	max-width: 65ch;
+	margin: 0 0 0.5rem;
+	color: var(--celina-color-citrus);
+	font-size: clamp(1.5rem, 2vw, 1.875rem);
+	font-weight: 700;
+	line-height: 1.5;
+}
+
+.celina-sales-review .celina-cta-band__description {
+	max-width: 65ch;
+	margin: 0;
+}
+
+.celina-sales-review .celina-cta-band__actions {
+	margin-top: 1.5rem;
+}

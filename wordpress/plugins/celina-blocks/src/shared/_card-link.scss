@@ -1,0 +1,93 @@
+/*
+ * Shared link treatments for CELINA cards and text links.
+ *
+ * `arrow-link` replaces the underline with a trailing arrow. The arrow is a
+ * CSS mask, so screen readers announce only the link text.
+ *
+ * `stretched-link` makes the card's own link cover the whole card, so the
+ * card is clickable without nesting interactive content inside another link.
+ * The link stays the single focus stop and keeps its accessible name.
+ */
+
+$arrow-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M9.3 3.3 8.2 4.4l2.9 2.8H2v1.6h9.1l-2.9 2.8 1.1 1.1L14 8z'/%3E%3C/svg%3E");
+
+@mixin arrow-link {
+	display: inline-flex;
+	gap: 0.5em;
+	align-items: center;
+	font-weight: 700;
+	text-decoration: none;
+
+	&::after {
+		flex: 0 0 auto;
+		width: 1em;
+		height: 1em;
+		background: currentcolor;
+		content: "";
+		mask: $arrow-icon center / contain no-repeat;
+		transition: transform var(--celina-transition-fast, 150ms ease);
+	}
+
+	&:hover::after,
+	&:focus-visible::after {
+		transform: translateX(0.25em);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+
+		&::after {
+			transition: none;
+		}
+
+		&:hover::after,
+		&:focus-visible::after {
+			transform: none;
+		}
+	}
+}
+
+// Apply to the card; `$link` is the card's primary link selector.
+@mixin stretched-link( $link ) {
+	position: relative;
+
+	#{$link}::before {
+		position: absolute;
+		z-index: 1;
+		inset: 0;
+		content: "";
+		transition: box-shadow var(--celina-transition-fast, 150ms ease);
+	}
+
+	// Paint inside the existing click target: no layout shift or false hover
+	// on cards without a destination. Photo overlays cannot hide this accent.
+	#{$link}:is(:hover, :focus-visible)::before {
+		box-shadow: inset 0 0 0 2px var(--celina-color-citrus, #ff6c0d);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+
+		#{$link}::before {
+			transition: none;
+		}
+	}
+
+	// Other links inside the card (phone, e-mail, category) stay usable.
+	a:not(#{$link}) {
+		position: relative;
+		z-index: 2;
+	}
+
+	// Move the focus ring to the whole card where :has() is available; older
+	// browsers keep the link's own focus ring.
+	@supports selector(:has(a)) {
+
+		&:has(#{$link}:focus-visible) {
+			outline: 3px solid var(--celina-color-citrus-dark, #7e2d2b);
+			outline-offset: 3px;
+		}
+
+		#{$link}:focus-visible {
+			outline: none;
+		}
+	}
+}

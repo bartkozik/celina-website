@@ -1,0 +1,36 @@
+{
+  "apiVersion": 2,
+  "name": "celina/facility-cards",
+  "version": "0.1.0",
+  "title": "Facility Cards — REDESIGNED",
+  "category": "celina-redesigned",
+  "icon": "building",
+  "textdomain": "celina-blocks",
+  "allowedBlocks": [ "celina/facility-card" ],
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "introduction": {
+      "type": "string",
+      "default": ""
+    },
+    "columns": {
+      "type": "number",
+      "enum": [ 2, 3 ],
+      "default": 2
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

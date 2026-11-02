@@ -1,0 +1,54 @@
+@use "../../shared/heading";
+@use "../../shared/eyebrow";
+
+.wp-block-celina-facility-cards {
+	padding: var(--celina-section-space-top, clamp(2rem, 3.5vw, 3rem)) var(--celina-gutter, clamp(1rem, 4vw, 2rem)) var(--celina-section-space, 4rem);
+	color: var(--celina-color-text, #1a1a1a);
+}
+
+.celina-facility-cards__inner {
+	width: min(100%, var(--celina-grid-width, 80rem));
+	margin-inline: auto;
+}
+
+.celina-facility-cards__header {
+	margin-bottom: var(--celina-space-8, 2rem);
+}
+
+.celina-facility-cards__eyebrow {
+
+	@include eyebrow.section-eyebrow();
+}
+
+.celina-facility-cards__heading {
+
+	@include heading.section-heading;
+}
+
+.celina-facility-cards__grid,
+.celina-facility-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--celina-grid-gap, 1.5rem);
+}
+
+.celina-facility-cards__grid > .block-editor-inner-blocks {
+	grid-column: 1 / -1;
+	min-width: 0;
+}
+
+@media (width > 48rem) {
+
+	.celina-facility-cards__grid,
+	.celina-facility-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (width > 64rem) {
+
+	.celina-facility-cards--columns-3 .celina-facility-cards__grid,
+	.celina-facility-cards--columns-3 .celina-facility-cards__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}

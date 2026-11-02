@@ -1,0 +1,19 @@
+{
+  "core": null,
+  "phpVersion": "8.2",
+  "port": 8888,
+  "testsPort": 8891,
+  "plugins": [ "./wordpress/plugins/celina-blocks" ],
+  "themes": [ "./wordpress/themes/celina-child" ],
+  "mappings": {
+    "wp-content/mu-plugins/celina-tls-trust.php": "./wordpress/mu-plugins/celina-tls-trust.php",
+    "celina-workbench": "./workbench",
+    "fixtures": "./fixtures",
+    "tests/integration": "./tests/integration"
+  },
+  "config": {
+    "WP_DEBUG": true,
+    "WP_DEBUG_LOG": true,
+    "SCRIPT_DEBUG": true
+  }
+}

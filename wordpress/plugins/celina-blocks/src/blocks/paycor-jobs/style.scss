@@ -1,0 +1,42 @@
+.wp-block-celina-paycor-jobs {
+	margin-block-end: var(--celina-section-space, 4rem);
+	color: var(--celina-color-text, #1a1a1a);
+
+	h2 {
+		margin-block: 0 var(--celina-space-6, 1.5rem);
+	}
+
+	.celina-paycor-jobs__status,
+	.celina-paycor-jobs__fallback {
+		padding: var(--celina-space-6, 1.5rem);
+		border-inline-start: 0.25rem solid var(--celina-color-citrus, #ff6c0d);
+		border-radius: 0 var(--celina-radius-card, 0.75rem) var(--celina-radius-card, 0.75rem) 0;
+		background: var(--celina-color-surface-muted, #f4f4f2);
+	}
+
+	.celina-paycor-jobs__fallback p {
+		margin: 0 0 var(--celina-space-4, 1rem);
+	}
+
+	.celina-paycor-jobs__fallback a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--celina-space-3, 0.75rem) var(--celina-space-4, 1rem);
+		color: var(--celina-color-surface, #fff);
+		background: var(--celina-color-stone-dark, #2e3432);
+		font-weight: 700;
+		line-height: 1.2;
+		text-decoration: none;
+	}
+
+	.celina-paycor-jobs__fallback a:hover {
+		color: var(--celina-color-text, #1a1a1a);
+		background: var(--celina-color-surface, #fff);
+	}
+
+	.celina-paycor-jobs__fallback a:focus-visible {
+		outline: 3px solid var(--celina-color-citrus, #ff6c0d);
+		outline-offset: 3px;
+	}
+}

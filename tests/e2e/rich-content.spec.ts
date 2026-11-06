@@ -44,9 +44,8 @@ test( 'legacy orphan list items remain editable without losing formatting', asyn
     const savedContent = () =>
       page.evaluate(
         () =>
-          window.wp.data
-            .select( 'core/block-editor' )
-            .getBlocks()[ 0 ]?.attributes.content
+          window.wp.data.select( 'core/block-editor' ).getBlocks()[ 0 ]
+            ?.attributes.content
       );
     expect( await savedContent() ).toBe( content );
     await open();
@@ -425,7 +424,9 @@ test( 'rich content supports empty fields and protects unsupported HTML', async 
     await page.evaluate( ( content ) => {
       const wp = window.wp;
       const block = wp.data.select( 'core/block-editor' ).getBlocks()[ 0 ];
-      if ( ! block ) throw new Error( 'Missing content block.' );
+      if ( ! block ) {
+        throw new Error( 'Missing content block.' );
+      }
       wp.data
         .dispatch( 'core/block-editor' )
         .updateBlockAttributes( block.clientId, { content } );

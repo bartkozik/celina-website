@@ -32,11 +32,15 @@ test( 'native gallery retains every existing portrait when adding, replacing and
           block,
           ...flatten( block.innerBlocks ),
         ] );
-      if ( ! pattern ) throw new Error( 'Missing About pattern.' );
+      if ( ! pattern ) {
+        throw new Error( 'Missing About pattern.' );
+      }
       const gallery = flatten( wp.blocks.parse( pattern.content ) ).find(
         ( block ) => block.name === 'core/gallery'
       );
-      if ( ! gallery ) throw new Error( 'Missing gallery.' );
+      if ( ! gallery ) {
+        throw new Error( 'Missing gallery.' );
+      }
       wp.data.dispatch( 'core/block-editor' ).resetBlocks( [ gallery ] );
       wp.data.dispatch( 'core/block-editor' ).selectBlock( gallery.clientId );
       return gallery.innerBlocks.map( ( block ) => ( {
@@ -45,7 +49,11 @@ test( 'native gallery retains every existing portrait when adding, replacing and
       } ) );
     } );
     expect( original ).toHaveLength( 7 );
-    expect( original.every( ( photo ) => typeof photo.id === 'number' && photo.id > 0 ) ).toBe( true );
+    expect(
+      original.every(
+        ( photo ) => typeof photo.id === 'number' && photo.id > 0
+      )
+    ).toBe( true );
     await page.getByRole( 'button', { name: 'Add', exact: true } ).click();
     await page.getByRole( 'menuitem', { name: 'Open Media Library' } ).click();
     const dialog = page.getByRole( 'dialog' );
@@ -76,8 +84,12 @@ test( 'native gallery retains every existing portrait when adding, replacing and
       .click();
     const readImages = () =>
       page.evaluate( () => {
-        const gallery = window.wp.data.select( 'core/block-editor' ).getBlocks()[ 0 ];
-        if ( ! gallery ) throw new Error( 'Missing gallery.' );
+        const gallery = window.wp.data
+          .select( 'core/block-editor' )
+          .getBlocks()[ 0 ];
+        if ( ! gallery ) {
+          throw new Error( 'Missing gallery.' );
+        }
         return gallery.innerBlocks.map( ( block ) => ( {
           id: block.attributes.id,
           caption: block.attributes.caption,
@@ -92,7 +104,9 @@ test( 'native gallery retains every existing portrait when adding, replacing and
       const wp = window.wp;
       const gallery = wp.data.select( 'core/block-editor' ).getBlocks()[ 0 ];
       const image = gallery?.innerBlocks[ 7 ];
-      if ( ! image ) throw new Error( 'Missing eighth gallery image.' );
+      if ( ! image ) {
+        throw new Error( 'Missing eighth gallery image.' );
+      }
       wp.data.dispatch( 'core/block-editor' ).selectBlock( image.clientId );
     } );
     await page.getByRole( 'button', { name: 'Replace', exact: true } ).click();
@@ -160,7 +174,9 @@ test( 'migrated hero and contact backgrounds can be removed without restoring CS
         ] );
       const blocks = ( name: string ) => {
         const pattern = patterns.find( ( item ) => item.name === name );
-        if ( ! pattern ) throw new Error( `Missing pattern: ${ name }` );
+        if ( ! pattern ) {
+          throw new Error( `Missing pattern: ${ name }` );
+        }
         return flatten( wp.blocks.parse( pattern.content ) );
       };
       const cover = blocks( 'celina/sales-contact-heading' ).find(
@@ -169,7 +185,9 @@ test( 'migrated hero and contact backgrounds can be removed without restoring CS
       const hero = blocks( 'celina/redesigned-page-about' ).find(
         ( block ) => block.name === 'celina/hero'
       );
-      if ( ! cover || ! hero ) throw new Error( 'Missing cover or hero block.' );
+      if ( ! cover || ! hero ) {
+        throw new Error( 'Missing cover or hero block.' );
+      }
       wp.data.dispatch( 'core/block-editor' ).resetBlocks( [ cover, hero ] );
       wp.data.dispatch( 'core/block-editor' ).selectBlock( cover.clientId );
     } );
@@ -182,7 +200,9 @@ test( 'migrated hero and contact backgrounds can be removed without restoring CS
     await page.evaluate( () => {
       const wp = window.wp;
       const hero = wp.data.select( 'core/block-editor' ).getBlocks()[ 1 ];
-      if ( ! hero ) throw new Error( 'Missing hero.' );
+      if ( ! hero ) {
+        throw new Error( 'Missing hero.' );
+      }
       wp.data.dispatch( 'core/block-editor' ).selectBlock( hero.clientId );
     } );
     await page

@@ -10,8 +10,7 @@ const settings = '/wp-admin/themes.php?page=celina-header-footer';
 async function waitForEditor( page: Page ) {
   await page.waitForFunction( () =>
     Boolean(
-      window.wp?.data?.select( 'core/block-editor' )?.getBlocks()
-        ?.length
+      window.wp?.data?.select( 'core/block-editor' )?.getBlocks()?.length
     )
   );
 }
@@ -57,13 +56,22 @@ test( 'global parts support editing and responsive navigation without code', asy
     '/tests/integration/block-shell-parity-fixture.php'
   );
   const documents: unknown = await fixture.json();
-  if ( ! documents || typeof documents !== 'object' || ! ( 'source' in documents ) ) {
+  if (
+    ! documents ||
+    typeof documents !== 'object' ||
+    ! ( 'source' in documents )
+  ) {
     throw new Error( 'Missing shell fixture source.' );
   }
   const compositions = documents.source;
-  if ( ! compositions || typeof compositions !== 'object' ||
-    ! ( 'Header' in compositions ) || typeof compositions.Header !== 'string' ||
-    ! ( 'Footer' in compositions ) || typeof compositions.Footer !== 'string' ) {
+  if (
+    ! compositions ||
+    typeof compositions !== 'object' ||
+    ! ( 'Header' in compositions ) ||
+    typeof compositions.Header !== 'string' ||
+    ! ( 'Footer' in compositions ) ||
+    typeof compositions.Footer !== 'string'
+  ) {
     throw new Error( 'Invalid shell fixture source.' );
   }
   await logIn( page );
@@ -102,7 +110,7 @@ test( 'global parts support editing and responsive navigation without code', asy
         wp.data
           .dispatch( 'core/block-editor' )
           .resetBlocks( wp.blocks.parse( content ) );
-      }, compositions[ part ] );
+      }, part === 'Header' ? compositions.Header : compositions.Footer );
       if ( part === 'Header' ) {
         await page.evaluate( async () => {
           const wp = window.wp;
@@ -122,7 +130,9 @@ test( 'global parts support editing and responsive navigation without code', asy
                 .includes( 'celina-block-header-cta' )
           );
           const button = source?.innerBlocks[ 0 ];
-          if ( ! button ) throw new Error( 'Missing header CTA button.' );
+          if ( ! button ) {
+            throw new Error( 'Missing header CTA button.' );
+          }
           await store.updateBlockAttributes( button.clientId, {
             text: 'Discuss revised project',
             url: `${ window.location.origin }/contact/?source=single-cta`,
@@ -159,7 +169,9 @@ test( 'global parts support editing and responsive navigation without code', asy
                 ?.split( ' ' )
                 .includes( `celina-block-${ region.toLowerCase() }` )
           );
-        if ( ! root ) throw new Error( 'Missing shell region.' );
+        if ( ! root ) {
+          throw new Error( 'Missing shell region.' );
+        }
         const first = wp.blocks.createBlock( 'core/paragraph', {
           content: `${ region } temporary element`,
         } );
@@ -176,12 +188,16 @@ test( 'global parts support editing and responsive navigation without code', asy
         await store.removeBlocks( [ first.clientId ], false );
         if ( region === 'Footer' ) {
           const grid = root.innerBlocks[ 0 ]?.innerBlocks[ 0 ];
-          if ( ! grid ) throw new Error( 'Missing footer grid.' );
+          if ( ! grid ) {
+            throw new Error( 'Missing footer grid.' );
+          }
           const links = grid.innerBlocks.find(
             ( block ) =>
               block.attributes.className === 'celina-block-footer-links'
           );
-          if ( ! links ) throw new Error( 'Missing footer links.' );
+          if ( ! links ) {
+            throw new Error( 'Missing footer links.' );
+          }
           await store.moveBlocksToPosition(
             [ links.clientId ],
             grid.clientId,
@@ -190,7 +206,9 @@ test( 'global parts support editing and responsive navigation without code', asy
           );
         }
         if ( region === 'Header' ) {
-          const findNavigation = ( blocks: EditorBlock[] ): EditorBlock | undefined => {
+          const findNavigation = (
+            blocks: EditorBlock[]
+          ): EditorBlock | undefined => {
             for ( const block of blocks ) {
               if (
                 block.name === 'core/navigation' &&
@@ -205,7 +223,9 @@ test( 'global parts support editing and responsive navigation without code', asy
             }
           };
           const navigation = findNavigation( [ root ] );
-          if ( ! navigation ) throw new Error( 'Missing header navigation.' );
+          if ( ! navigation ) {
+            throw new Error( 'Missing header navigation.' );
+          }
           await store.insertBlocks(
             wp.blocks.createBlock( 'core/navigation-link', {
               label: 'Current page test',
@@ -440,7 +460,9 @@ test( 'global parts support editing and responsive navigation without code', asy
             ?.split( ' ' )
             .includes( 'celina-block-header-cta' )
       );
-      if ( ! source ) throw new Error( 'Missing header CTA.' );
+      if ( ! source ) {
+        throw new Error( 'Missing header CTA.' );
+      }
       await wp.data
         .dispatch( 'core/block-editor' )
         .removeBlocks( [ source.clientId ], false );

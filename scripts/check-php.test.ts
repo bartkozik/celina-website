@@ -58,7 +58,7 @@ describe( 'findPhpFiles', () => {
     await expect(
       execFileAsync( 'pnpm', [ 'php:lint' ], { cwd: process.cwd() } )
     ).resolves.toMatchObject( {
-      stdout: expect.stringContaining( 'fixtures/bootstrap.php' ),
+      stdout: expect.stringContaining( 'fixtures/bootstrap.php' ) as unknown,
     } );
   }, 90_000 );
 } );

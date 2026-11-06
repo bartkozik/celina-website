@@ -12,7 +12,7 @@ export interface EditorBlock {
 }
 
 interface BlockEditorSelectors {
-  getBlocks(): EditorBlock[];
+  getBlocks( rootClientId?: string ): EditorBlock[];
   canInsertBlockType( name: string, rootClientId?: string ): boolean;
 }
 
@@ -22,6 +22,8 @@ interface BlockEditorActions {
   updateBlockAttributes( clientId: string, attributes: Record< string, unknown > ): void;
   insertBlocks( blocks: EditorBlock | EditorBlock[], index?: number, rootClientId?: string ): void;
   moveBlocksToPosition( clientIds: string[], fromRootClientId: string, toRootClientId: string, index: number ): void;
+  removeBlock( clientId: string, selectPrevious?: boolean ): void;
+  moveBlockToPosition( clientId: string, fromRootClientId: string, toRootClientId: string, index: number ): void;
   removeBlocks( clientIds: string[], selectPrevious?: boolean ): void;
 }
 

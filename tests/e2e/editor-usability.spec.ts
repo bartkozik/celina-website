@@ -127,7 +127,11 @@ test( 'article dates distinguish publication from a later update', async ( {
         if ( ! response.ok ) {
           throw new Error( 'Could not create date fixture.' );
         }
-        return ( await response.json() ).id as number;
+        const payload: unknown = await response.json();
+        if ( ! payload || typeof payload !== 'object' || ! ( 'id' in payload ) || typeof payload.id !== 'number' ) {
+          throw new Error( 'Invalid article fixture response.' );
+        }
+        return payload.id;
       }, editor );
       await page.goto( `/?p=${ articleId }` );
       await expect( page.locator( '.celina-article-meta time' ) ).toBeVisible();

@@ -20,7 +20,7 @@ function getStructurallyValidButtons( buttons: unknown ): HeroButton[] {
     return [];
   }
 
-  return buttons.flatMap( ( button ) => {
+  return buttons.flatMap( ( button: unknown ) => {
     if (
       ! button ||
       typeof button !== 'object' ||
@@ -32,7 +32,7 @@ function getStructurallyValidButtons( buttons: unknown ): HeroButton[] {
       return [];
     }
 
-    return [ button ];
+    return [ { label: button.label, url: button.url } ];
   } );
 }
 

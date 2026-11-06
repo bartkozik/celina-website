@@ -63,10 +63,6 @@
 	content: "";
 }
 
-/*
- * Proof points share the key-figure card style: no box, an orange bar on the
- * leading edge, a bold title and one soft explanation line.
- */
 .celina-achievements-timeline--facts .celina-achievements-timeline__items,
 .celina-achievements-timeline--facts .celina-achievements-timeline__items > .block-editor-inner-blocks > .block-editor-block-list__layout {
 	grid-auto-rows: 1fr;
@@ -113,11 +109,6 @@
 }
 
 
-/*
- * Key figures: an item with a Year/figure is a large number with its Label as
- * the unit; an item without one is a compact proof point below the figures.
- * Browsers without :has() keep the regular fact cards.
- */
 .celina-achievements-timeline--stats {
 	background: var(--celina-color-surface, #fff);
 }
@@ -181,10 +172,6 @@
 }
 
 
-/*
- * In the editor a proof point keeps a small Year field, shown when selected,
- * so it can be turned into a figure.
- */
 .celina-achievements-timeline--stats .celina-achievement--no-figure .celina-achievement__marker {
 	display: none;
 }
@@ -228,7 +215,6 @@
 	margin-bottom: var(--celina-space-3, 0.75rem);
 }
 
-/* Every card in this presentation shares one explanation style. */
 .celina-achievements-timeline--stats .celina-achievement__heading {
 	margin: 0;
 	color: var(--celina-color-text-soft, #555);

@@ -310,10 +310,6 @@ function ContentDialog( {
   );
 }
 
-/**
- * Edit structured HTML using actual paragraph/list blocks, never one RichText.
- * @param props
- */
 export default function RichContentEditor( props: Props ) {
   const [ isOpen, setIsOpen ] = useState( false );
   return (

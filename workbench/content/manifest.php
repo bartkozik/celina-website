@@ -1,11 +1,4 @@
 <?php
-/**
- * Canonical identities for content managed by the local CELINA workbench.
- *
- * Pattern files remain the sole source of serialized block content.
- *
- * @package Celina_Workbench
- */
 
 declare( strict_types=1 );
 

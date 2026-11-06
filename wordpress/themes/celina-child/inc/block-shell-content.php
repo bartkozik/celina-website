@@ -1,5 +1,4 @@
 <?php
-/** Native, editable snapshots of the current target site's shell. */
 defined( 'ABSPATH' ) || exit;
 
 function celina_shell_block( string $name, array $attrs = [], array $children = [], string $before = '', string $after = '' ): array {
@@ -12,7 +11,6 @@ function celina_shell_block( string $name, array $attrs = [], array $children = 
 }
 
 function celina_shell_group( string $class, array $children, string $tag = 'div' ): array {
-	// This marker mirrors the copied variant in the editor; frontend styling still follows the body flag.
 	if ( str_contains( $class, 'celina-block-shell ' ) && celina_sales_review_enabled() ) { $class .= ' celina-block-sales-review'; }
 	$attrs = [ 'className' => $class, 'layout' => [ 'type' => 'default' ] ];
 	if ( 'div' !== $tag ) { $attrs['tagName'] = $tag; }
@@ -29,7 +27,6 @@ function celina_shell_link( string $label, string $url ): string {
 	return '<a href="' . esc_url( $url ) . '">' . esc_html( $label ) . '</a>';
 }
 
-/** Snapshot exactly the visible legacy menu, including its fallback for empty assigned menus. */
 function celina_block_shell_menu_items( string $location ): array {
 	$locations = get_nav_menu_locations();
 	if ( empty( $locations[ $location ] ) ) {
@@ -120,7 +117,6 @@ function celina_block_shell_register_content(): void {
 }
 add_action( 'init', 'celina_block_shell_register_content' );
 
-/** Preserve URL/section state for custom links, without rewriting any saved navigation content. */
 function celina_block_shell_navigation_state( string $html, array $block ): string {
 	$classes = explode( ' ', $block['attrs']['className'] ?? '' );
 	if ( ! array_intersect( $classes, [ 'celina-block-primary', 'celina-block-footer-nav', 'celina-block-utility-nav', 'celina-block-legal', 'celina-block-social' ] ) ) { return $html; }
@@ -136,7 +132,6 @@ function celina_block_shell_navigation_state( string $html, array $block ): stri
 }
 add_filter( 'render_block_core/navigation', 'celina_block_shell_navigation_state', 10, 2 );
 
-/** Derive the mobile presentation from one editor-owned Buttons block, without saving a copy. */
 function celina_block_shell_mobile_cta( array $block ): array {
 	if ( 'core/group' !== $block['blockName'] || ! in_array( 'celina-block-header', explode( ' ', $block['attrs']['className'] ?? '' ), true ) ) { return $block; }
 	$matches = [ 'celina-block-header-cta' => [], 'celina-block-primary-panel' => [], 'celina-block-mobile-cta' => [] ];
@@ -151,7 +146,6 @@ function celina_block_shell_mobile_cta( array $block ): array {
 	if ( $matches['celina-block-mobile-cta'] || 1 !== count( $matches['celina-block-header-cta'] ) || 1 !== count( $matches['celina-block-primary-panel'] ) ) { return $block; }
 	$source_path = $matches['celina-block-header-cta'][0];
 	$panel_path = $matches['celina-block-primary-panel'][0];
-	// A button moved into the panel is already visible there.
 	if ( array_slice( $source_path, 0, count( $panel_path ) ) === $panel_path ) { return $block; }
 	$source = $block;
 	foreach ( $source_path as $index ) { $source = $source['innerBlocks'][ $index ]; }

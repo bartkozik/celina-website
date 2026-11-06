@@ -15,7 +15,6 @@ test( 'legacy review switch preserves the native redesigned pages', async ( {
     ! process.env.WP_ENV_HOME,
     'Requires the isolated content E2E runner.'
   );
-  // This test never submits an inquiry or loads vendor embeds.
   await page.route( /^https:\/\//, ( route ) => route.abort() );
   wp( 'theme', 'mod', 'remove', 'celina_sales_review' );
   await page.goto( '/' );

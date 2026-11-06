@@ -106,11 +106,6 @@
 	}
 }
 
-/*
- * Photo-background variant: the block's own image fills the section behind a
- * light gray wash, so the copy reads as one band instead of two columns.
- * Add the "celina-split--photo-background" class in Advanced > Additional CSS.
- */
 .celina-split--photo-background:not(.block-editor-block-list__block) {
 	position: relative;
 	display: flex;
@@ -155,7 +150,6 @@
 	max-width: none;
 }
 
-/* Heading on the left; the copy and its action on the right. */
 @media (width > 48rem) {
 
 	.celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__content {
@@ -182,7 +176,6 @@
 	}
 }
 
-/* Display scale of the hero headline; line breaks in the field are kept. */
 .celina-split--photo-background:not(.block-editor-block-list__block) .celina-text-image-split__heading {
 	margin: 0;
 	white-space: pre-line;
@@ -192,7 +185,6 @@
 	line-height: 1.04;
 }
 
-/* Dark treatment of the same variant: light copy over a darkened photograph. */
 .celina-split--photo-dark:not(.block-editor-block-list__block)::before {
 	background: rgb(36 40 37 / 72%);
 }

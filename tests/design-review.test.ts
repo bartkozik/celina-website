@@ -67,13 +67,11 @@ describe( 'CEL-7 design review', () => {
   } );
 
   it( 'uses the approved extra-bold hierarchy for reviewed block headings', () => {
-    // Section headings share one mixin since the 2026-09-23 typography pass.
     const shared = readFileSync(
       'wordpress/plugins/celina-blocks/src/shared/_heading.scss',
       'utf8'
     );
 
-    // Section headings run lighter than the hero since 2026-09-23.
     expect( shared ).toMatch( /font-weight:\s*700;/ );
 
     for ( const block of [
@@ -91,7 +89,6 @@ describe( 'CEL-7 design review', () => {
     expect( readStyle( 'industry-card' ) ).toMatch(
       /\.celina-industry-card__title\s*\{[^}]*font-weight:\s*900;/s
     );
-    // Section headings share one weight since the 2026-09-23 typography pass.
     expect( readStyle( 'faq' ) ).toMatch(
       /&__heading\s*\{[^}]*font-weight:\s*700;/s
     );
@@ -123,7 +120,6 @@ describe( 'CEL-7 design review', () => {
     expect( contentStyles ).toMatch(
       /\.celina-contact-card\s*\{[^}]*background:\s*var\(--celina-color-surface-muted\);/s
     );
-    // The contact eyebrow now uses the shared section-label treatment.
     expect( contentStyles ).toMatch(
       /\.celina-contact-form__eyebrow\s*\{[^}]*color:\s*var\(--celina-color-citrus\);[^}]*font-size:\s*0\.6875rem;[^}]*letter-spacing:\s*0\.18em;/s
     );
@@ -162,7 +158,6 @@ describe( 'Design feedback rework, 2026-09-22', () => {
   it( 'defines one page grid and one hero height as theme tokens', () => {
     const tokens = readThemeStyle( 'tokens' );
 
-    // Narrowed by 100px on 2026-09-23 at the reviewer's request.
     expect( tokens ).toContain( '--celina-grid-width: 73.75rem;' );
     expect( tokens ).toContain( '--celina-gutter: clamp(1rem, 4vw, 2rem);' );
     expect( tokens ).toContain( '--celina-grid-gap: 1.5rem;' );
@@ -173,8 +168,6 @@ describe( 'Design feedback rework, 2026-09-22', () => {
 
     const shell = readThemeStyle( 'site-shell' );
 
-    // One hero height per breakpoint, so no route jumps: phones 34rem,
-    // 768-1599px 31rem, 1600px and wider 36rem.
     expect( shell ).toMatch(
       /@media \(min-width: 48rem\)\s*\{[^@]*--celina-hero-height:\s*31rem;/s
     );

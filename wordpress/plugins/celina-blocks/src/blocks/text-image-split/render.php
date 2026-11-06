@@ -31,7 +31,6 @@ $is_safe_link_url = static function ( string $candidate ): bool {
 };
 
 $eyebrow = sanitize_text_field( $get_string( 'eyebrow' ) );
-// Editors may break the heading with Shift+Enter; only <br> is kept.
 $heading = wp_kses( $get_string( 'heading' ), [ 'br' => [] ] );
 $content = wp_kses_post( $get_string( 'content' ) );
 $image_alt = trim( $get_string( 'imageAlt' ) );

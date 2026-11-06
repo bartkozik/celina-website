@@ -12,7 +12,6 @@ function celina_register_pattern_category(): void {
 
 add_action( 'init', 'celina_register_pattern_category' );
 
-/** Expose the native Sales compositions under a clearly labeled editor category. */
 function celina_register_redesigned_pattern_aliases(): void {
 	$registry = WP_Block_Patterns_Registry::get_instance();
 	$theme    = wp_get_theme();

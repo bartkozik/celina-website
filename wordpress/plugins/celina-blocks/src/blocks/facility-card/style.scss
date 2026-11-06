@@ -8,7 +8,6 @@
 	box-shadow: var(--celina-shadow-card, none);
 	transition: border-color var(--celina-transition-fast, 150ms ease);
 
-	/* The card's own link makes the whole card clickable. */
 	@include card-link.stretched-link( ".celina-facility-card__link" );
 }
 
@@ -59,10 +58,6 @@
 	@include card-link.arrow-link;
 }
 
-/*
- * Frontend presentation: the location photograph carries the details under the
- * same gray wash as the hero. The editor keeps the stacked layout.
- */
 .wp-block-celina-facility-card:not(.block-editor-block-list__block) {
 	position: relative;
 	min-height: clamp(20rem, 26vw, 24rem);

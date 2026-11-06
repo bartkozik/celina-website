@@ -1,5 +1,4 @@
 <?php
-/** Read-only rendering contract: no saved content or settings are changed. */
 $expect = static function ( bool $ok, string $label ): void {
 	if ( ! $ok ) { throw new RuntimeException( $label ); }
 };

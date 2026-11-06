@@ -109,7 +109,6 @@
 	margin-block-start: var(--celina-section-space);
 }
 
-/* The campus gallery sits right under a section, so it needs a little air. */
 .celina-sales-page .wp-block-gallery:not(.celina-leadership__grid) {
 	margin-block-start: var(--celina-space-6);
 }
@@ -298,10 +297,6 @@
 .celina-contact-form-column .celina-hubspot-form__target {
 	order: 3;
 
-	/*
-	 * CELINA frame around the embed. The fields and the submit button live in
-	 * HubSpot's own iframe, so their colours are set in HubSpot, not here.
-	 */
 	padding: clamp(1.25rem, 2.5vw, 2rem);
 	border-radius: var(--celina-radius-card);
 	background: var(--celina-color-surface-muted);
@@ -319,12 +314,10 @@
 	background: var(--celina-color-surface-muted);
 }
 
-/* The two contact cards read as one stack. */
 .celina-contact-card + .celina-contact-card {
 	margin-top: 0;
 }
 
-/* Card titles are ordinary card headings. */
 .celina-contact-card :is(h2, h3) {
 	margin: 0 0 var(--celina-space-4);
 	font-size: 1.25rem;
@@ -334,8 +327,6 @@
 	text-transform: none;
 }
 
-/* Business hours: the page's own photograph under the hero wash, like the
-   location tiles. */
 .celina-contact-card--hours {
 	color: var(--celina-color-surface);
 	background-position: center;
@@ -346,7 +337,6 @@
 	background-image: linear-gradient(270deg, rgb(61 69 67 / 94%) 0%, rgb(61 69 67 / 72%) 55%, rgb(61 69 67 / 40%) 100%), url(../images/content/portfolio-image-11.png);
 }
 
-/* Preserve the compact card height instead of Cover's default hero minimum. */
 .celina-contact-card--hours.celina-media-cover {
 	min-height: 0;
 }
@@ -355,7 +345,6 @@
 	color: inherit;
 }
 
-/* Direct contact sits on the dark gray card. */
 .celina-contact-card--direct {
 	color: var(--celina-color-surface);
 	background: var(--celina-color-stone);
@@ -451,7 +440,6 @@
 	color: var(--celina-color-muted);
 }
 
-/* Open hours read as the highlight; closed days stay white. */
 .celina-contact-card--hours .celina-contact-hours__row strong {
 	color: var(--celina-color-citrus);
 }
@@ -503,10 +491,6 @@
 	margin-block: 0;
 }
 
-/*
- * Compensation & Perks is one gray band: white perk cards on the shared grid,
- * the coverage link below them, and the Paycor call to action closing it.
- */
 .celina-benefits-list {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -532,7 +516,6 @@
 	line-height: 1.2;
 }
 
-/* The coverage link is a footnote to the grid, not a perk of its own. */
 .celina-benefits-list li:has(> a) {
 	grid-column: 1 / -1;
 	min-height: 0;
@@ -588,7 +571,6 @@
 	margin: 0;
 }
 
-/* These labels lost their pill background, so they keep no side padding. */
 .celina-article-category a,
 .celina-article-tags a {
 	display: inline-flex;
@@ -782,7 +764,6 @@
 	text-shadow: none;
 }
 
-/* The name is already a block, so the markup's <br> would add a blank line. */
 .wp-block-gallery.has-nested-images.celina-leadership__grid figure.wp-block-image figcaption br {
 	display: none;
 }
@@ -870,7 +851,6 @@
 	}
 }
 
-/* The perks link keeps the card colours, not the article link style. */
 .celina-benefits-list a {
 	color: var(--celina-color-stone-darker);
 	text-decoration: none;
@@ -887,7 +867,6 @@
 	outline-offset: 3px;
 }
 
-/* Join Our Team closes the band as one dark strip: copy left, action right. */
 .celina-careers-benefits .wp-block-celina-paycor-jobs {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) auto;
@@ -1065,24 +1044,20 @@
 	}
 }
 
-/* The section directly under the hero keeps the tighter opening. */
 .celina-entry-content > .wp-block-celina-hero + *,
 .celina-sales-page > .wp-block-group__inner-container > .wp-block-celina-hero + *,
 .celina-sales-page > .wp-block-group__inner-container > .celina-sales-contact-heading + * {
 	padding-top: var(--celina-section-space-top-lead);
 }
 
-/* A light section following another light one keeps the tighter opening. */
 :is(.wp-block-celina-achievements-timeline.celina-achievements-timeline--stats, .wp-block-celina-industry-cards, .wp-block-celina-news-grid, .wp-block-celina-resource-list:not(.celina-resource-list--featured), .wp-block-celina-facility-cards, .wp-block-celina-intro-band, .celina-sales-handoff, .wp-block-celina-text-image-split.celina-text-image-split--neutral:not(.celina-split--photo-dark), .wp-block-celina-faq, .celina-contact-columns, .celina-sales-intro:not(.celina-sales-intro--muted)) + :is(.wp-block-celina-achievements-timeline.celina-achievements-timeline--stats, .wp-block-celina-industry-cards, .wp-block-celina-news-grid, .wp-block-celina-resource-list:not(.celina-resource-list--featured), .wp-block-celina-facility-cards, .wp-block-celina-intro-band, .celina-sales-handoff, .wp-block-celina-text-image-split.celina-text-image-split--neutral:not(.celina-split--photo-dark), .wp-block-celina-faq, .celina-contact-columns, .celina-sales-intro:not(.celina-sales-intro--muted)) {
 	padding-top: var(--celina-section-space-top-tight);
 }
 
-/* …and it closes tighter too, so the seam does not double up. */
 :is(.wp-block-celina-achievements-timeline.celina-achievements-timeline--stats, .wp-block-celina-industry-cards, .wp-block-celina-news-grid, .wp-block-celina-resource-list:not(.celina-resource-list--featured), .wp-block-celina-facility-cards, .wp-block-celina-intro-band, .celina-sales-handoff, .wp-block-celina-text-image-split.celina-text-image-split--neutral:not(.celina-split--photo-dark), .wp-block-celina-faq, .celina-contact-columns, .celina-sales-intro:not(.celina-sales-intro--muted)):has(+ :is(.wp-block-celina-achievements-timeline.celina-achievements-timeline--stats, .wp-block-celina-industry-cards, .wp-block-celina-news-grid, .wp-block-celina-resource-list:not(.celina-resource-list--featured), .wp-block-celina-facility-cards, .wp-block-celina-intro-band, .celina-sales-handoff, .wp-block-celina-text-image-split.celina-text-image-split--neutral:not(.celina-split--photo-dark), .wp-block-celina-faq, .celina-contact-columns, .celina-sales-intro:not(.celina-sales-intro--muted))) {
 	padding-bottom: var(--celina-section-space-top-tight);
 }
 
-/* Two gray sections in a row follow the same seam rule as two light ones. */
 :is(.wp-block-celina-achievements-timeline:not(.celina-achievements-timeline--stats), .wp-block-celina-resource-list.celina-resource-list--featured, .wp-block-celina-text-image-split.celina-text-image-split--warm:not(.celina-split--photo-dark), .wp-block-celina-capability-cards.celina-capability-cards--light, .celina-sales-intro--muted) + :is(.wp-block-celina-achievements-timeline:not(.celina-achievements-timeline--stats), .wp-block-celina-resource-list.celina-resource-list--featured, .wp-block-celina-text-image-split.celina-text-image-split--warm:not(.celina-split--photo-dark), .wp-block-celina-capability-cards.celina-capability-cards--light, .celina-sales-intro--muted) {
 	padding-top: var(--celina-section-space-top-tight);
 }
@@ -1091,7 +1066,6 @@
 	padding-bottom: var(--celina-section-space-top-tight);
 }
 
-/* Every line of the direct-contact card reads white; the label stays citrus. */
 .celina-contact-card--direct :is(a, address, p, span, strong),
 .celina-contact-card--direct .celina-contact-detail > :last-child {
 	color: var(--celina-color-surface);

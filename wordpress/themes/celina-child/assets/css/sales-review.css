@@ -1,4 +1,3 @@
-/* Loaded only while the review variant is enabled. */
 .celina-review-pre-cta + p {
 	margin-bottom: 1.5rem;
 }
@@ -285,7 +284,6 @@
 	text-decoration: none;
 }
 
-/* Align section markers and dropdowns with the header edge. */
 .celina-sales-review .celina-header-actions {
 	align-self: stretch;
 }
@@ -501,7 +499,6 @@
 	font-weight: 700;
 }
 
-/* Contextual CTAs use the same prompt → explanation → action rhythm. */
 .celina-sales-review .celina-cta-band__inner {
 	justify-items: start;
 	width: min(100%, var(--celina-grid-width));

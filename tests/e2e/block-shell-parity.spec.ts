@@ -200,7 +200,6 @@ for ( const sales of [ true, false ] ) {
           expect
             .soft( actual.weight, `${ width } footer link ${ i } weight` )
             .toBe( legacy.weight );
-          // Legacy links occupy full column width, while editable paragraphs contain inline links.
           for ( const property of [ 'x', 'y' ] as const ) {
             expect
               .soft(

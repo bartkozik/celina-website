@@ -1,6 +1,3 @@
-/* Native block adapters for the existing CELINA shell. Keep the same geometry
- * as site-shell.css and sales-review.css.
- * Content remains native and editable. */
 .celina-block-shell .wp-block {
 	max-width: none;
 	margin: 0;
@@ -58,7 +55,6 @@
 	gap: 0;
 }
 
-/* The utility strip scrolls away; only the main header sticks. */
 .celina-block-header-part {
 	display: contents;
 }
@@ -351,7 +347,6 @@
 	color: var(--celina-color-surface);
 }
 
-/* The active sales variant keeps its existing edge marker and contact CTA. */
 :is(.celina-sales-review, :where(.editor-styles-wrapper) .celina-block-sales-review) .celina-block-header-actions {
 	align-self: stretch;
 }
@@ -635,7 +630,6 @@
 	}
 }
 
-/* Keep old mobile buttons visible until reviewed removal during upgrade. */
 .editor-styles-wrapper .celina-block-header {
 	position: static;
 }

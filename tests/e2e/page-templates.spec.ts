@@ -355,8 +355,6 @@ test( 'managed Corporate News category navigation exposes current state and keyb
     )
   ).not.toBe( '0px' );
 
-  // Audit the settled keyboard-focus colors, not an intermediate frame of
-  // the foreground/background CSS transitions.
   await companyUpdates.evaluate( async ( link ) => {
     await Promise.all(
       link.getAnimations().map( ( animation ) => animation.finished )

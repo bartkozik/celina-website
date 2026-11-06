@@ -12,7 +12,6 @@
 	box-shadow: var(--celina-shadow-card, none);
 	transition: border-color var(--celina-transition-fast, 150ms ease);
 
-	/* The card's own link makes the whole card clickable. */
 	@include card-link.stretched-link( ".celina-industry-card__link" );
 }
 
@@ -52,7 +51,6 @@
 	margin-bottom: 0;
 }
 
-/* A bulleted description reads as a short capability list, not prose. */
 .celina-industry-card__description ul {
 	display: grid;
 	gap: var(--celina-space-3, 0.75rem);
@@ -106,11 +104,6 @@
 	}
 }
 
-/*
- * Frontend presentation: a square tile whose photograph carries the copy,
- * darkened with the same gray wash as the hero. The editor keeps the stacked
- * media-then-fields layout so every field stays reachable.
- */
 .wp-block-celina-industry-card:not(.block-editor-block-list__block) {
 	position: relative;
 	aspect-ratio: 1;
@@ -150,16 +143,11 @@
 	max-width: 50%;
 }
 
-/* Copy sits at the top; the call to action stays anchored at the bottom. */
 .wp-block-celina-industry-card:not(.block-editor-block-list__block) .celina-industry-card__link {
 	margin-top: auto;
 	padding-top: var(--celina-space-6, 1.5rem);
 }
 
-/*
- * A single-column collection reads as wide horizontal tiles stacked on top of
- * each other, so long descriptions fit instead of being cropped by the square.
- */
 .celina-industry-cards--columns-1 .wp-block-celina-industry-card:not(.block-editor-block-list__block) {
 	aspect-ratio: auto;
 	min-height: clamp(15rem, 20vw, 18rem);

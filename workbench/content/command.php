@@ -1,9 +1,4 @@
 <?php
-/**
- * WP-CLI entrypoint for the local CELINA managed-content workflow.
- *
- * @package Celina_Workbench
- */
 
 if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 	fwrite( STDERR, "This command must run through WP-CLI.\n" );

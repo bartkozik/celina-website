@@ -1,5 +1,4 @@
 <?php
-/** One-time, snapshot-backed transition to Iza's native page compositions. */
 declare( strict_types=1 );
 
 function celina_content_is_valid_redesign( array $entry ): bool {
@@ -167,7 +166,6 @@ function celina_content_write_redesign( array $entry, string $content, array $op
 			$entry['version'] !== (int) get_post_meta( $archive_id, '_celina_redesign_snapshot_version', true ) ) {
 			throw new RuntimeException( 'redesign_snapshot_verification_failed' );
 		}
-		// Reuse normal identity migration and verified ownership writes within this transaction.
 		$write_operation = $fresh;
 		$write_operation['reason'] = $fresh['details']['previous_identity'] ? 'identity_migration' : 'version_upgrade';
 		$result = celina_content_write_entry( $entry, $content, $write_operation );

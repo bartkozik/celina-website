@@ -1,5 +1,4 @@
 <?php
-/** Read-only attachment lookup and native pattern hydration. */
 defined( 'ABSPATH' ) || exit;
 
 function celina_media_attachment_map(): array {

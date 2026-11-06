@@ -8,8 +8,6 @@ import type { HeroAttributes } from '../blocks/hero/model';
 import Resource, { DOCUMENT_MIME_TYPES } from '../blocks/resource-item/edit';
 import type { ResourceItemAttributes } from '../blocks/resource-item/model';
 
-// This suite exercises media/link controls; the real nested text editor is
-// covered by rich-content.spec.ts in WordPress, including save/reload.
 vi.mock( './rich-content-editor', () => ( { default: () => null } ) );
 
 vi.mock( '@wordpress/block-editor', async () => {

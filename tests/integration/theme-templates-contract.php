@@ -283,7 +283,6 @@ $canonical_manifest = array_values(
 );
 
 foreach ( $canonical_manifest as $entry ) {
-	// Keep proving the original starters while the active source uses tested REDESIGNED aliases.
 	$pattern_slug = str_replace( 'celina/redesigned-', 'celina/', $entry['pattern'] );
 	$registered   = $patterns->get_registered( $pattern_slug );
 

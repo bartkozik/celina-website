@@ -1,5 +1,4 @@
 <?php
-/** Editor-only News tools. Public rendering remains in news-grid.php. */
 defined( 'ABSPATH' ) || exit;
 
 function celina_news_editor_can_preview(): bool {
@@ -7,9 +6,7 @@ function celina_news_editor_can_preview(): bool {
 }
 
 function celina_blocks_editor_settings( array $settings, ?WP_Block_Editor_Context $context = null ): array {
-    // CELINA page patterns are unlocked compositions. WordPress 7.1 otherwise
-    // implicitly content-locks unsynced patterns and disables their custom blocks.
-    // This does not remove explicit template locks or unlock synced patterns.
+    // Disable WordPress 7.1 implicit content locks for unsynced patterns; retain explicit and synced locks.
     if ( $context && $context->post instanceof WP_Post && in_array( $context->post->post_type, [ 'post', 'page' ], true ) ) {
         $settings['disableContentOnlyForUnsyncedPatterns'] = true;
     }
@@ -56,7 +53,6 @@ function celina_news_editor_post( WP_Post $post ): array {
 
 function celina_news_editor_response( WP_REST_Request $request ): WP_REST_Response {
     $config = celina_news_grid_attributes( $request->get_params() );
-    // The editor always previews the first page, independently of the edited page URL.
     $config['page'] = 1;
     $config['pagination'] = false;
 

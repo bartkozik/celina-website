@@ -1,5 +1,4 @@
 <?php
-/** Pure, non-mutating media migration contracts. Run with wp eval-file. */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 1 );

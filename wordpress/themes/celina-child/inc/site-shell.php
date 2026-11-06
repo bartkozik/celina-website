@@ -1,12 +1,6 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Check whether a location has a usable assigned navigation menu.
- *
- * @param string $location Registered menu location.
- * @return bool
- */
 function celina_has_menu( string $location ): bool {
 	$locations = get_nav_menu_locations();
 	$menu_id   = $locations[ $location ] ?? 0;
@@ -20,12 +14,7 @@ function celina_has_menu( string $location ): bool {
 	return is_array( $items ) && [] !== $items;
 }
 
-/**
- * Return the CELINA navigation used until an editor assigns a WordPress menu.
- *
- * @param string $location Registered menu location.
- * @return array<int, array{label: string, url: string, children?: array<int, array{label: string, url: string}>}>
- */
+/** @return array<int, array{label: string, url: string, children?: array<int, array{label: string, url: string}>}> */
 function celina_default_menu_items( string $location ): array {
 	if ( 'celina-utility' === $location ) {
 		return [
@@ -71,13 +60,7 @@ function celina_default_menu_items( string $location ): array {
 	return [];
 }
 
-/**
- * Render a safe fallback navigation list from the approved CELINA routes.
- *
- * @param array<int, array{label: string, url: string, children?: array<int, array{label: string, url: string}>}> $items Navigation items.
- * @param string                                                                                                      $class Menu list class.
- * @param int                                                                                                         $depth Maximum menu depth.
- */
+/** @param array<int, array{label: string, url: string, children?: array<int, array{label: string, url: string}>}> $items */
 function celina_render_default_menu_items( array $items, string $class, int $depth ): void {
 	if ( [] === $items ) {
 		return;
@@ -97,23 +80,10 @@ function celina_render_default_menu_items( array $items, string $class, int $dep
 	<?php
 }
 
-/**
- * Check whether a location has an editor-managed or approved fallback menu.
- *
- * @param string $location Registered menu location.
- * @return bool
- */
 function celina_has_navigation( string $location ): bool {
 	return celina_has_menu( $location ) || [] !== celina_default_menu_items( $location );
 }
 
-/**
- * Render an assigned menu or the approved CELINA fallback without a wrapper.
- *
- * @param string $location Registered menu location.
- * @param string $class CSS class for the menu list.
- * @param int    $depth Maximum menu depth.
- */
 function celina_menu( string $location, string $class, int $depth = 1 ): void {
 	if ( ! celina_has_menu( $location ) ) {
 		$items = celina_sales_review_fallback_items( celina_default_menu_items( $location ), $location );
@@ -132,9 +102,6 @@ function celina_menu( string $location, string $class, int $depth = 1 ): void {
 	);
 }
 
-/**
- * Render the header on the GeneratePress generate_header hook.
- */
 function celina_render_header(): void {
 	if ( celina_render_block_shell_part( 'header' ) ) { return; }
 	$phone = sanitize_text_field( (string) get_theme_mod( 'celina_phone', '(202) 555-0100' ) );
@@ -160,7 +127,7 @@ function celina_render_header(): void {
 	<header class="celina-header">
 		<div class="celina-shell-inner">
 			<?php if ( $logo ) : ?>
-				<?php echo $logo; // WordPress generates custom-logo markup from the configured attachment. ?>
+				<?php echo $logo;  ?>
 			<?php else : ?>
 				<a class="celina-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>
 			<?php endif; ?>
@@ -213,9 +180,6 @@ function celina_replace_generatepress_shell(): void {
 
 add_action( 'after_setup_theme', 'celina_replace_generatepress_shell', 100 );
 
-/**
- * Render the footer inserted before the end of the page.
- */
 function celina_render_footer(): void {
 	if ( celina_render_block_shell_part( 'footer' ) ) { return; }
 	$phone   = sanitize_text_field( (string) get_theme_mod( 'celina_phone', '(202) 555-0100' ) );

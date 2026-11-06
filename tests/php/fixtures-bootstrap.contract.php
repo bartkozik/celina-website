@@ -1,9 +1,4 @@
 <?php
-/**
- * Contract coverage for the local WordPress fixture bootstrap.
- *
- * @package Celina_Workbench
- */
 
 declare( strict_types=1 );
 

@@ -5,7 +5,6 @@
 	display: flex;
 	align-items: flex-end;
 
-	/* Every hero shares one height so switching pages does not jump. */
 	min-height: var(--celina-hero-height, 34rem);
 	padding: var(--celina-hero-space, clamp(2rem, 3.5vw, 3rem)) var(--celina-gutter, clamp(1rem, 4vw, 2rem));
 	color: var(--celina-color-surface, #fff);

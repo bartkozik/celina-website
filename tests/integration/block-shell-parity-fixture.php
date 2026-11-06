@@ -18,7 +18,6 @@ try {
 	ob_start(); celina_render_header(); celina_render_footer(); $legacy = ob_get_clean();
 	$header = celina_block_shell_content( 'header' );
 	if ( isset( $_GET['logo'] ) ) {
-		// Exercise the native logo render path without writing a synthetic media attachment.
 		$header_blocks = parse_blocks( $header );
 		$header_blocks[1]['innerBlocks'][0]['innerBlocks'][0] = celina_shell_block( 'site-logo', [ 'width' => 190, 'className' => 'celina-block-header-logo' ] );
 		$header = serialize_blocks( $header_blocks );

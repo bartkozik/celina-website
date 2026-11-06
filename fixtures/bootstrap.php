@@ -1,20 +1,10 @@
 <?php
-/**
- * Seeds the disposable local WordPress environment with synthetic content.
- *
- * @package Celina_Workbench
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 1 );
 }
 
 if ( ! function_exists( 'celina_fixture_post_statuses' ) ) {
-	/**
-	 * Returns every status that can retain a stale local fixture.
-	 *
-	 * @return string[]
-	 */
 	function celina_fixture_post_statuses() {
 		return [
 			'publish',
@@ -30,13 +20,6 @@ if ( ! function_exists( 'celina_fixture_post_statuses' ) ) {
 }
 
 if ( ! function_exists( 'celina_fixture_post_id' ) ) {
-	/**
-	 * Finds a fixture by its exact post type and slug across all statuses.
-	 *
-	 * @param string $post_type Post type.
-	 * @param string $post_name Post slug.
-	 * @return int Existing post ID, or zero.
-	 */
 	function celina_fixture_post_id( $post_type, $post_name ) {
 		$post_ids = get_posts(
 			[
@@ -56,13 +39,6 @@ if ( ! function_exists( 'celina_fixture_post_id' ) ) {
 }
 
 if ( ! function_exists( 'celina_fixture_error' ) ) {
-	/**
-	 * Reports a fixture failure through WP-CLI.
-	 *
-	 * @param array<string, mixed> $post Fixture post data.
-	 * @param mixed                $result WordPress API result.
-	 * @return void
-	 */
 	function celina_fixture_error( $post, $result ) {
 		$label = sprintf( '%s %s', $post['post_type'], $post['post_name'] );
 
@@ -83,12 +59,6 @@ if ( ! function_exists( 'celina_fixture_error' ) ) {
 }
 
 if ( ! function_exists( 'celina_upsert_fixture_post' ) ) {
-	/**
-	 * Creates or restores a synthetic fixture to its expected published state.
-	 *
-	 * @param array<string, mixed> $post Fixture post data.
-	 * @return int Final post ID.
-	 */
 	function celina_upsert_fixture_post( $post ) {
 		$post_id = celina_fixture_post_id( $post['post_type'], $post['post_name'] );
 		$result  = $post_id
@@ -115,12 +85,6 @@ if ( ! function_exists( 'celina_upsert_fixture_post' ) ) {
 }
 
 if ( ! function_exists( 'celina_fixture_pattern_content' ) ) {
-	/**
-	 * Loads only the editable block markup from a local theme pattern.
-	 *
-	 * @param string $filename Pattern filename without the PHP suffix.
-	 * @return string Pattern block markup.
-	 */
 	function celina_fixture_pattern_content( $filename ) {
 		$relative_path = 'patterns/' . $filename . '.php';
 		$path          = function_exists( 'get_theme_file_path' )
@@ -142,14 +106,6 @@ if ( ! function_exists( 'celina_fixture_pattern_content' ) ) {
 }
 
 if ( ! function_exists( 'celina_fixture_category_id_by_definition' ) ) {
-	/**
-	 * Creates or returns one exact synthetic category.
-	 *
-	 * @param string $name Category name.
-	 * @param string $slug Category slug.
-	 * @param int    $parent Parent category ID.
-	 * @return int
-	 */
 	function celina_fixture_category_id_by_definition( $name, $slug, $parent = 0 ) {
 		$category = get_term_by( 'slug', $slug, 'category' );
 
@@ -194,11 +150,6 @@ if ( ! function_exists( 'celina_fixture_category_id_by_definition' ) ) {
 }
 
 if ( ! function_exists( 'celina_fixture_category_id' ) ) {
-	/**
-	 * Creates or returns the synthetic Fixture News base category.
-	 *
-	 * @return int
-	 */
 	function celina_fixture_category_id() {
 		return celina_fixture_category_id_by_definition(
 			'Fixture News',
@@ -209,12 +160,7 @@ if ( ! function_exists( 'celina_fixture_category_id' ) ) {
 
 if ( ! function_exists( 'celina_fixture_editorial_category_ids' ) ) {
 	/**
-	 * Seeds editorial fixture categories and returns them in navigation order.
-	 *
-	 * Manufacturing is created first so the multi-category fixture proves that
-	 * configured navigation order, rather than the lowest term ID, wins.
-	 *
-	 * @param int $parent Parent Fixture News category ID.
+	 * Seed Manufacturing first to test navigation order independently of term IDs.
 	 * @return array<string, int>
 	 */
 	function celina_fixture_editorial_category_ids( $parent ) {
@@ -243,11 +189,7 @@ if ( ! function_exists( 'celina_fixture_editorial_category_ids' ) ) {
 }
 
 if ( ! function_exists( 'celina_fixture_featured_image_upload' ) ) {
-	/**
-	 * Writes a small local PNG to its deterministic featured-media fixture path.
-	 *
-	 * @return array{file: string, url: string}
-	 */
+	/** @return array{file: string, url: string} */
 	function celina_fixture_featured_image_upload() {
 		$image_bytes = base64_decode(
 			'iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAIAAAC0SDtlAAAAFElEQVR42mP4lKFEEmIY1TAoNAAAnWHVwcfuGpgAAAAASUVORK5CYII=',
@@ -408,11 +350,6 @@ if ( ! function_exists( 'celina_fixture_featured_image_upload' ) ) {
 }
 
 if ( ! function_exists( 'celina_fixture_menu_id' ) ) {
-	/**
-	 * Creates or returns the one synthetic fixture navigation menu.
-	 *
-	 * @return int
-	 */
 	function celina_fixture_menu_id() {
 		$menu = wp_get_nav_menu_object( 'CELINA Fixture Navigation' );
 
@@ -431,15 +368,6 @@ if ( ! function_exists( 'celina_fixture_menu_id' ) ) {
 }
 
 if ( ! function_exists( 'celina_upsert_fixture_menu_item' ) ) {
-	/**
-	 * Repairs a synthetic navigation item and removes duplicates by its URL.
-	 *
-	 * @param int      $menu_id Menu term ID.
-	 * @param string   $title Item label.
-	 * @param string   $url Item URL.
-	 * @param string[] $legacy_urls Previous URLs owned by this fixture item.
-	 * @return void
-	 */
 	function celina_upsert_fixture_menu_item( $menu_id, $title, $url, $legacy_urls = [] ) {
 		$matching_items = [];
 		$items          = wp_get_nav_menu_items( $menu_id, [ 'post_status' => 'any' ] );

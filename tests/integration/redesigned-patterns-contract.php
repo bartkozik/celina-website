@@ -1,5 +1,4 @@
 <?php
-/** Live contract for additive REDESIGNED editor entries and their source content. */
 $failures = [];
 $expect   = static function ( bool $condition, string $message ) use ( &$failures ): void {
 	if ( ! $condition ) {

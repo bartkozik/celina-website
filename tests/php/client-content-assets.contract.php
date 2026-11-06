@@ -1,9 +1,4 @@
 <?php
-/**
- * Offline contract for client-sourced media in the managed-content batches.
- *
- * @package Celina_Workbench
- */
 
 declare( strict_types=1 );
 
@@ -21,7 +16,6 @@ if ( false === $theme_styles ) {
 $patterns = [
 	'page.homepage' => [
 		'file'       => 'page-homepage.php',
-		// The hero shows a CELINA product (event tent) rather than the warehouse.
 		'hero_asset' => 'portfolio-image-29.png',
 		'assets' => [
 			'portfolio-image-01.png' => 1,

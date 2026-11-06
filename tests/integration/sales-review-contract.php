@@ -1,5 +1,4 @@
 <?php
-/** Run in the disposable WordPress workbench with wp eval-file. */
 if ( ! function_exists( 'celina_sales_review_content' ) ) {
     WP_CLI::error( 'Sales review switch and content transformation are not implemented.' );
 }

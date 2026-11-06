@@ -1,7 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { expect, test, type Locator } from '@playwright/test';
 
-// Border color alone is not feedback when the design has no visible border.
 async function visibleTreatment( link: Locator ) {
   return link.evaluate( ( element ) => {
     const style = getComputedStyle( element );
@@ -29,8 +28,6 @@ test( 'article navigation provides hover and keyboard feedback without shifting 
       encoding: 'utf8',
       env: process.env,
     } );
-  // Managed articles are imported in one second; add a dated neighbour to
-  // exercise the real PHP navigation without changing their publication dates.
   const output = wp(
     'eval',
     `$categories = get_terms(["taxonomy" => "category", "hide_empty" => true, "fields" => "ids"]);
@@ -61,7 +58,6 @@ test( 'article navigation provides hover and keyboard feedback without shifting 
     await link.press( 'Enter' );
     expect( destination ).toBeTruthy();
     await expect( page ).toHaveURL( destination as string );
-    // These editable block variants are not enabled in Iza's default pages.
     for ( const selector of [
       '.celina-facility-card__link',
       '.celina-facility-card__contact a',

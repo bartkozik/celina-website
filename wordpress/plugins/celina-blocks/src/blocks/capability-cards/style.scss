@@ -23,10 +23,6 @@
 	margin-inline: auto;
 }
 
-/*
- * The header's parts become direct children of the section, so the section's
- * call to action can sit after the card grid without changing saved markup.
- */
 .celina-capability-cards__header {
 	display: contents;
 }
@@ -156,7 +152,6 @@
 	}
 }
 
-/* A paragraph holding only a link is the section's call to action. */
 .celina-capability-cards .celina-capability-cards__introduction > p > a:only-child {
 	padding: 0.75rem 1.5rem;
 	border: 1px solid currentcolor;
@@ -167,7 +162,6 @@
 	@include card-link.arrow-link;
 }
 
-/* On the dark section the outline button inverts. */
 .celina-capability-cards--dark .celina-capability-cards__introduction > p > a:only-child {
 	color: var(--celina-color-surface, #fff);
 }

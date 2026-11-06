@@ -127,8 +127,6 @@ test( 'rich content preserves paragraphs and list items after editing and reload
       await page.keyboard.type( 'Updated ' );
       await dialog.getByRole( 'button', { name: 'Apply changes' } ).click();
     } else {
-      // Exercise the legacy editor too: this fails before the fix because
-      // editing an unrelated paragraph merges the three list items.
       const field = block.locator( '.celina-text-image-split__prose' );
       await field.click();
       await page.keyboard.press( 'ControlOrMeta+Home' );

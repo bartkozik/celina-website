@@ -75,7 +75,6 @@ test( 'each collection visibly offers its matching item and preserves newly edit
           'data-block',
           duplicatedId!
         );
-        // Verify the empty-parent appender remains usable after all items are deleted.
         for ( let count = before + 2; count > 0; count-- ) {
           await blockMenuAction( page, items.last(), 'Delete' );
           await expect( items ).toHaveCount( count - 1 );
@@ -135,7 +134,6 @@ test( 'article dates distinguish publication from a later update', async ( {
       await expect( page.locator( '.celina-article-updated' ) ).toHaveCount(
         0
       );
-      // Backdate this disposable article, as when importing an older announcement.
       const updated = await page.evaluate(
         async ( { entity, id } ) => {
           const response = await fetch(
@@ -187,7 +185,6 @@ test( 'hero actions and resource files can be changed and cleared without losing
   const entity = await openDraft( page );
   await runWithCleanup(
     async () => {
-      // Seed only this disposable draft, then exercise the visible editing controls.
       await page.evaluate( () => {
         type Block = { name: string };
         const { wp } = window as typeof window & {

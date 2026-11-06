@@ -1,9 +1,6 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Render the editorial job-title field on an editable user profile.
- */
 function celina_article_job_title_field( WP_User $user ): void {
 	if ( ! current_user_can( 'edit_user', $user->ID ) ) {
 		return;
@@ -40,9 +37,6 @@ function celina_article_job_title_field( WP_User $user ): void {
 add_action( 'show_user_profile', 'celina_article_job_title_field' );
 add_action( 'edit_user_profile', 'celina_article_job_title_field' );
 
-/**
- * Save the editorial job title from a standard user-profile request.
- */
 function celina_article_save_job_title( int $user_id ): void {
 	if ( $user_id <= 0 || ! current_user_can( 'edit_user', $user_id ) ) {
 		return;
@@ -75,18 +69,11 @@ function celina_article_save_job_title( int $user_id ): void {
 add_action( 'personal_options_update', 'celina_article_save_job_title' );
 add_action( 'edit_user_profile_update', 'celina_article_save_job_title' );
 
-/**
- * Whether a byte is HTML ASCII whitespace.
- */
 function celina_article_is_html_space( string $character ): bool {
 	return '' !== $character && false !== strpos( "\x09\x0A\x0C\x0D\x20", $character );
 }
 
-/**
- * Parse one shortcode wrapper token without consulting or invoking callbacks.
- *
- * @return array{closing: bool, complete: bool, end: int, name: string, self_closing: bool, valid: bool}|null
- */
+/** @return array{closing: bool, complete: bool, end: int, name: string, self_closing: bool, valid: bool}|null */
 function celina_article_shortcode_token_at( string $content, int $start ): ?array {
 	$length = strlen( $content );
 
@@ -175,11 +162,7 @@ function celina_article_shortcode_token_at( string $content, int $start ): ?arra
 	];
 }
 
-/**
- * Parse a WordPress escaped shortcode literal and retain its visible brackets.
- *
- * @return array{end: int, visible: string}|null
- */
+/** @return array{end: int, visible: string}|null */
 function celina_article_escaped_shortcode_at( string $content, int $start ): ?array {
 	$length = strlen( $content );
 	if (
@@ -282,9 +265,6 @@ function celina_article_escaped_shortcode_at( string $content, int $start ): ?ar
 	];
 }
 
-/**
- * Remove shortcode wrapper syntax in one forward pass without executing callbacks.
- */
 function celina_article_tokenize_readable_content( string $content ): string {
 	$length = strlen( $content );
 	$cursor = 0;
@@ -337,9 +317,7 @@ function celina_article_reading_minutes( string $content ): int {
 }
 
 /**
- * Mark owned level-one Heading blocks at the document root or in managed containers.
- *
- * @param array<int, array<string, mixed>> $blocks Parsed block tree.
+ * @param array<int, array<string, mixed>> $blocks
  * @return array<int, array<string, mixed>>
  */
 function celina_article_mark_heading_blocks( array $blocks, string $marker ): array {
@@ -388,11 +366,7 @@ function celina_article_mark_heading_blocks( array $blocks, string $marker ): ar
 	return $blocks;
 }
 
-/**
- * Lower a rendered core Heading block's H1 output without touching other HTML.
- *
- * @param array<string, mixed> $block Parsed block data.
- */
+/** @param array<string, mixed> $block */
 function celina_article_render_heading_block( string $block_content, array $block ): string {
 	if (
 		'core/heading' !== ( $block['blockName'] ?? null ) ||
@@ -433,9 +407,6 @@ function celina_article_render_heading_block( string $block_content, array $bloc
 		. substr( $block_content, $closing_offset + 2 );
 }
 
-/**
- * Return the ID of the untouched default WordPress sample post.
- */
 function celina_wordpress_sample_post_id(): int {
 	static $sample_id = null;
 
@@ -468,9 +439,6 @@ function celina_wordpress_sample_post_id(): int {
 	return $sample_id;
 }
 
-/**
- * Hide the untouched WordPress sample post from public front-end queries.
- */
 function celina_exclude_wordpress_sample_post( WP_Query $query ): void {
 	if ( is_admin() ) {
 		return;
@@ -501,9 +469,6 @@ function celina_exclude_wordpress_sample_post( WP_Query $query ): void {
 
 add_action( 'pre_get_posts', 'celina_exclude_wordpress_sample_post' );
 
-/**
- * Return a public adjacent article while skipping demo content.
- */
 function celina_article_adjacent_post( WP_Post $post, string $direction ): ?WP_Post {
 	global $wpdb;
 
@@ -552,9 +517,6 @@ function celina_article_adjacent_post( WP_Post $post, string $direction ): ?WP_P
 	return $adjacent instanceof WP_Post ? $adjacent : null;
 }
 
-/**
- * Return the deterministic primary category for an article.
- */
 function celina_article_primary_category( WP_Post $post ): ?WP_Term {
 	if (
 		function_exists( 'celina_managed_news_index_attributes' ) &&
@@ -573,7 +535,6 @@ function celina_article_primary_category( WP_Post $post ): ?WP_Term {
 				}
 			}
 		} catch ( Throwable $error ) {
-			// Continue with the theme-owned deterministic fallback.
 		}
 	}
 
@@ -607,9 +568,6 @@ function celina_article_primary_category( WP_Post $post ): ?WP_Term {
 	return null;
 }
 
-/**
- * Return KSES-safe article featured media or the local theme placeholder.
- */
 function celina_article_featured_image( WP_Post $post ): string {
 	$image = '';
 

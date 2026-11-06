@@ -87,8 +87,6 @@ test( 'global parts support editing and responsive navigation without code', asy
         ).toHaveCSS( 'margin-top', '0px' );
       }
       originals.push( { url: page.url(), content: original.content } );
-      // Existing local parts may predate the current layout. Test the current
-      // composition through native blocks, then restore every saved original.
       await page.evaluate( ( content ) => {
         const wp = ( window as any ).wp;
         wp.data
@@ -137,7 +135,6 @@ test( 'global parts support editing and responsive navigation without code', asy
           root && store.canInsertBlockType( 'core/paragraph', root.clientId )
         );
       }, part );
-      // Exercise native block insertion, movement and removal, then save through UI.
       await page.evaluate( async ( region ) => {
         const wp = ( window as any ).wp;
         const store = wp.data.dispatch( 'core/block-editor' );
@@ -287,7 +284,6 @@ test( 'global parts support editing and responsive navigation without code', asy
           .boundingBox();
         expect( Math.abs( brand!.y - links!.y ) ).toBeLessThan( 4 );
         expect( links!.x ).toBeGreaterThan( brand!.x + brand!.width );
-        // Moving the actual footer column in Gutenberg changes the visual order.
         const contact = await page
           .locator( '.celina-block-footer-contact' )
           .boundingBox();
@@ -411,7 +407,6 @@ test( 'global parts support editing and responsive navigation without code', asy
         'CEL-30 Footer editorial verification'
       );
     }
-    // Removing the sole editor-owned source also removes the mobile rendering.
     await page.goto( originals[ 0 ]!.url );
     await waitForEditor( page );
     await page.evaluate( async () => {
@@ -473,7 +468,6 @@ test( 'global parts support editing and responsive navigation without code', asy
       }, original.content );
       await savePart( page );
     }
-    // The shared synthetic fixture uses the legacy shell for other browser tests.
     await page.goto( settings );
     const disable = page.getByRole( 'button', {
       name: 'Use legacy header and footer',

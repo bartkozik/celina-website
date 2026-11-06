@@ -30,7 +30,6 @@ vi.mock( '@wordpress/data', () => ( {
         return { getEditorSettings: () => ( { celinaNews: settings } ) };
       }
       if ( store === 'core/block-editor' ) {
-        // WordPress forwards only its supported block settings to this store.
         return { getSettings: () => ( {} ) };
       }
       throw new Error( `Unexpected editor store: ${ store }` );

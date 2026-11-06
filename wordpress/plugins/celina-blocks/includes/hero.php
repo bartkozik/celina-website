@@ -1,8 +1,6 @@
 <?php
-/** Runtime attachment URLs for the existing static Hero block. */
 defined( 'ABSPATH' ) || exit;
 
-/** Replace only background-image declarations, retaining the other CSS bytes. */
 function celina_hero_background_style( string $style, string $url ): string {
     $start = 0;
     $quote = '';

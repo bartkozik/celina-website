@@ -18,8 +18,6 @@ interface EditProps {
 
 export default function Edit( { attributes, setAttributes }: EditProps ) {
   const icon = normalizeAchievementIcon( attributes.icon );
-  // Editor-only hints: the saved markup omits the marker and carries no
-  // presentation class of its own.
   const classNames = [ 'celina-achievement' ];
 
   if ( icon ) {

@@ -1,3 +1,4 @@
+import type { EditorBlock } from '../support/wordpress-browser';
 import { expect, test } from '@playwright/test';
 import {
   currentEditorEntity,
@@ -19,30 +20,32 @@ test( 'native gallery retains every existing portrait when adding, replacing and
   const entity = await currentEditorEntity( page );
   try {
     const original = await page.evaluate( async () => {
-      const wp = ( window as any ).wp;
+      const wp = window.wp;
       const patterns = await wp.apiFetch( {
         path: '/wp/v2/block-patterns/patterns',
       } );
       const pattern = patterns.find(
-        ( item: any ) => item.name === 'celina/redesigned-page-about'
+        ( item ) => item.name === 'celina/redesigned-page-about'
       );
-      const flatten = ( blocks: any[] ): any[] =>
+      const flatten = ( blocks: EditorBlock[] ): EditorBlock[] =>
         blocks.flatMap( ( block ) => [
           block,
           ...flatten( block.innerBlocks ),
         ] );
+      if ( ! pattern ) throw new Error( 'Missing About pattern.' );
       const gallery = flatten( wp.blocks.parse( pattern.content ) ).find(
         ( block ) => block.name === 'core/gallery'
       );
+      if ( ! gallery ) throw new Error( 'Missing gallery.' );
       wp.data.dispatch( 'core/block-editor' ).resetBlocks( [ gallery ] );
       wp.data.dispatch( 'core/block-editor' ).selectBlock( gallery.clientId );
-      return gallery.innerBlocks.map( ( block: any ) => ( {
+      return gallery.innerBlocks.map( ( block ) => ( {
         id: block.attributes.id,
         caption: block.attributes.caption,
       } ) );
     } );
     expect( original ).toHaveLength( 7 );
-    expect( original.every( ( photo: any ) => photo.id > 0 ) ).toBe( true );
+    expect( original.every( ( photo ) => typeof photo.id === 'number' && photo.id > 0 ) ).toBe( true );
     await page.getByRole( 'button', { name: 'Add', exact: true } ).click();
     await page.getByRole( 'menuitem', { name: 'Open Media Library' } ).click();
     const dialog = page.getByRole( 'dialog' );
@@ -72,26 +75,25 @@ test( 'native gallery retains every existing portrait when adding, replacing and
       .getByRole( 'button', { name: 'Update gallery', exact: true } )
       .click();
     const readImages = () =>
-      page.evaluate( () =>
-        ( window as any ).wp.data
-          .select( 'core/block-editor' )
-          .getBlocks()[ 0 ]
-          .innerBlocks.map( ( block: any ) => ( {
-            id: block.attributes.id,
-            caption: block.attributes.caption,
-          } ) )
-      );
+      page.evaluate( () => {
+        const gallery = window.wp.data.select( 'core/block-editor' ).getBlocks()[ 0 ];
+        if ( ! gallery ) throw new Error( 'Missing gallery.' );
+        return gallery.innerBlocks.map( ( block ) => ( {
+          id: block.attributes.id,
+          caption: block.attributes.caption,
+        } ) );
+      } );
     expect( ( await readImages() ).slice( 0, 7 ) ).toEqual( original );
     const canvas = page.frameLocator( 'iframe[name="editor-canvas"]' );
     await expect( canvas.locator( '[data-type="core/image"]' ) ).toHaveCount(
       8
     );
     await page.evaluate( () => {
-      const wp = ( window as any ).wp;
+      const wp = window.wp;
       const gallery = wp.data.select( 'core/block-editor' ).getBlocks()[ 0 ];
-      wp.data
-        .dispatch( 'core/block-editor' )
-        .selectBlock( gallery.innerBlocks[ 7 ].clientId );
+      const image = gallery?.innerBlocks[ 7 ];
+      if ( ! image ) throw new Error( 'Missing eighth gallery image.' );
+      wp.data.dispatch( 'core/block-editor' ).selectBlock( image.clientId );
     } );
     await page.getByRole( 'button', { name: 'Replace', exact: true } ).click();
     await page.getByRole( 'menuitem', { name: 'Open Media Library' } ).click();
@@ -106,7 +108,7 @@ test( 'native gallery retains every existing portrait when adding, replacing and
     const edited = await readImages();
     expect( edited[ 7 ] ).toEqual( original[ 6 ] );
     await page.evaluate( async () => {
-      const editor = ( window as any ).wp.data.dispatch( 'core/editor' );
+      const editor = window.wp.data.dispatch( 'core/editor' );
       editor.editPost( { title: 'Media editor regression', status: 'draft' } );
       await editor.savePost();
     } );
@@ -147,27 +149,27 @@ test( 'migrated hero and contact backgrounds can be removed without restoring CS
   const entity = await currentEditorEntity( page );
   try {
     await page.evaluate( async () => {
-      const wp = ( window as any ).wp;
+      const wp = window.wp;
       const patterns = await wp.apiFetch( {
         path: '/wp/v2/block-patterns/patterns',
       } );
-      const flatten = ( blocks: any[] ): any[] =>
+      const flatten = ( blocks: EditorBlock[] ): EditorBlock[] =>
         blocks.flatMap( ( block ) => [
           block,
           ...flatten( block.innerBlocks ),
         ] );
-      const blocks = ( name: string ) =>
-        flatten(
-          wp.blocks.parse(
-            patterns.find( ( item: any ) => item.name === name ).content
-          )
-        );
+      const blocks = ( name: string ) => {
+        const pattern = patterns.find( ( item ) => item.name === name );
+        if ( ! pattern ) throw new Error( `Missing pattern: ${ name }` );
+        return flatten( wp.blocks.parse( pattern.content ) );
+      };
       const cover = blocks( 'celina/sales-contact-heading' ).find(
         ( block ) => block.name === 'core/cover'
       );
       const hero = blocks( 'celina/redesigned-page-about' ).find(
         ( block ) => block.name === 'celina/hero'
       );
+      if ( ! cover || ! hero ) throw new Error( 'Missing cover or hero block.' );
       wp.data.dispatch( 'core/block-editor' ).resetBlocks( [ cover, hero ] );
       wp.data.dispatch( 'core/block-editor' ).selectBlock( cover.clientId );
     } );
@@ -178,18 +180,16 @@ test( 'migrated hero and contact backgrounds can be removed without restoring CS
       canvas.locator( '.wp-block-cover__image-background' )
     ).toHaveCount( 0 );
     await page.evaluate( () => {
-      const wp = ( window as any ).wp;
-      wp.data
-        .dispatch( 'core/block-editor' )
-        .selectBlock(
-          wp.data.select( 'core/block-editor' ).getBlocks()[ 1 ].clientId
-        );
+      const wp = window.wp;
+      const hero = wp.data.select( 'core/block-editor' ).getBlocks()[ 1 ];
+      if ( ! hero ) throw new Error( 'Missing hero.' );
+      wp.data.dispatch( 'core/block-editor' ).selectBlock( hero.clientId );
     } );
     await page
       .getByRole( 'button', { name: 'Remove background image', exact: true } )
       .click();
     await page.evaluate( async () => {
-      const editor = ( window as any ).wp.data.dispatch( 'core/editor' );
+      const editor = window.wp.data.dispatch( 'core/editor' );
       editor.editPost( {
         title: 'Media background regression',
         status: 'draft',

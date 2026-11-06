@@ -23,19 +23,7 @@ jobs:
           node-version-file: .nvmrc
       - run: corepack enable
       - run: pnpm install --frozen-lockfile --ignore-scripts
-      - run: pnpm lint:js --fix
-      - if: ${{ !cancelled() }}
-        run: git diff > /tmp/format.patch
-      - if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: formatting
-          path: /tmp/format.patch
-          retention-days: 1
-      - if: ${{ !cancelled() }}
-        run: pnpm typecheck
-      - if: ${{ !cancelled() }}
-        run: pnpm check
+      - run: pnpm check
       - if: ${{ !cancelled() }}
         run: pnpm test:unit --maxWorkers=1 --minWorkers=1
       - if: ${{ !cancelled() }}

@@ -1,20 +1,9 @@
 <?php
-/**
- * Proves fixture media does not grow when the attachment row is reset.
- *
- * @package Celina_Workbench
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 1 );
 }
 
-/**
- * Counts fixture-owned source images without changing the upload directory.
- *
- * @param string $directory Upload directory.
- * @return int
- */
 function celina_fixture_media_runtime_file_count( string $directory ): int {
 	if ( ! is_dir( $directory ) ) {
 		WP_CLI::error( 'Fixture media runtime upload directory is missing.' );
@@ -33,12 +22,6 @@ function celina_fixture_media_runtime_file_count( string $directory ): int {
 	return $count;
 }
 
-/**
- * Counts generated temporary fixture files without changing them.
- *
- * @param string $directory Upload directory.
- * @return int
- */
 function celina_fixture_media_runtime_temp_file_count( string $directory ): int {
 	$count = 0;
 	foreach ( new DirectoryIterator( $directory ) as $entry ) {

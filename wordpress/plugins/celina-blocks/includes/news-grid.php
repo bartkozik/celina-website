@@ -386,13 +386,7 @@ function celina_news_grid_render_navigation( array $config, int $current_categor
         $all_news_item . implode( '', $category_items ) . '</ul></nav>';
 }
 
-/**
- * Fall back to the article's first image when it has no featured image.
- *
- * Imported articles keep their photographs as core Image blocks. Using the
- * first one keeps News Grid cards illustrated with the post's own media
- * instead of a generic placeholder. Only http(s) URLs are accepted.
- */
+/** Imported articles may lack featured media; use the first core Image with an http(s) URL. */
 function celina_news_grid_first_content_image_url( WP_Post $post ): string {
     if ( ! has_blocks( $post->post_content ) ) {
         return '';

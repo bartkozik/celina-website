@@ -1,9 +1,4 @@
 <?php
-/**
- * Offline contract for the client-approved global footer.
- *
- * @package Celina_Workbench
- */
 
 declare( strict_types=1 );
 

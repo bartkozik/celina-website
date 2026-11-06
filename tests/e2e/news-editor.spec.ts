@@ -78,7 +78,6 @@ async function deleteFixtures(
   posts: number[],
   category: number | null
 ): Promise< void > {
-  // Attempt every cleanup even when one deletion fails, and retain those failures.
   const failures: unknown[] = [];
   for ( const [ restBase, id ] of [
     ...posts.map( ( postId ) => [ 'posts', postId ] as const ),

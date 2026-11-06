@@ -40,7 +40,7 @@ for ( const sales of [ true, false ] ) {
             ...( emptyMenu ? { empty_menu: '1' } : {} ),
           } ) }`
       );
-      const documents = await response.json();
+      const documents = parseDocuments( await response.json() );
       const pairs: [ string, string ][] = [
         [ '.celina-utility', '.celina-block-utility' ],
         [ '.celina-header', '.celina-block-header' ],
@@ -200,7 +200,6 @@ for ( const sales of [ true, false ] ) {
           expect
             .soft( actual.weight, `${ width } footer link ${ i } weight` )
             .toBe( legacy.weight );
-          // Legacy links occupy full column width, while editable paragraphs contain inline links.
           for ( const property of [ 'x', 'y' ] as const ) {
             expect
               .soft(
@@ -270,7 +269,7 @@ for ( const sales of [ true, false ] ) {
       '/tests/integration/block-shell-parity-fixture.php' +
         ( sales ? '' : '?legacy_style=1' )
     );
-    const documents = await response.json();
+    const documents = parseDocuments( await response.json() );
     await page.setViewportSize( { width: 1440, height: 900 } );
     const results: Record< Variant, Dropdown | undefined > = {
       legacy: undefined,
@@ -357,12 +356,14 @@ test( 'custom logo keeps the legacy width on phones and larger screens', async (
   page,
 } ) => {
   for ( const sales of [ true, false ] ) {
-    const documents = await (
-      await page.request.get(
-        '/tests/integration/block-shell-parity-fixture.php?logo=1' +
-          ( sales ? '' : '&legacy_style=1' )
-      )
-    ).json();
+    const documents = parseDocuments(
+      await (
+        await page.request.get(
+          '/tests/integration/block-shell-parity-fixture.php?logo=1' +
+            ( sales ? '' : '&legacy_style=1' )
+        )
+      ).json()
+    );
     for ( const width of [ 1440, 768, 375 ] ) {
       await page.setViewportSize( { width, height: 900 } );
       const rects: Record< Variant, Geometry | null > = {
@@ -391,3 +392,17 @@ test( 'custom logo keeps the legacy width on phones and larger screens', async (
     }
   }
 } );
+
+function parseDocuments( value: unknown ): Record< Variant, string > {
+  if (
+    ! value ||
+    typeof value !== 'object' ||
+    ! ( 'legacy' in value ) ||
+    typeof value.legacy !== 'string' ||
+    ! ( 'blocks' in value ) ||
+    typeof value.blocks !== 'string'
+  ) {
+    throw new Error( 'Invalid shell parity fixture.' );
+  }
+  return { legacy: value.legacy, blocks: value.blocks };
+}

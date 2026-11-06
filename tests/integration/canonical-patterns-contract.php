@@ -1,12 +1,4 @@
 <?php
-/**
- * Live contract for canonical CELINA managed-content patterns.
- *
- * This contract intentionally has no dependency on the synthetic fixture data,
- * so it can run inside the isolated managed-content lifecycle.
- *
- * @package Celina_Workbench
- */
 
 require_once '/var/www/html/celina-workbench/content/manifest.php';
 
@@ -159,7 +151,6 @@ $manifest = array_values(
 );
 
 foreach ( $manifest as $entry ) {
-	// Original starters stay supported; redesigned aliases have their own registry contract.
 	$pattern_slug = str_replace( 'celina/redesigned-', 'celina/', $entry['pattern'] );
 	$registered   = $patterns->get_registered( $pattern_slug );
 
@@ -207,7 +198,6 @@ foreach ( $manifest as $entry ) {
 	) {
 		$failures[] = 'canonical pattern forbidden content ' . $pattern_slug;
 	}
-	// Native editable photo backgrounds require their own serialized inline style.
 	$tags = new WP_HTML_Tag_Processor( $content );
 	while ( $tags->next_tag() ) {
 		$style = $tags->get_attribute( 'style' );

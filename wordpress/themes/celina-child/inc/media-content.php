@@ -1,11 +1,9 @@
 <?php
-/** Pure, conservative migration of bundled photographs to native media fields. */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/** Recognize only unambiguous local theme raster URLs, never arbitrary URLs. */
 function celina_media_source_filename( string $url ): ?string {
 	if ( '' === $url || preg_match( '/[\x00-\x20\\\\%?#]/', $url ) ) {
 		return null;
@@ -40,7 +38,6 @@ function celina_media_source_filename( string $url ): ?string {
 	return preg_match( '/^[a-zA-Z0-9][a-zA-Z0-9_-]*\.(?:webp|png|jpe?g|gif|avif)$/D', $file ) ? $file : null;
 }
 
-/** Legacy CSS photo identity, shared with migration auditing. */
 function celina_media_legacy_hero_photos(): array {
 	return [
 		'celina-hero--home-photo' => 'portfolio-image-29.png',
@@ -55,7 +52,6 @@ function celina_media_legacy_hero_photos(): array {
 	];
 }
 
-/** Inventory supported photograph placements; prose URLs are deliberately ignored. */
 function celina_media_content_sources( string $content ): array {
 	$files = [];
 	$visit = function ( array $blocks ) use ( &$visit, &$files ): void {
@@ -117,7 +113,6 @@ function celina_media_content_sources( string $content ): array {
 	return $result;
 }
 
-/** Validate a supplied mapping only when it is actually used. */
 function celina_media_mapped_file( ?string $file, array $map ): ?array {
 	if ( null === $file || ! isset( $map[ $file ] ) ) {
 		return null;
@@ -184,7 +179,6 @@ function celina_media_transform_content( string $content, array $map ): string {
 	return $walk()[0];
 }
 
-/** Replace one native image tag while preserving captions, links and crop styles. */
 function celina_media_transform_image( string $html, array $map, ?array &$media, ?string $size = null ): string {
 	$processor = new WP_HTML_Tag_Processor( $html );
 	$images = 0;
@@ -233,7 +227,6 @@ function celina_media_transform_image( string $html, array $map, ?array &$media,
 	return $processor->get_updated_html();
 }
 
-/** Mutate only the media fields owned by supported blocks. */
 function celina_media_transform_block( string &$name, array &$attrs, string $html, array $map ): string {
 	$name_short = str_starts_with( $name, 'core/' ) ? substr( $name, 5 ) : $name;
 	$classes = preg_split( '/\s+/', trim( (string) ( $attrs['className'] ?? '' ) ) );
@@ -346,7 +339,6 @@ function celina_media_transform_block( string &$name, array &$attrs, string $htm
 	return $html;
 }
 
-/** Convert known CSS-only groups to the current native cover save structure. */
 function celina_media_group_to_cover( string &$name, array &$attrs, string $html, array $media, bool $hours ): string {
 	if ( ! preg_match( '/^(\s*)<(div|section|article|aside|header|footer|main)\b([^>]*)>([\s\S]*)<\/\2>(\s*)$/i', $html, $wrapper ) ) {
 		throw new RuntimeException( 'Unsupported saved wrapper for contact photograph.' );
@@ -371,7 +363,6 @@ function celina_media_group_to_cover( string &$name, array &$attrs, string $html
 	$processor->add_class( 'wp-block-cover' );
 	$processor->add_class( 'celina-media-cover' );
 	$opening = $processor->get_updated_html();
-	// Current core save uses image, overlay, then the editable inner container.
 	$overlay = '<span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim wp-block-cover__gradient-background has-background-gradient" style="background:' . esc_attr( $attrs['customGradient'] ) . '"></span>';
 	$image = '<img class="wp-block-cover__image-background wp-image-' . $media['id'] . ' size-full" alt="" src="' . esc_url( $media['url'] ) . '" data-object-fit="cover"/>';
 	$inner = $wrapper[4];

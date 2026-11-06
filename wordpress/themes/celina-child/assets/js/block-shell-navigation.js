@@ -1,6 +1,5 @@
 'use strict';
 
-/* Native Details keeps the panel accessible even before this enhancement runs. */
 document.addEventListener( 'DOMContentLoaded', () => {
   const media = window.matchMedia( '(max-width: 64rem)' );
   document

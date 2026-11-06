@@ -1,5 +1,4 @@
 <?php
-/** Verify chronological navigation, including articles published together. */
 
 ( static function (): void {
 	$ids      = [];
@@ -13,7 +12,6 @@
 	};
 
 	try {
-		// Creation order deliberately differs from publication order.
 		foreach ( [
 			[ 'middle-a', '2001-02-02', 'publish' ],
 			[ 'oldest', '2001-02-01', 'publish' ],

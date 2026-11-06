@@ -107,14 +107,14 @@ describe( 'CELINA Article Layout', () => {
     ] );
     expect( ARTICLE_TEMPLATE[ 0 ]?.[ 1 ] ).toMatchObject( {
       className: 'celina-article-layout__lead',
-      placeholder: expect.any( String ),
+      placeholder: expect.any( String ) as unknown,
     } );
     expect( ARTICLE_TEMPLATE[ 1 ]?.[ 1 ] ).toMatchObject( {
       level: 2,
-      placeholder: expect.any( String ),
+      placeholder: expect.any( String ) as unknown,
     } );
     expect( ARTICLE_TEMPLATE[ 3 ]?.[ 1 ] ).toMatchObject( {
-      caption: expect.any( String ),
+      caption: expect.any( String ) as unknown,
       sizeSlug: 'large',
     } );
     expect( ARTICLE_TEMPLATE[ 4 ]?.[ 1 ] ).toMatchObject( {

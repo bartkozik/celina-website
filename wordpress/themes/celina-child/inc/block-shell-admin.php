@@ -1,5 +1,4 @@
 <?php
-/** Native template-part entry point; no automatic migration on installation. */
 defined( 'ABSPATH' ) || exit;
 
 function celina_block_shell_editor_url( string $slug ): string {

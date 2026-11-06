@@ -1,9 +1,4 @@
 <?php
-/**
- * Offline source contract for the CELINA visual system.
- *
- * @package Celina_Workbench
- */
 
 declare( strict_types=1 );
 

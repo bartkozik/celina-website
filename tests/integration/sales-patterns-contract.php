@@ -1,5 +1,4 @@
 <?php
-/** Live contract: additive, editable sales compositions and safe legacy coexistence. */
 $registry = WP_Block_Patterns_Registry::get_instance();
 $expected = [
 	'facts', 'cta', 'careers', 'contact-heading', 'industry-handoff', 'intro', 'history',

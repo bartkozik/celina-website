@@ -1,12 +1,4 @@
 <?php
-/**
- * Report whether the disposable E2E WordPress bootstrap has completed.
- *
- * This file is mapped into wp-env only. It is not part of the CELINA theme or
- * any production deployment artifact.
- *
- * @package Celina_Workbench
- */
 
 declare( strict_types=1 );
 

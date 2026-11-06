@@ -1,5 +1,4 @@
 <?php
-/** Standalone media preview/apply; apply requires the exact reviewed fingerprint. */
 if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) { exit( 1 ); }
 require_once __DIR__ . '/media.php';
 try {

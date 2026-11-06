@@ -56,29 +56,17 @@
 	--celina-transition-fast: 150ms ease;
 	--celina-section-space: clamp(3rem, 5vw, 4.5rem);
 
-	/*
-	 * Sections open tighter than they close. The first section after the hero
-	 * sits closer to it than the ones further down the page.
-	 */
 	--celina-section-space-top: clamp(2.5rem, 4.5vw, 3.75rem);
 	--celina-section-space-top-lead: clamp(1.75rem, 3vw, 2.75rem);
 
-	/* Two light sections in a row read as one band, so they sit closer. */
 	--celina-section-space-top-tight: clamp(1rem, 2vw, 1.5rem);
 
-	/*
-	 * One page grid for the header, every section, and the footer: the same
-	 * container width, side gutter, and column gap. Blocks carry the same
-	 * values as fallbacks so the plugin still lays out without this theme.
-	 */
 
-	/* 100px narrower than the 80rem shell, at the reviewer's request. */
 	--celina-grid-width: 73.75rem;
 	--celina-gutter: clamp(1rem, 4vw, 2rem);
 	--celina-grid-gap: 1.5rem;
 	--celina-container: min(100% - 2 * var(--celina-gutter), var(--celina-grid-width));
 
-	/* Phones need the taller value so long headings never push the hero. */
 	--celina-hero-height: 34rem;
 	--celina-breakpoint-tablet: 64rem;
 	--celina-breakpoint-mobile: 48rem;

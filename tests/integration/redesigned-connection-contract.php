@@ -1,5 +1,4 @@
 <?php
-/** Disposable subprocess contract: a lost connection must never escape the transaction. */
 require_once '/var/www/html/celina-workbench/content/manifest.php';
 require_once '/var/www/html/celina-workbench/content/planner.php';
 
@@ -146,7 +145,6 @@ try {
 	redesign_connection_expect( 'conflict' === $failed_restore['action'] && 3 === $wpdb->reconnect_retries,
 		'Ordinary rollback failure did not restore the previous reconnect setting.' );
 
-	// A hook can throw while invalidating caches; restoring the connection policy is still mandatory.
 	foreach ( [ 'activation', 'rollback' ] as $mode ) {
 		$clean_count = 0;
 		$cleanup_failure = static function ( int $clean_id ) use ( $id, &$clean_count ): void {

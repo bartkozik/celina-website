@@ -21,7 +21,7 @@ test( 'legacy orphan list items remain editable without losing formatting', asyn
   const content = original.replace( '<ul>', '' ).replace( '</ul>', '' );
   try {
     await page.evaluate( ( html ) => {
-      const wp = ( window as any ).wp;
+      const wp = window.wp;
       wp.data
         .dispatch( 'core/block-editor' )
         .resetBlocks( [
@@ -44,9 +44,8 @@ test( 'legacy orphan list items remain editable without losing formatting', asyn
     const savedContent = () =>
       page.evaluate(
         () =>
-          ( window as any ).wp.data
-            .select( 'core/block-editor' )
-            .getBlocks()[ 0 ].attributes.content
+          window.wp.data.select( 'core/block-editor' ).getBlocks()[ 0 ]
+            ?.attributes.content
       );
     expect( await savedContent() ).toBe( content );
     await open();
@@ -68,7 +67,7 @@ test( 'legacy orphan list items remain editable without losing formatting', asyn
     await page.keyboard.type( 'Fourth point.' );
     await dialog.getByRole( 'button', { name: 'Apply changes' } ).click();
     await page.evaluate( async () => {
-      const editor = ( window as any ).wp.data.dispatch( 'core/editor' );
+      const editor = window.wp.data.dispatch( 'core/editor' );
       editor.editPost( { title: 'Legacy list regression', status: 'draft' } );
       await editor.savePost();
     } );
@@ -100,7 +99,7 @@ test( 'rich content preserves paragraphs and list items after editing and reload
   const entity = await currentEditorEntity( page );
   try {
     await page.evaluate( ( content ) => {
-      const wp = ( window as any ).wp;
+      const wp = window.wp;
       wp.data.dispatch( 'core/block-editor' ).resetBlocks( [
         wp.blocks.createBlock( 'celina/text-image-split', {
           heading: 'Formatting regression',
@@ -127,8 +126,6 @@ test( 'rich content preserves paragraphs and list items after editing and reload
       await page.keyboard.type( 'Updated ' );
       await dialog.getByRole( 'button', { name: 'Apply changes' } ).click();
     } else {
-      // Exercise the legacy editor too: this fails before the fix because
-      // editing an unrelated paragraph merges the three list items.
       const field = block.locator( '.celina-text-image-split__prose' );
       await field.click();
       await page.keyboard.press( 'ControlOrMeta+Home' );
@@ -141,7 +138,7 @@ test( 'rich content preserves paragraphs and list items after editing and reload
       block.locator( '.celina-text-image-split__prose p' )
     ).toHaveCount( 2 );
     await page.evaluate( async () => {
-      const editor = ( window as any ).wp.data.dispatch( 'core/editor' );
+      const editor = window.wp.data.dispatch( 'core/editor' );
       editor.editPost( { title: 'Formatting regression', status: 'draft' } );
       await editor.savePost();
     } );
@@ -198,7 +195,7 @@ for ( const [ slug, field, parent ] of fields ) {
     try {
       await page.evaluate(
         ( args ) => {
-          const wp = ( window as any ).wp;
+          const wp = window.wp;
           const child = wp.blocks.createBlock( `celina/${ args.slug }`, {
             heading: 'Content QA',
             title: 'Content QA',
@@ -226,10 +223,10 @@ for ( const [ slug, field, parent ] of fields ) {
       await dialog.getByRole( 'button', { name: 'Apply changes' } ).click();
       const untouched = await page.evaluate(
         ( args ) => {
-          const root = ( window as any ).wp.data
+          const root = window.wp.data
             .select( 'core/block-editor' )
             .getBlocks()[ 0 ];
-          return ( args.parent ? root.innerBlocks[ 0 ] : root ).attributes[
+          return ( args.parent ? root?.innerBlocks[ 0 ] : root )?.attributes[
             args.field
           ];
         },
@@ -272,7 +269,7 @@ for ( const [ slug, field, parent ] of fields ) {
         'https://example.org/'
       );
       await page.evaluate( async () => {
-        const editor = ( window as any ).wp.data.dispatch( 'core/editor' );
+        const editor = window.wp.data.dispatch( 'core/editor' );
         editor.editPost( { title: 'Formatting QA', status: 'draft' } );
         await editor.savePost();
       } );
@@ -309,7 +306,7 @@ test( 'rich content undo stays inside the text editor', async ( { page } ) => {
   const entity = await currentEditorEntity( page );
   try {
     await page.evaluate( ( content ) => {
-      const wp = ( window as any ).wp;
+      const wp = window.wp;
       wp.data.dispatch( 'core/block-editor' ).resetBlocks( [
         wp.blocks.createBlock( 'celina/text-image-split', {
           heading: 'Undo QA',
@@ -397,7 +394,7 @@ test( 'rich content supports empty fields and protects unsupported HTML', async 
   const entity = await currentEditorEntity( page );
   try {
     await page.evaluate( () => {
-      const wp = ( window as any ).wp;
+      const wp = window.wp;
       wp.data.dispatch( 'core/block-editor' ).resetBlocks( [
         wp.blocks.createBlock( 'celina/text-image-split', {
           heading: 'Empty field QA',
@@ -425,8 +422,11 @@ test( 'rich content supports empty fields and protects unsupported HTML', async 
     const unsupported =
       '<table><tbody><tr><td>Keep this table.</td></tr></tbody></table>';
     await page.evaluate( ( content ) => {
-      const wp = ( window as any ).wp;
+      const wp = window.wp;
       const block = wp.data.select( 'core/block-editor' ).getBlocks()[ 0 ];
+      if ( ! block ) {
+        throw new Error( 'Missing content block.' );
+      }
       wp.data
         .dispatch( 'core/block-editor' )
         .updateBlockAttributes( block.clientId, { content } );

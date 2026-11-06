@@ -1,9 +1,4 @@
 <?php
-/**
- * Offline source contract for delivered canonical CELINA patterns.
- *
- * @package Celina_Workbench
- */
 
 declare( strict_types=1 );
 
@@ -284,8 +279,6 @@ if ( $expected_pattern_keys !== $manifest_pattern_keys ) {
 }
 
 foreach ( $manifest as $entry ) {
-	// Retain the original canonical starters as a compatibility contract.
-	// REDESIGNED aliases and their exact Sales source are covered by the live registry contract.
 	$entry['pattern'] = str_replace( 'celina/redesigned-', 'celina/', $entry['pattern'] );
 	$file = $pattern_source_root . '/wordpress/themes/celina-child/patterns/' .
 		str_replace( '/', '-', substr( $entry['pattern'], strlen( 'celina/' ) ) ) . '.php';

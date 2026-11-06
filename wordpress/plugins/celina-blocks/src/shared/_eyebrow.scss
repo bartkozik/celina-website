@@ -1,8 +1,3 @@
-/*
- * One section eyebrow for every CELINA section, matching the hero's
- * "American Manufacturing Since 1996" label: a short rule, then small
- * uppercase text. Pass the colour token for dark grounds.
- */
 
 @mixin section-eyebrow( $color: var(--celina-color-citrus, #ff6c0d) ) {
 	display: flex;

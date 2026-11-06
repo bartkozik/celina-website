@@ -1,3 +1,4 @@
+import type { EditorBlock } from '../support/wordpress-browser';
 import { execFileSync } from 'node:child_process';
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -9,8 +10,7 @@ const settings = '/wp-admin/themes.php?page=celina-header-footer';
 async function waitForEditor( page: Page ) {
   await page.waitForFunction( () =>
     Boolean(
-      ( window as any ).wp?.data?.select( 'core/block-editor' )?.getBlocks()
-        ?.length
+      window.wp?.data?.select( 'core/block-editor' )?.getBlocks()?.length
     )
   );
 }
@@ -34,9 +34,9 @@ async function savePart( page: Page ) {
 async function editorContent( page: Page ) {
   await waitForEditor( page );
   return page.evaluate( () => {
-    const wp = ( window as any ).wp;
+    const wp = window.wp;
     const blocks = wp.data.select( 'core/block-editor' ).getBlocks();
-    const inspect = ( items: any[] ): boolean =>
+    const inspect = ( items: EditorBlock[] ): boolean =>
       items.some(
         ( block ) =>
           block.isValid === false || inspect( block.innerBlocks ?? [] )
@@ -55,7 +55,25 @@ test( 'global parts support editing and responsive navigation without code', asy
   const fixture = await page.request.get(
     '/tests/integration/block-shell-parity-fixture.php'
   );
-  const { source: compositions } = await fixture.json();
+  const documents: unknown = await fixture.json();
+  if (
+    ! documents ||
+    typeof documents !== 'object' ||
+    ! ( 'source' in documents )
+  ) {
+    throw new Error( 'Missing shell fixture source.' );
+  }
+  const compositions = documents.source;
+  if (
+    ! compositions ||
+    typeof compositions !== 'object' ||
+    ! ( 'Header' in compositions ) ||
+    typeof compositions.Header !== 'string' ||
+    ! ( 'Footer' in compositions ) ||
+    typeof compositions.Footer !== 'string'
+  ) {
+    throw new Error( 'Invalid shell fixture source.' );
+  }
   await logIn( page );
   await page.goto( settings );
   const enable = page.getByRole( 'button', {
@@ -66,7 +84,7 @@ test( 'global parts support editing and responsive navigation without code', asy
     await enable.click();
   }
   try {
-    for ( const part of [ 'Header', 'Footer' ] ) {
+    for ( const part of [ 'Header', 'Footer' ] as const ) {
       await page.goto( settings );
       await page
         .getByRole( 'link', { name: `Edit ${ part }`, exact: true } )
@@ -87,19 +105,20 @@ test( 'global parts support editing and responsive navigation without code', asy
         ).toHaveCSS( 'margin-top', '0px' );
       }
       originals.push( { url: page.url(), content: original.content } );
-      // Existing local parts may predate the current layout. Test the current
-      // composition through native blocks, then restore every saved original.
-      await page.evaluate( ( content ) => {
-        const wp = ( window as any ).wp;
-        wp.data
-          .dispatch( 'core/block-editor' )
-          .resetBlocks( wp.blocks.parse( content ) );
-      }, compositions[ part ] );
+      await page.evaluate(
+        ( content ) => {
+          const wp = window.wp;
+          wp.data
+            .dispatch( 'core/block-editor' )
+            .resetBlocks( wp.blocks.parse( content ) );
+        },
+        part === 'Header' ? compositions.Header : compositions.Footer
+      );
       if ( part === 'Header' ) {
         await page.evaluate( async () => {
-          const wp = ( window as any ).wp;
+          const wp = window.wp;
           const store = wp.data.dispatch( 'core/block-editor' );
-          const walk = ( blocks: any[] ): any[] =>
+          const walk = ( blocks: EditorBlock[] ): EditorBlock[] =>
             blocks.flatMap( ( block ) => [
               block,
               ...walk( block.innerBlocks ?? [] ),
@@ -113,7 +132,11 @@ test( 'global parts support editing and responsive navigation without code', asy
                 ?.split( ' ' )
                 .includes( 'celina-block-header-cta' )
           );
-          await store.updateBlockAttributes( source.innerBlocks[ 0 ].clientId, {
+          const button = source?.innerBlocks[ 0 ];
+          if ( ! button ) {
+            throw new Error( 'Missing header CTA button.' );
+          }
+          await store.updateBlockAttributes( button.clientId, {
             text: 'Discuss revised project',
             url: `${ window.location.origin }/contact/?source=single-cta`,
           } );
@@ -124,11 +147,11 @@ test( 'global parts support editing and responsive navigation without code', asy
       }
 
       await page.waitForFunction( ( region ) => {
-        const store = ( window as any ).wp.data.select( 'core/block-editor' );
+        const store = window.wp.data.select( 'core/block-editor' );
         const root = store
           .getBlocks()
           .find(
-            ( block: any ) =>
+            ( block ) =>
               block.attributes.className
                 ?.split( ' ' )
                 .includes( `celina-block-${ region.toLowerCase() }` )
@@ -137,19 +160,21 @@ test( 'global parts support editing and responsive navigation without code', asy
           root && store.canInsertBlockType( 'core/paragraph', root.clientId )
         );
       }, part );
-      // Exercise native block insertion, movement and removal, then save through UI.
       await page.evaluate( async ( region ) => {
-        const wp = ( window as any ).wp;
+        const wp = window.wp;
         const store = wp.data.dispatch( 'core/block-editor' );
         const root = wp.data
           .select( 'core/block-editor' )
           .getBlocks()
           .find(
-            ( block: any ) =>
+            ( block ) =>
               block.attributes.className
                 ?.split( ' ' )
                 .includes( `celina-block-${ region.toLowerCase() }` )
           );
+        if ( ! root ) {
+          throw new Error( 'Missing shell region.' );
+        }
         const first = wp.blocks.createBlock( 'core/paragraph', {
           content: `${ region } temporary element`,
         } );
@@ -165,11 +190,17 @@ test( 'global parts support editing and responsive navigation without code', asy
         );
         await store.removeBlocks( [ first.clientId ], false );
         if ( region === 'Footer' ) {
-          const grid = root.innerBlocks[ 0 ].innerBlocks[ 0 ];
+          const grid = root.innerBlocks[ 0 ]?.innerBlocks[ 0 ];
+          if ( ! grid ) {
+            throw new Error( 'Missing footer grid.' );
+          }
           const links = grid.innerBlocks.find(
-            ( block: any ) =>
+            ( block ) =>
               block.attributes.className === 'celina-block-footer-links'
           );
+          if ( ! links ) {
+            throw new Error( 'Missing footer links.' );
+          }
           await store.moveBlocksToPosition(
             [ links.clientId ],
             grid.clientId,
@@ -178,7 +209,9 @@ test( 'global parts support editing and responsive navigation without code', asy
           );
         }
         if ( region === 'Header' ) {
-          const findNavigation = ( blocks: any[] ): any => {
+          const findNavigation = (
+            blocks: EditorBlock[]
+          ): EditorBlock | undefined => {
             for ( const block of blocks ) {
               if (
                 block.name === 'core/navigation' &&
@@ -193,6 +226,9 @@ test( 'global parts support editing and responsive navigation without code', asy
             }
           };
           const navigation = findNavigation( [ root ] );
+          if ( ! navigation ) {
+            throw new Error( 'Missing header navigation.' );
+          }
           await store.insertBlocks(
             wp.blocks.createBlock( 'core/navigation-link', {
               label: 'Current page test',
@@ -246,15 +282,15 @@ test( 'global parts support editing and responsive navigation without code', asy
         await page.evaluate(
           ( region ) =>
             String(
-              ( window as any ).wp.data
+              window.wp.data
                 .select( 'core/block-editor' )
                 .getBlocks()
                 .find(
-                  ( block: any ) =>
+                  ( block ) =>
                     block.attributes.className
                       ?.split( ' ' )
                       .includes( `celina-block-${ region.toLowerCase() }` )
-                ).innerBlocks[ 0 ].attributes.content
+                )?.innerBlocks[ 0 ]?.attributes.content
             ),
           part
         )
@@ -287,7 +323,6 @@ test( 'global parts support editing and responsive navigation without code', asy
           .boundingBox();
         expect( Math.abs( brand!.y - links!.y ) ).toBeLessThan( 4 );
         expect( links!.x ).toBeGreaterThan( brand!.x + brand!.width );
-        // Moving the actual footer column in Gutenberg changes the visual order.
         const contact = await page
           .locator( '.celina-block-footer-contact' )
           .boundingBox();
@@ -411,12 +446,11 @@ test( 'global parts support editing and responsive navigation without code', asy
         'CEL-30 Footer editorial verification'
       );
     }
-    // Removing the sole editor-owned source also removes the mobile rendering.
     await page.goto( originals[ 0 ]!.url );
     await waitForEditor( page );
     await page.evaluate( async () => {
-      const wp = ( window as any ).wp;
-      const walk = ( blocks: any[] ): any[] =>
+      const wp = window.wp;
+      const walk = ( blocks: EditorBlock[] ): EditorBlock[] =>
         blocks.flatMap( ( block ) => [
           block,
           ...walk( block.innerBlocks ?? [] ),
@@ -429,6 +463,9 @@ test( 'global parts support editing and responsive navigation without code', asy
             ?.split( ' ' )
             .includes( 'celina-block-header-cta' )
       );
+      if ( ! source ) {
+        throw new Error( 'Missing header CTA.' );
+      }
       await wp.data
         .dispatch( 'core/block-editor' )
         .removeBlocks( [ source.clientId ], false );
@@ -466,14 +503,13 @@ test( 'global parts support editing and responsive navigation without code', asy
       await page.goto( original.url );
       await waitForEditor( page );
       await page.evaluate( ( content ) => {
-        const wp = ( window as any ).wp;
+        const wp = window.wp;
         wp.data
           .dispatch( 'core/block-editor' )
           .resetBlocks( wp.blocks.parse( content ) );
       }, original.content );
       await savePart( page );
     }
-    // The shared synthetic fixture uses the legacy shell for other browser tests.
     await page.goto( settings );
     const disable = page.getByRole( 'button', {
       name: 'Use legacy header and footer',

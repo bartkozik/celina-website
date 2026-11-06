@@ -1,5 +1,6 @@
 import {
   BlockEditorProvider,
+  store as blockEditorStore,
   BlockList,
   BlockToolbar,
   BlockTools,
@@ -43,18 +44,14 @@ type Blocks = ReturnType< typeof rawHandler >;
 
 function TextFormatControls() {
   const selected = useSelect( ( select ) => {
-    const editor = select( 'core/block-editor' ) as {
-      getSelectedBlock: () => Blocks[ number ] | null;
-      getBlockRootClientId: ( id: string ) => string;
-      getBlock: ( id: string ) => Blocks[ number ] | null;
-    };
+    const editor = select( blockEditorStore );
     const block = editor.getSelectedBlock();
     return block?.name === 'core/list-item'
       ? editor.getBlock( editor.getBlockRootClientId( block.clientId ) )
       : block;
   }, [] );
   const { replaceBlocks, updateBlockAttributes } =
-    useDispatch( 'core/block-editor' );
+    useDispatch( blockEditorStore );
   const changeFormat = ( format: 'paragraph' | 'bullets' | 'numbers' ) => {
     if ( ! selected ) {
       return;
@@ -310,10 +307,6 @@ function ContentDialog( {
   );
 }
 
-/**
- * Edit structured HTML using actual paragraph/list blocks, never one RichText.
- * @param props
- */
 export default function RichContentEditor( props: Props ) {
   const [ isOpen, setIsOpen ] = useState( false );
   return (

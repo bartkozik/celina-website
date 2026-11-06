@@ -92,7 +92,6 @@
 	box-shadow: var(--celina-shadow-card, none);
 	transition: border-color var(--celina-transition-fast, 150ms ease);
 
-	/* The title link makes the whole card clickable. */
 	@include card-link.stretched-link( ":is(h2, h3) > a" );
 }
 
@@ -218,7 +217,6 @@
 	background: var(--celina-color-surface, #fff);
 }
 
-/* Titles read as headings; the whole card is the click target instead. */
 .celina-news-card :is(h2, h3) a {
 	text-decoration: none;
 }

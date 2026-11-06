@@ -2,7 +2,6 @@
 	margin-bottom: 1.5rem;
 }
 
-/* Native compositions: shared by the editor and frontend. */
 .celina-entry-content > .celina-sales-page,
 .editor-styles-wrapper .is-root-container > .celina-sales-page {
 	width: 100%;
@@ -191,7 +190,6 @@
 	margin-block: 0 0.5rem;
 }
 
-/* Contact opens with a narrow hero: photograph, gray wash, light copy. */
 .celina-sales-contact-heading {
 	display: grid;
 	align-content: center;
@@ -245,7 +243,6 @@
 	content: "";
 }
 
-/* The history disclosure reads as an arrow link, not a boxed control. */
 .celina-sales-history summary {
 	display: inline-flex;
 	gap: var(--celina-space-2);
@@ -325,7 +322,6 @@
 }
 
 
-/* Contextual CTAs use the same prompt → explanation → action rhythm. */
 .celina-sales-page .celina-cta-band__inner {
 	justify-items: start;
 	width: min(100%, var(--celina-grid-width));
@@ -377,9 +373,6 @@
 	padding: 0;
 }
 
-/*
- * Project handoff: its own centred band under the industry cards.
- */
 .celina-sales-handoff,
 .celina-sales-handoff > .wp-block-group__inner-container {
 	display: grid;
@@ -392,7 +385,6 @@
 	width: 100%;
 	max-width: none;
 
-	/* Sits close to the cards it follows. */
 	padding: var(--celina-section-space-top-lead) max(var(--celina-gutter), (100% - var(--celina-grid-width)) / 2) var(--celina-section-space);
 }
 
@@ -425,13 +417,10 @@
 	margin-top: var(--celina-space-4);
 }
 
-/* Nested sections share the outer gutter. The history timeline keeps its
-   own inset so its heading and cards do not touch the muted panel edges. */
 .celina-sales-section :is(.wp-block-celina-achievements-timeline:where(:not(.celina-achievements-timeline--timeline)), .wp-block-celina-capability-cards, .wp-block-celina-industry-cards, .wp-block-celina-facility-cards, .wp-block-celina-resource-list, .wp-block-celina-news-grid, .wp-block-celina-text-image-split, .wp-block-celina-intro-band) {
 	padding-inline: 0;
 }
 
-/* The project prompt now lives inside the industry section's introduction. */
 .celina-sales-page .celina-industry-cards__introduction > .celina-sales-pre-cta {
 	margin-bottom: var(--celina-space-2);
 	color: var(--celina-color-citrus);
@@ -465,9 +454,6 @@
 	background: var(--celina-color-citrus);
 }
 
-/*
- * Final CTA: the short line is the section label, the question is the headline.
- */
 .celina-sales-cta h2 {
 	display: flex;
 	gap: var(--celina-space-3);
@@ -500,7 +486,6 @@
 	line-height: 1.04;
 }
 
-/* Centred final CTA. */
 .celina-sales-cta,
 .celina-sales-cta > .wp-block-group__inner-container {
 	display: grid;
@@ -516,7 +501,6 @@
 	color: var(--celina-color-slate);
 }
 
-/* The muted intro is its own light gray band on the hero display scale. */
 .celina-sales-section.celina-sales-intro--muted {
 	width: 100%;
 	max-width: none;
@@ -533,7 +517,6 @@
 	line-height: 1.04;
 }
 
-/* Compensation & Perks is a full-width gray band like the other sections. */
 .celina-sales-section.celina-careers-benefits {
 	width: 100%;
 	max-width: none;
@@ -541,7 +524,6 @@
 	background: var(--celina-color-surface-muted);
 }
 
-/* Leadership is a full-width gray section like the rest of the page. */
 .celina-sales-page .celina-leadership {
 	width: 100%;
 	max-width: none;

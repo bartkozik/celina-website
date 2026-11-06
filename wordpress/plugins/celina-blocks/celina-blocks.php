@@ -31,10 +31,7 @@ function celina_blocks_categories( array $categories ): array {
 }
 add_filter( 'block_categories_all', 'celina_blocks_categories' );
 
-/**
- * ZIP releases normalize mtimes and block.json versions describe the block API.
- * Version the actual stylesheet bytes for both the frontend and Gutenberg.
- */
+/** ZIP releases normalize mtimes; use stylesheet contents for cache invalidation. */
 function celina_blocks_version_styles( WP_Block_Type $block ): void {
     $styles = wp_styles();
     $build_path = wp_normalize_path( __DIR__ . '/build/' );

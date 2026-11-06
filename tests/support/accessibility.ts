@@ -1,12 +1,7 @@
 /**
- * CELINA accepted one documented exception on 2026-09-23: the brand citrus
- * (#ff6c0d) is the only orange used across the site, including small uppercase
- * section eyebrows on light grounds, where it measures about 2.6-2.8:1 instead
- * of the 4.5:1 WCAG AA asks for. See docs/design-feedback-rework.md.
- *
- * The exception is deliberately narrow: only `color-contrast` findings whose
- * foreground is exactly that brand colour are dropped. Every other serious or
- * critical finding - including any other contrast pair - still fails the suite.
+ * Accepted contrast exception: ignore only color-contrast findings for brand orange
+ * (#ff6c0d, about 2.6-2.8:1 on light backgrounds). All other findings remain checked.
+ * See docs/design-feedback-rework.md.
  */
 const ACCEPTED_FOREGROUND = '#ff6c0d';
 

@@ -1,9 +1,4 @@
 <?php
-/**
- * Live WordPress contract for managed CELINA content.
- *
- * @package Celina_Workbench
- */
 
 require_once '/var/www/html/celina-workbench/content/manifest.php';
 require_once '/var/www/html/celina-workbench/content/planner.php';

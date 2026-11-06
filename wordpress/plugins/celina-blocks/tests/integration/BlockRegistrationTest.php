@@ -70,8 +70,6 @@ class BlockRegistrationTest extends WP_UnitTestCase {
             $this->assertTrue( $block_registry->is_registered( $fixture_name ) );
             $this->assertFalse( $block_registry->is_registered( $missing_name ) );
 
-            // Simulate subsequent requests across a deterministic ZIP deployment.
-            // The replacement has the same size and mtime, so neither can key CSS.
             foreach ( [ 'before', 'before', 'after!' ] as $contents ) {
                 unregister_block_type( $fixture_name );
                 foreach ( $style_handles as $handle ) {

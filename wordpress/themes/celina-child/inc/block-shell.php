@@ -1,5 +1,4 @@
 <?php
-/** Explicit, reversible lifecycle for the classic theme's native block parts. */
 defined( 'ABSPATH' ) || exit;
 
 function celina_block_shell_option_name(): string {
@@ -16,7 +15,6 @@ function celina_block_shell_enabled(): bool {
 	return ! empty( $state['enabled'] );
 }
 
-/** Read-only. Never writes options, posts, terms, or menu entities. */
 function celina_block_shell_plan(): array {
 	$state = get_option( celina_block_shell_option_name(), [] );
 	$plan = [ 'action' => empty( $state['parts'] ) ? 'initialize' : ( empty( $state['enabled'] ) ? 'enable' : 'noop' ), 'parts' => [], 'conflicts' => [] ];
@@ -122,7 +120,6 @@ function celina_render_block_shell_part( string $slug ): bool {
 	if ( ! $post || 'wp_template_part' !== $post->post_type || 'publish' !== $post->post_status || $slug !== $post->post_name || ! has_term( get_stylesheet(), 'wp_theme', $post ) ) { return false; }
 	$template = get_block_template( get_stylesheet() . '//' . $slug, 'wp_template_part' );
 	if ( ! $template || (int) ( $template->wp_id ?? 0 ) !== $post->ID ) { return false; }
-	// Render a native template-part so block context, nested asset handling and editor saves stay native.
 	if ( '' !== $post->post_content ) {
 		echo do_blocks( serialize_block( celina_shell_block( 'template-part', [ 'slug' => $slug, 'theme' => get_stylesheet(), 'tagName' => 'div', 'className' => 'celina-block-' . $slug . '-part' ] ) ) );
 	}

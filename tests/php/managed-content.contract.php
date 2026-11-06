@@ -1,9 +1,4 @@
 <?php
-/**
- * Offline contract for the managed-content manifest and pure planner.
- *
- * @package Celina_Workbench
- */
 
 declare( strict_types=1 );
 
@@ -199,7 +194,6 @@ managed_content_expect(
 	'The Industries page must declare its exact previous managed identity'
 );
 
-// The generic identity migration cases below still cover the ordinary, non-redesign rules.
 unset( $markets_entry['redesign_from'] );
 $privacy_entry = managed_content_find_manifest_entry( $manifest, 'page.privacy-policy' );
 managed_content_expect(
@@ -441,10 +435,8 @@ managed_content_expect_plan(
 );
 
 $community_entry = managed_content_find_manifest_entry( $manifest, 'page.community' );
-// Retain coverage of the original version-2 to version-3 canonical fix independently.
 $community_entry['version'] = 3;
 unset( $community_entry['redesign_from'] );
-// Version 2 stored three columns; MR !73 changes the canonical page to one.
 $previous_community_content = '<!-- wp:celina/industry-cards {"columns":3} /-->';
 $redesigned_community_content = '<!-- wp:celina/industry-cards {"columns":1} /-->';
 $previous_community_record = managed_content_record(

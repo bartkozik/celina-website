@@ -1,5 +1,4 @@
 <?php
-/** Disposable live contract for the one-time redesigned page transition. */
 require_once '/var/www/html/celina-workbench/content/manifest.php';
 require_once '/var/www/html/celina-workbench/content/planner.php';
 
@@ -53,7 +52,6 @@ try {
 	redesign_expect( [] === redesign_snapshots( $id ) && get_post( $id )->post_content === $old_copy, 'Planning is read-only' );
 	redesign_expect( 0 === celina_content_execute( 'plan-safe', 'offer-pages', static function ( string $line ): void {} ), 'Normal pipeline plan accepts the reviewed transition' );
 
-	// The source must not change between the reviewed plan and the write.
 	wp_update_post( wp_slash( [ 'ID' => $id, 'post_content' => $old_copy . ' Changed while planning.' ] ) );
 	$stale = celina_content_write_entry( $entry, $source, $plan );
 	redesign_expect( 'conflict' === $stale['action'] && [] === redesign_snapshots( $id ), 'Stale plan must not write or archive' );
@@ -61,7 +59,6 @@ try {
 	wp_update_post( wp_slash( [ 'ID' => $id, 'post_content' => $old_copy ] ) );
 	$plan = celina_content_plan_entry( $entry, $source, celina_content_load_records() );
 
-	// Reject the active-page write after a snapshot has been inserted.
 	$reject_update = static fn( bool $empty, array $data ): bool => $id === (int) ( $data['ID'] ?? 0 ) ? true : $empty;
 	add_filter( 'wp_insert_post_empty_content', $reject_update, 10, 2 );
 	$failed = celina_content_write_entry( $entry, $source, $plan );
@@ -107,7 +104,6 @@ try {
 	}
 	redesign_expect( 'noop' === celina_redesign_plan_rollback( $archive->ID )['action'], 'Rollback can be retried without overwriting edits' );
 
-	// An explicit operator retry is separate from a normal sync.
 	delete_post_meta( $id, '_celina_redesign_hold' );
 	$plan = celina_content_plan_entry( $entry, $source, celina_content_load_records() );
 	redesign_expect( 'update' === celina_content_write_entry( $entry, $source, $plan )['action'], 'Explicit retry can activate again' );

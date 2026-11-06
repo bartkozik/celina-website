@@ -1,5 +1,4 @@
 <?php
-/** Run with wp eval-file on disposable WordPress data. Restores everything it owns. */
 $expect = static function ( bool $ok, string $label ): void {
 	if ( ! $ok ) { throw new RuntimeException( $label ); }
 };

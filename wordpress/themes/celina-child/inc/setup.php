@@ -71,7 +71,6 @@ function celina_enqueue_assets(): void {
 
 add_action( 'wp_enqueue_scripts', 'celina_enqueue_assets', 20 );
 
-/** Load the existing heading font before first paint, avoiding fallback-font reflow. */
 function celina_preload_heading_font( array $resources ): array {
 	$resources[] = [
 		'href' => get_stylesheet_directory_uri() . '/assets/fonts/inter-latin.woff2',
@@ -83,14 +82,7 @@ function celina_preload_heading_font( array $resources ): array {
 }
 add_filter( 'wp_preload_resources', 'celina_preload_heading_font' );
 
-/**
- * Keep the first core image eager and defer later core images in page content.
- *
- * The canonical article uses theme-owned placeholders rather than Media Library
- * attachments, so WordPress cannot infer their dimensions and does not add its
- * normal loading hint. Applying the attribute while rendering keeps serialized
- * Gutenberg markup valid and preserves an eager leading image.
- */
+/** Add loading hints at render time: theme images lack attachment metadata and saved block markup must stay valid. */
 function celina_defer_non_leading_core_images( string $block_content ): string {
 	static $rendered_core_images = 0;
 
@@ -114,9 +106,6 @@ function celina_defer_non_leading_core_images( string $block_content ): string {
 
 add_filter( 'render_block_core/image', 'celina_defer_non_leading_core_images' );
 
-/**
- * Redirect the retired Markets path to the canonical Industries page.
- */
 function celina_redirect_legacy_markets_route(): void {
 	if ( is_admin() || wp_doing_ajax() ) {
 		return;

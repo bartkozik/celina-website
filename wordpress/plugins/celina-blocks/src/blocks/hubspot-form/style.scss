@@ -18,10 +18,6 @@
 	}
 }
 
-/*
- * CELINA styling for the inline HubSpot form. HubSpot renders its own markup,
- * so these rules stay close to its class names and change presentation only.
- */
 .celina-hubspot-form__form {
 	display: grid;
 	gap: var(--celina-space-4, 1rem);

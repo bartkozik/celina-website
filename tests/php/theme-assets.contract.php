@@ -1,5 +1,4 @@
 <?php
-/** Verify cache invalidation even when release archives preserve file timestamps. */
 declare( strict_types=1 );
 
 define( 'ABSPATH', __DIR__ );

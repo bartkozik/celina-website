@@ -1,9 +1,4 @@
 <?php
-/**
- * Live contract for the CELINA site shell in the disposable wp-env site.
- *
- * @package Celina_Workbench
- */
 
 $expect = static function ( bool $passed, string $label ): void {
 	if ( ! $passed ) {

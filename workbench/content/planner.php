@@ -1,9 +1,4 @@
 <?php
-/**
- * Pure planning rules and WordPress adapters for managed CELINA content.
- *
- * @package Celina_Workbench
- */
 
 declare( strict_types=1 );
 

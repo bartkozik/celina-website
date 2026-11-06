@@ -55,7 +55,6 @@ for ( const title of patternTitles ) {
         await text.fill( `Edited ${ title }` );
         await text.press( 'Tab' );
         await expectEditedContent( page, `Edited ${ title }` );
-        // Duplicate, move and remove the whole named section through native controls.
         const root = canvas
           .locator( '.is-root-container > [data-block]' )
           .first();

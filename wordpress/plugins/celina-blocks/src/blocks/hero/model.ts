@@ -20,20 +20,15 @@ function getStructurallyValidButtons( buttons: unknown ): HeroButton[] {
     return [];
   }
 
-  return buttons.flatMap( ( button ) => {
-    if (
-      ! button ||
-      typeof button !== 'object' ||
-      ! ( 'label' in button ) ||
-      ! ( 'url' in button ) ||
-      typeof button.label !== 'string' ||
-      typeof button.url !== 'string'
-    ) {
-      return [];
-    }
-
-    return [ button ];
-  } );
+  return buttons.filter(
+    ( button: unknown ): button is HeroButton =>
+      button !== null &&
+      typeof button === 'object' &&
+      'label' in button &&
+      'url' in button &&
+      typeof button.label === 'string' &&
+      typeof button.url === 'string'
+  );
 }
 
 export function getEditableButtons( buttons: unknown ): HeroButton[] {

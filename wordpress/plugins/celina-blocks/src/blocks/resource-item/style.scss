@@ -9,7 +9,6 @@
 	box-shadow: var(--celina-shadow-card, none);
 	transition: border-color var(--celina-transition-fast, 150ms ease);
 
-	/* The card's own link makes the whole card clickable. */
 	@include card-link.stretched-link( ".celina-resource-item__link" );
 }
 

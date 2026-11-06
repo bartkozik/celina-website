@@ -1,11 +1,7 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Register the editable contact details used by the CELINA site shell.
- *
- * @param WP_Customize_Manager $customizer WordPress Customizer instance.
- */
+/** @param WP_Customize_Manager $customizer */
 function celina_customize_register( WP_Customize_Manager $customizer ): void {
 	$customizer->add_panel(
 		'celina_site_settings',

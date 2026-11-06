@@ -89,10 +89,6 @@ body {
 	list-style: none;
 }
 
-/*
- * Above phones the hero is shorter and its copy sits optically centred;
- * phones keep 34rem so the longest headings and descriptions still fit.
- */
 @media (min-width: 48rem) {
 
 	:root {
@@ -104,7 +100,6 @@ body {
 	}
 }
 
-/* Wide screens can carry the taller banner. */
 @media (min-width: 100rem) {
 
 	:root {
@@ -371,7 +366,6 @@ body {
 	font-size: 0.8125rem;
 }
 
-/* Brand on the left; the two link columns sit against the right edge. */
 .celina-footer-grid {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) auto auto;
@@ -385,7 +379,6 @@ body {
 	min-width: 0;
 }
 
-/* Contact sits closest to the page edge, then the site links. */
 .celina-footer-column:nth-of-type(2) {
 	order: 2;
 }

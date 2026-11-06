@@ -1,5 +1,4 @@
 <?php
-/** Reversible presentation experiment. Never writes page content or menu items. */
 defined( 'ABSPATH' ) || exit;
 
 function celina_sales_review_enabled(): bool {
@@ -30,7 +29,6 @@ function celina_sales_review_customize( WP_Customize_Manager $customizer ): void
 }
 add_action( 'customize_register', 'celina_sales_review_customize', 30 );
 
-/** Give plain page introductions a scannable hierarchy without changing saved copy. */
 function celina_sales_review_intro( string $html, array $block ): string {
 	if ( ! celina_sales_review_enabled() || is_admin() || is_feed() || celina_sales_review_native_page() || ! is_page() ) {
 		return $html;
@@ -56,7 +54,6 @@ function celina_sales_review_intro( string $html, array $block ): string {
 }
 add_filter( 'render_block_celina/intro-band', 'celina_sales_review_intro', 10, 2 );
 
-/** Emphasize a few useful scanning anchors in the existing hero copy. */
 function celina_sales_review_hero_emphasis( string $html ): string {
 	if ( ! celina_sales_review_enabled() || is_admin() || is_feed() || celina_sales_review_native_page() || ( ! is_page() && ! is_home() ) ) {
 		return $html;
@@ -86,7 +83,6 @@ function celina_sales_review_hero_emphasis( string $html ): string {
 }
 add_filter( 'render_block_celina/hero', 'celina_sales_review_hero_emphasis' );
 
-/** At most two emphasis anchors per plain paragraph; preserve existing rich text. */
 function celina_sales_review_statement_emphasis( string $text ): string {
 	$core = [
 		'fabric, tent and shelter solutions', 'innovative fabric solutions',
@@ -111,7 +107,6 @@ function celina_sales_review_statement_emphasis( string $text ): string {
 	foreach ( [ $core, $fallback ] as $tier ) {
 		foreach ( $tier as $phrase ) {
 			if ( false !== strpos( $text, $phrase ) ) {
-				// Do not select a shorter phrase already contained in a selected one.
 				if ( ! array_filter( $selected, static fn( string $existing ): bool => false !== strpos( $existing, $phrase ) ) ) {
 					$selected[] = $phrase;
 				}
@@ -143,7 +138,6 @@ function celina_sales_review_cta( string $heading = 'Tell Us About Your Project'
 	return '<section class="celina-review-cta"><div class="celina-review-inner"><h2>' . esc_html( $heading ) . '</h2><p class="celina-review-pre-cta">Looking for tents, shelters or custom fabric manufacturing?</p><p>Tell us what you need and start a conversation with our team.</p><a class="celina-button celina-button--primary" href="' . esc_url( home_url( '/contact/' ) ) . '">Discuss Your Project</a></div></section>';
 }
 
-/** Decorative inline icons keep the facts readable without external assets. */
 function celina_sales_review_facts(): string {
 	$facts = [
 		[ 'Since 1996', 'Manufacturing experience', '<rect x="3" y="5" width="18" height="16" rx="1"/><path d="M7 3v4m10-4v4M3 11h18m-13 5 3 3 5-5"/>' ],
@@ -157,7 +151,6 @@ function celina_sales_review_facts(): string {
 	return $html . '</section>';
 }
 
-/** Update a static block's text in both attributes and markup, only in memory. */
 function celina_sales_review_replace( array $block, string $old, string $new ): array {
 	if ( '' === $old ) {
 		return $block;
@@ -171,7 +164,6 @@ function celina_sales_review_replace( array $block, string $old, string $new ): 
 	return $walk( $block );
 }
 
-/** Retain the existing hero photo/classes while changing its visible actions. */
 function celina_sales_review_hero( array $block, bool $home, bool $show_capabilities = true ): string {
 	if ( $home ) {
 		$block = celina_sales_review_replace( $block, $block['attrs']['heading'] ?? '', 'Tents, Shelters & Custom Fabric Manufacturing' );
@@ -198,7 +190,6 @@ function celina_sales_review_content( string $content, string $key ): string {
 	}
 	$blocks = parse_blocks( $content );
 	$hero = celina_first_meaningful_content_block( $content );
-	// Editor-created layouts without the expected hero are left untouched.
 	if ( 'celina/hero' !== ( $hero['blockName'] ?? '' ) || ( 'page.contact' === $key && null === celina_find_content_block( $blocks, 'celina/hubspot-form' ) ) ) {
 		return $content;
 	}
@@ -315,7 +306,6 @@ function celina_sales_review_menu_title( string $title, $item, $args ): string {
 }
 add_filter( 'nav_menu_item_title', 'celina_sales_review_menu_title', 10, 3 );
 
-/** Presentation-only navigation changes; saved menus remain unchanged. */
 function celina_sales_review_keep_menu_item( string $url, string $location ): bool {
 	if ( ! celina_sales_review_enabled() ) {
 		return true;
@@ -366,7 +356,6 @@ function celina_sales_review_fallback_items( array $items, string $location ): a
 	return $result;
 }
 
-/** Page marks the exact destination; location marks its containing section. */
 function celina_sales_review_nav_state( string $url ): string {
 	if ( ! celina_sales_review_enabled() ) {
 		return '';

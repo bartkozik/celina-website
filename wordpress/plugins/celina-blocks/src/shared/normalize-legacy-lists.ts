@@ -1,7 +1,3 @@
-/**
- * Restore missing list containers in the temporary editor input only.
- * @param html Existing rich-content attribute, which remains unchanged until edited.
- */
 export function normalizeLegacyLists( html: string ): string {
   const document = new DOMParser().parseFromString( html, 'text/html' );
   let changed = false;

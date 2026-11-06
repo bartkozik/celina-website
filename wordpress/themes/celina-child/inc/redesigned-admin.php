@@ -1,5 +1,4 @@
 <?php
-/** Editor-only labels: preserve the canonical public title and URL. */
 defined( 'ABSPATH' ) || exit;
 
 function celina_redesigned_post_states( array $states, WP_Post $post ): array {

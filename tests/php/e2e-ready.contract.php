@@ -1,9 +1,4 @@
 <?php
-/**
- * Contract coverage for the local E2E readiness endpoint.
- *
- * @package Celina_Workbench
- */
 
 declare( strict_types=1 );
 
@@ -16,11 +11,7 @@ if ( false === $marker ) {
 unlink( $marker );
 define( 'CELINA_E2E_READINESS_MARKER', $marker );
 
-/**
- * Execute the endpoint and return its status and body.
- *
- * @return array{status: int, body: string}
- */
+/** @return array{status: int, body: string} */
 function celina_readiness_contract_run(): array {
 	http_response_code( 200 );
 	ob_start();

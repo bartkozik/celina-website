@@ -24,7 +24,6 @@ test.describe( 'CELINA visual system', () => {
       } );
     expect( headerStyles ).toEqual( {
       backgroundColor: 'rgb(61, 69, 67)',
-      // The orange rule under the menu was removed in the 2026-09-22 rework.
       borderBottomWidth: '0px',
       position: 'sticky',
     } );
@@ -43,7 +42,6 @@ test.describe( 'CELINA visual system', () => {
       };
     } );
     expect( heroBox?.width ).toBeGreaterThanOrEqual( 1439 );
-    // Iza's shared desktop hero token is 31rem at this viewport.
     expect( heroStyles.minHeight ).toBe( '496px' );
     expect( heroStyles.alignItems ).toBe( 'center' );
     expect( headingStyles.fontSize ).toBeGreaterThanOrEqual( 44 );
@@ -58,7 +56,6 @@ test.describe( 'CELINA visual system', () => {
     expect( sectionBox?.width ).toBeGreaterThanOrEqual( 1439 );
     expect( cardRadius ).toBe( '2px' );
 
-    // Header, hero content and card grid share one left edge.
     const leftEdge = ( selector: string ) =>
       page
         .locator( selector )

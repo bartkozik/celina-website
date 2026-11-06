@@ -1,5 +1,4 @@
 <?php
-/** Explicit, repeat-safe migration of bundled photos into native WordPress media. */
 defined( 'ABSPATH' ) || exit;
 require_once get_stylesheet_directory() . '/inc/media-content.php';
 require_once get_stylesheet_directory() . '/inc/media-library.php';
@@ -31,7 +30,6 @@ function celina_media_record_fingerprint( WP_Post $post ): string {
 	return hash( 'sha256', wp_json_encode( [ $post->to_array(), get_post_meta( $post->ID, '_celina_applied_content_hash', true ), get_post_meta( $post->ID, '_celina_redesign_hold', true ), get_post_meta( $post->ID, '_thumbnail_id', true ) ] ) );
 }
 
-/** Only inventory/preview: no attachments, options, revisions or post writes. */
 function celina_media_build_plan(): array {
 	$catalog = celina_media_catalog();
 	$map = celina_media_attachment_map();

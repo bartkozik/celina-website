@@ -210,7 +210,8 @@ export function transactionPaths(
 }
 
 function flattenErrors( error: unknown ): unknown[] {
-  const errors: unknown[] = error instanceof AggregateError ? error.errors : [ error ];
+  const errors: unknown[] =
+    error instanceof AggregateError ? error.errors : [ error ];
   return [ ...errors ];
 }
 

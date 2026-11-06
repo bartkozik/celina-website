@@ -1,6 +1,20 @@
 declare module '@wordpress/block-editor' {
   import type { CSSProperties, ComponentType, ReactNode } from 'react';
+  import type { StoreDescriptor, ReduxStoreConfig } from '@wordpress/data';
   type EditorBlocks = ReturnType< typeof import('@wordpress/blocks').rawHandler >;
+
+  export const store: StoreDescriptor< ReduxStoreConfig<
+    unknown,
+    {
+      replaceBlocks: ( clientId: string, blocks: EditorBlocks ) => void;
+      updateBlockAttributes: ( clientId: string, attributes: Record< string, unknown > ) => void;
+    },
+    {
+      getSelectedBlock: ( state: unknown ) => EditorBlocks[ number ] | null;
+      getBlockRootClientId: ( state: unknown, clientId: string ) => string;
+      getBlock: ( state: unknown, clientId: string ) => EditorBlocks[ number ] | null;
+    }
+  > >;
 
   interface RichTextProps {
     allowedFormats?: readonly string[];

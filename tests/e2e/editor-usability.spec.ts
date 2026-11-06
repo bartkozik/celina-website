@@ -128,7 +128,12 @@ test( 'article dates distinguish publication from a later update', async ( {
           throw new Error( 'Could not create date fixture.' );
         }
         const payload: unknown = await response.json();
-        if ( ! payload || typeof payload !== 'object' || ! ( 'id' in payload ) || typeof payload.id !== 'number' ) {
+        if (
+          ! payload ||
+          typeof payload !== 'object' ||
+          ! ( 'id' in payload ) ||
+          typeof payload.id !== 'number'
+        ) {
           throw new Error( 'Invalid article fixture response.' );
         }
         return payload.id;

@@ -105,12 +105,15 @@ test( 'global parts support editing and responsive navigation without code', asy
         ).toHaveCSS( 'margin-top', '0px' );
       }
       originals.push( { url: page.url(), content: original.content } );
-      await page.evaluate( ( content ) => {
-        const wp = window.wp;
-        wp.data
-          .dispatch( 'core/block-editor' )
-          .resetBlocks( wp.blocks.parse( content ) );
-      }, part === 'Header' ? compositions.Header : compositions.Footer );
+      await page.evaluate(
+        ( content ) => {
+          const wp = window.wp;
+          wp.data
+            .dispatch( 'core/block-editor' )
+            .resetBlocks( wp.blocks.parse( content ) );
+        },
+        part === 'Header' ? compositions.Header : compositions.Footer
+      );
       if ( part === 'Header' ) {
         await page.evaluate( async () => {
           const wp = window.wp;

@@ -356,12 +356,14 @@ test( 'custom logo keeps the legacy width on phones and larger screens', async (
   page,
 } ) => {
   for ( const sales of [ true, false ] ) {
-    const documents = parseDocuments( await (
-      await page.request.get(
-        '/tests/integration/block-shell-parity-fixture.php?logo=1' +
-          ( sales ? '' : '&legacy_style=1' )
-      )
-    ).json() );
+    const documents = parseDocuments(
+      await (
+        await page.request.get(
+          '/tests/integration/block-shell-parity-fixture.php?logo=1' +
+            ( sales ? '' : '&legacy_style=1' )
+        )
+      ).json()
+    );
     for ( const width of [ 1440, 768, 375 ] ) {
       await page.setViewportSize( { width, height: 900 } );
       const rects: Record< Variant, Geometry | null > = {
@@ -392,9 +394,14 @@ test( 'custom logo keeps the legacy width on phones and larger screens', async (
 } );
 
 function parseDocuments( value: unknown ): Record< Variant, string > {
-  if ( ! value || typeof value !== 'object' ||
-    ! ( 'legacy' in value ) || typeof value.legacy !== 'string' ||
-    ! ( 'blocks' in value ) || typeof value.blocks !== 'string' ) {
+  if (
+    ! value ||
+    typeof value !== 'object' ||
+    ! ( 'legacy' in value ) ||
+    typeof value.legacy !== 'string' ||
+    ! ( 'blocks' in value ) ||
+    typeof value.blocks !== 'string'
+  ) {
     throw new Error( 'Invalid shell parity fixture.' );
   }
   return { legacy: value.legacy, blocks: value.blocks };
